@@ -2,8 +2,34 @@ const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const path = require('path');
 const fs = require('fs');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 
 const app = express();
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      styleSrc: ["'self'", "https://fonts.googleapis.com"],
+      fontSrc: ["'self'", "https://fonts.gstatic.com"],
+      scriptSrc: ["'self'", "https://vlibras.gov.br"],
+      frameSrc: ["'self'", "https://vlibras.gov.br"],
+      imgSrc: ["'self'", "data:", "https://vlibras.gov.br"],
+      connectSrc: ["'self'", "https://vlibras.gov.br"],
+    },
+  },
+}));
+
+const limitador = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutos
+  max: 100, // no máximo 100 requisições por IP nesse período
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: 'Muitas requisições vindas desse endereço. Tente novamente em alguns minutos.',
+});
+
+app.use(limitador);
+
 const DEV = process.env.NODE_ENV !== 'production';
 
 function lerJSON(nomeArquivo) {
