@@ -1,0 +1,11 @@
+{
+  "navegacao": [
+    { "chave": "inicio", "rota": "/", "view": "inicio", "rotulo": "Início" }
+  ],
+  "conteudo": {
+    "inicio": {
+      "titulo": "Página inicial do Site Violência Doméstica",
+      "texto": "Testando a recarga automática!"
+    }
+  }
+}
