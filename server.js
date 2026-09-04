@@ -54,10 +54,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
   const paginas = dados('paginas.json');
+  const site = dados('site.json');
+  const conselhos = dados('conselhos.json');
   const entrada = paginas.navegacao.find(p => p.rota === req.path);
   if (!entrada) return next();
   const pagina = paginas.conteudo[entrada.chave];
-  res.render(entrada.view, { titulo: pagina.titulo, pagina });
+  res.render(entrada.view, {
+    titulo: pagina.titulo,
+    pagina,
+    site,
+    navegacao: paginas.navegacao,
+    rotaAtual: req.path,
+    conselhos,
+  });
 });
 
 app.use((req, res) => {

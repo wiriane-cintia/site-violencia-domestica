@@ -4,12 +4,113 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><%= titulo %></title>
+  <meta name="description" content="<%= site.descricao %>">
+  <link rel="icon" type="image/png" href="/img/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/estilo.css">
 </head>
 <body>
+  <div class="barra-institucional">
+    <div class="container barra-institucional__interno">
+      <span class="barra-institucional__nome">Conselho Tutelar de Juazeiro do Norte/CE</span>
+      <div class="barra-institucional__links">
+        <a href="https://www.instagram.com/conselhotutelar1jn.ce/" class="barra-institucional__link" target="_blank" rel="noopener noreferrer">I Conselho Tutelar</a>
+        <a href="https://www.instagram.com/conselhotutelar2.jn/" class="barra-institucional__link" target="_blank" rel="noopener noreferrer">II Conselho Tutelar</a>
+      </div>
+    </div>
+  </div>
+  <div class="faixa-identidade"></div>
+  <header class="cabecalho">
+    <div class="container cabecalho__interno">
+      <a href="/" class="cabecalho__marca">
+        <img src="/img/logo.png" alt="<%= site.nome %>" class="cabecalho__logo">
+        <span class="cabecalho__nome"><%= site.nome %></span>
+      </a>
+      <button type="button" class="cabecalho__botao-menu" id="botao-menu" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <nav class="cabecalho__nav" id="menu-principal" aria-label="Navegação principal">
+        <button type="button" class="cabecalho__botao-fechar" id="botao-fechar-menu" aria-label="Fechar menu">&times;</button>
+        <ul class="cabecalho__lista">
+          <% navegacao.forEach(function(item) { %>
+            <li>
+              <a href="<%= item.rota %>" class="cabecalho__link<%= rotaAtual === item.rota ? ' cabecalho__link--ativo' : '' %>"<% if (rotaAtual === item.rota) { %> aria-current="page"<% } %>><%= item.rotulo %></a>
+            </li>
+          <% }); %>
+        </ul>
+      </nav>
+      <div class="cabecalho__fundo" id="fundo-menu"></div>
+    </div>
+  </header>
   <%- body %>
+  <footer class="rodape">
+    <div class="faixa-identidade"></div>
+    <div class="container rodape__interno">
+      <div class="rodape__coluna">
+        <h2 class="rodape__titulo"><%= conselhos.conselho_1.nome %></h2>
+        <ul class="rodape__lista">
+          <% conselhos.conselho_1.telefones.forEach(function(tel, i) { %>
+            <li>
+              <a href="tel:<%= conselhos.conselho_1.telefones_link[i] %>" class="rodape__link rodape__link--icone">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <%= tel %>
+              </a>
+            </li>
+          <% }); %>
+          <li>
+            <a href="https://wa.me/<%= conselhos.conselho_1.plantao_24h_link %>?text=Ol%C3%A1%2C%20preciso%20de%20ajuda" target="_blank" rel="noopener noreferrer" class="rodape__link rodape__link--icone">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.148.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.413-.074-.124-.272-.198-.57-.347z"></path><path d="M12 2C6.477 2 2 6.477 2 12c0 1.9.53 3.68 1.45 5.2L2 22l4.93-1.42A9.94 9.94 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.94 7.94 0 0 1-4.29-1.25l-.31-.19-2.93.84.85-2.86-.2-.3A7.94 7.94 0 0 1 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"></path></svg>
+              Plantão 24h — <%= conselhos.conselho_1.plantao_24h %>
+            </a>
+          </li>
+          <li>
+            <a href="<%= conselhos.conselho_1.instagram %>" target="_blank" rel="noopener noreferrer" class="rodape__link rodape__link--icone">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              Instagram
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="rodape__coluna">
+        <h2 class="rodape__titulo"><%= conselhos.conselho_2.nome %></h2>
+        <ul class="rodape__lista">
+          <% conselhos.conselho_2.telefones.forEach(function(tel, i) { %>
+            <li>
+              <a href="tel:<%= conselhos.conselho_2.telefones_link[i] %>" class="rodape__link rodape__link--icone">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <%= tel %>
+              </a>
+            </li>
+          <% }); %>
+          <li>
+            <a href="https://wa.me/<%= conselhos.conselho_2.plantao_24h_link %>?text=Ol%C3%A1%2C%20preciso%20de%20ajuda" target="_blank" rel="noopener noreferrer" class="rodape__link rodape__link--icone">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.148.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.413-.074-.124-.272-.198-.57-.347z"></path><path d="M12 2C6.477 2 2 6.477 2 12c0 1.9.53 3.68 1.45 5.2L2 22l4.93-1.42A9.94 9.94 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.94 7.94 0 0 1-4.29-1.25l-.31-.19-2.93.84.85-2.86-.2-.3A7.94 7.94 0 0 1 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"></path></svg>
+              <%= conselhos.conselho_2.plantao_24h %>
+            </a>
+          </li>
+          <li class="rodape__link rodape__link--icone">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <%= conselhos.conselho_2.endereco %>
+          </li>
+          <li>
+            <a href="<%= conselhos.conselho_2.instagram %>" target="_blank" rel="noopener noreferrer" class="rodape__link rodape__link--icone">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              Instagram
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="rodape__creditos">
+      <p>Desenvolvido por <a href="https://www.instagram.com/wirianecintia/" target="_blank" rel="noopener noreferrer">Wiriane Cintia</a></p>
+    </div>
+  </footer>
+  <script src="/js/app.js" defer></script>
 </body>
 </html>
