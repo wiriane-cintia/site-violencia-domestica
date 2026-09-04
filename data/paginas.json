@@ -1,11 +1,51 @@
 {
   "navegacao": [
-    { "chave": "inicio", "rota": "/", "view": "inicio", "rotulo": "Início" }
+    { "chave": "inicio", "rota": "/", "view": "inicio", "rotulo": "Início" },
+    { "chave": "isso-e-violencia", "rota": "/isso-e-violencia", "view": "generica", "rotulo": "Isso é violência?" },
+    { "chave": "pedir-ajuda", "rota": "/pedir-ajuda", "view": "generica", "rotulo": "Pedir ajuda agora" },
+    { "chave": "nao-quero-denunciar", "rota": "/nao-quero-denunciar", "view": "generica", "rotulo": "Se você não quer denunciar" },
+    { "chave": "como-a-lei-protege", "rota": "/como-a-lei-protege", "view": "generica", "rotulo": "Como a lei protege você" },
+    { "chave": "quero-ajudar", "rota": "/quero-ajudar", "view": "generica", "rotulo": "Quero ajudar alguém" },
+    { "chave": "para-profissionais", "rota": "/para-profissionais", "view": "generica", "rotulo": "Para escolas, saúde e assistência" },
+    { "chave": "onde-buscar-ajuda", "rota": "/onde-buscar-ajuda", "view": "generica", "rotulo": "Onde buscar ajuda" },
+    { "chave": "seguranca", "rota": "/seguranca", "view": "generica", "rotulo": "Segurança digital e plano de saída" }
   ],
   "conteudo": {
     "inicio": {
       "titulo": "Página inicial do Site Violência Doméstica",
       "texto": "Testando a recarga automática!"
+    },
+    "isso-e-violencia": {
+      "titulo": "Isso é violência?",
+      "texto": "«CONTEÚDO FICTÍCIO — Etapa 5» Texto provisório ajudando a pessoa a reconhecer diferentes formas de violência doméstica."
+    },
+    "pedir-ajuda": {
+      "titulo": "Pedir ajuda agora",
+      "texto": "«CONTEÚDO FICTÍCIO — Etapa 5» Texto provisório com os canais de atendimento imediato, segmentados por quem está em risco."
+    },
+    "nao-quero-denunciar": {
+      "titulo": "Se você não quer denunciar",
+      "texto": "«CONTEÚDO FICTÍCIO — Etapa 5» Texto provisório explicando opções de apoio para quem ainda não quer fazer uma denúncia formal."
+    },
+    "como-a-lei-protege": {
+      "titulo": "Como a lei protege você",
+      "texto": "«CONTEÚDO FICTÍCIO — Etapa 5» Texto provisório sobre a Lei Maria da Penha e como solicitar medida protetiva."
+    },
+    "quero-ajudar": {
+      "titulo": "Quero ajudar alguém",
+      "texto": "«CONTEÚDO FICTÍCIO — Etapa 5» Texto provisório com orientações para quem quer apoiar alguém em situação de violência doméstica."
+    },
+    "para-profissionais": {
+      "titulo": "Para escolas, saúde e assistência",
+      "texto": "«CONTEÚDO FICTÍCIO — Etapa 5» Texto provisório sobre a obrigatoriedade de notificação por profissionais dessas áreas."
+    },
+    "onde-buscar-ajuda": {
+      "titulo": "Onde buscar ajuda",
+      "texto": "«CONTEÚDO FICTÍCIO — Etapa 5» Texto provisório listando os serviços da rede de proteção em Juazeiro do Norte."
+    },
+    "seguranca": {
+      "titulo": "Segurança digital e plano de saída",
+      "texto": "«CONTEÚDO FICTÍCIO — Etapa 5» Texto provisório com orientações de segurança digital e planejamento de saída segura."
     }
   }
 }
