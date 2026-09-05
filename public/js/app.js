@@ -150,6 +150,174 @@
     });
   }
 
+
+  // ---------- Saida rapida (site VD) ----------
+  // Precedencia sobre qualquer outro elemento: e mecanismo de seguranca.
+  const saida = document.getElementById('saida-rapida');
+
+  if (saida) {
+    const destino = saida.getAttribute('href');
+
+    function sairDoSite() {
+      // replace nao deixa esta pagina no historico do navegador.
+      window.location.replace(destino);
+    }
+
+    saida.addEventListener('click', function (evento) {
+      evento.preventDefault();
+      sairDoSite();
+    });
+
+    document.addEventListener('keydown', function (evento) {
+      if (evento.key === 'Escape') {
+        sairDoSite();
+      }
+    });
+
+    // Onde existe saida rapida, a navegacao interna tambem usa replace: assim
+    // nenhuma pagina deste site fica na pilha do botao voltar do navegador.
+    document.addEventListener('click', function (evento) {
+      if (evento.defaultPrevented) return;
+      if (evento.button !== 0 || evento.metaKey || evento.ctrlKey || evento.shiftKey || evento.altKey) return;
+
+      const link = evento.target.closest('a');
+      if (!link) return;
+
+      const href = link.getAttribute('href');
+      if (!href || href.charAt(0) === '#') return;
+      if (link.target && link.target !== '_self') return;
+      if (link.hasAttribute('download')) return;
+
+      const destino = new URL(link.href, window.location.href);
+      if (destino.origin !== window.location.origin) return;
+
+      evento.preventDefault();
+      window.location.replace(destino.href);
+    });
+  }
+
+  // ---------- Orientacao guiada ----------
+  const abrirOrientacao = document.getElementById('abrir-orientacao');
+  const painel = document.getElementById('painel-orientacao');
+
+  if (abrirOrientacao && painel) {
+    const fecharOrientacao = document.getElementById('fechar-orientacao');
+    const tituloPainel = document.getElementById('orientacao-titulo');
+    const botaoVoltar = document.getElementById('voltar-orientacao');
+    const botaoRecomecar = document.getElementById('recomecar-orientacao');
+
+    const passos = {};
+    Array.prototype.forEach.call(painel.querySelectorAll('.orientacao__passo'), function (elemento) {
+      passos[elemento.getAttribute('data-passo')] = elemento;
+    });
+
+    const blocosPerguntas = painel.querySelectorAll('.orientacao__perguntas');
+    const blocosResposta = painel.querySelectorAll('.orientacao__resposta');
+
+    let passoAtual = 1;
+    let voltarPara = 1;
+
+    function esconderTodos(colecao) {
+      Array.prototype.forEach.call(colecao, function (elemento) {
+        elemento.hidden = true;
+      });
+    }
+
+    function mostrarPasso(numero) {
+      passoAtual = numero;
+      Object.keys(passos).forEach(function (chave) {
+        passos[chave].hidden = String(numero) !== chave;
+      });
+      botaoVoltar.hidden = numero === 1;
+      botaoRecomecar.hidden = numero === 1;
+      tituloPainel.focus();
+    }
+
+    function abrirPainel() {
+      painel.hidden = false;
+      abrirOrientacao.setAttribute('aria-expanded', 'true');
+      mostrarPasso(1);
+    }
+
+    function fecharPainel() {
+      painel.hidden = true;
+      abrirOrientacao.setAttribute('aria-expanded', 'false');
+      abrirOrientacao.focus();
+    }
+
+    function escolherSituacao(id, risco) {
+      esconderTodos(blocosPerguntas);
+      esconderTodos(blocosResposta);
+
+      if (risco === 'sim') {
+        // Risco imediato nao abre resposta informativa: vai direto ao canal humano.
+        voltarPara = 1;
+        const resposta = painel.querySelector('.orientacao__resposta[data-resposta="' + id + '"]');
+        if (resposta) resposta.hidden = false;
+        mostrarPasso(3);
+        return;
+      }
+
+      const perguntas = painel.querySelector('.orientacao__perguntas[data-situacao="' + id + '"]');
+      if (perguntas) perguntas.hidden = false;
+      mostrarPasso(2);
+    }
+
+    function escolherPergunta(chave, origem) {
+      voltarPara = origem;
+      esconderTodos(blocosResposta);
+      const resposta = painel.querySelector('.orientacao__resposta[data-resposta="' + chave + '"]');
+      if (resposta) resposta.hidden = false;
+      mostrarPasso(3);
+    }
+
+    abrirOrientacao.addEventListener('click', function () {
+      if (painel.hidden) {
+        abrirPainel();
+      } else {
+        fecharPainel();
+      }
+    });
+
+    fecharOrientacao.addEventListener('click', fecharPainel);
+
+    painel.addEventListener('click', function (evento) {
+      const opcao = evento.target.closest('.orientacao__opcao');
+      if (!opcao) return;
+
+      if (opcao.hasAttribute('data-situacao')) {
+        escolherSituacao(opcao.getAttribute('data-situacao'), opcao.getAttribute('data-risco'));
+      } else if (opcao.hasAttribute('data-resposta')) {
+        // A saida "nenhuma dessas" existe no passo 1 e no passo 2: volta para onde estava.
+        escolherPergunta(opcao.getAttribute('data-resposta'), passoAtual);
+      }
+    });
+
+    botaoVoltar.addEventListener('click', function () {
+      if (passoAtual === 3 && voltarPara === 2) {
+        mostrarPasso(2);
+      } else {
+        mostrarPasso(1);
+      }
+    });
+
+    botaoRecomecar.addEventListener('click', function () {
+      esconderTodos(blocosPerguntas);
+      esconderTodos(blocosResposta);
+      voltarPara = 1;
+      mostrarPasso(1);
+    });
+
+    // Onde existe saida rapida, a tecla Esc pertence a ela: o painel nao a intercepta.
+    if (!saida) {
+      document.addEventListener('keydown', function (evento) {
+        if (evento.key === 'Escape' && !painel.hidden) {
+          fecharPainel();
+        }
+      });
+    }
+  }
+
   // ---------- VLibras ----------
   window.addEventListener('load', function () {
     if (window.VLibras) {

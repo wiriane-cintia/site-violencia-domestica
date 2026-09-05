@@ -1,0 +1,122 @@
+<button type="button" class="orientacao__abrir" id="abrir-orientacao" aria-expanded="false" aria-controls="painel-orientacao">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path><path d="M10.3 9.2a1.9 1.9 0 0 1 3.7.6c0 1.3-1.9 1.9-1.9 1.9"></path><line x1="12.1" y1="14.6" x2="12.11" y2="14.6"></line></svg>
+  <%= duvidas.botao %>
+</button>
+
+<div class="orientacao__painel" id="painel-orientacao" role="dialog" aria-labelledby="orientacao-titulo" hidden>
+  <div class="orientacao__topo">
+    <span class="orientacao__marca" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+    </span>
+    <h2 class="orientacao__titulo" id="orientacao-titulo" tabindex="-1">
+      <%= duvidas.titulo %>
+      <span class="orientacao__subtitulo">Respostas automáticas. Ninguém lê esta janela.</span>
+    </h2>
+    <button type="button" class="orientacao__fechar" id="fechar-orientacao" aria-label="Fechar">&times;</button>
+  </div>
+
+  <div class="orientacao__corpo">
+
+    <div class="orientacao__passo" data-passo="1">
+      <p class="orientacao__instrucao"><%= duvidas.instrucao %></p>
+      <ul class="orientacao__opcoes">
+        <% duvidas.situacoes.forEach(function (situacao) { %>
+          <li>
+            <button
+              type="button"
+              class="orientacao__opcao<%= situacao.risco_imediato ? ' orientacao__opcao--risco' : '' %>"
+              data-situacao="<%= situacao.id %>"
+              data-risco="<%= situacao.risco_imediato ? 'sim' : 'nao' %>"
+            ><%= situacao.rotulo %></button>
+          </li>
+        <% }); %>
+        <li>
+          <button type="button" class="orientacao__opcao orientacao__opcao--escape" data-resposta="sem-correspondencia"><%= duvidas.sem_correspondencia.rotulo %></button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="orientacao__passo" data-passo="2" hidden>
+      <% duvidas.situacoes.forEach(function (situacao) { %>
+        <% if (situacao.perguntas) { %>
+          <div class="orientacao__perguntas" data-situacao="<%= situacao.id %>" hidden>
+            <p class="orientacao__instrucao"><%= duvidas.rotulo_perguntas %></p>
+            <ul class="orientacao__opcoes">
+              <% situacao.perguntas.forEach(function (pergunta, indice) { %>
+                <li>
+                  <button type="button" class="orientacao__opcao" data-resposta="<%= situacao.id %>-<%= indice %>"><%= pergunta.rotulo %></button>
+                </li>
+              <% }); %>
+              <li>
+                <button type="button" class="orientacao__opcao orientacao__opcao--escape" data-resposta="sem-correspondencia"><%= duvidas.sem_correspondencia.rotulo %></button>
+              </li>
+            </ul>
+          </div>
+        <% } %>
+      <% }); %>
+    </div>
+
+    <div class="orientacao__passo" data-passo="3" hidden>
+      <div class="orientacao__resposta" data-resposta="sem-correspondencia" hidden>
+        <% duvidas.sem_correspondencia.resposta.texto.forEach(function (paragrafo) { %><p><%= paragrafo %></p><% }); %>
+        <ul class="orientacao__canais">
+          <% duvidas.sem_correspondencia.resposta.canais.forEach(function (canal) { %>
+            <li>
+              <% if (canal.conselho) { %>
+                <%- include('telefone', { href: 'https://wa.me/' + conselhos[canal.conselho].plantao_24h_link + '?text=Ol%C3%A1%2C%20preciso%20de%20ajuda', rotulo: conselhos[canal.conselho].nome + ' — plantão 24h', tipo: 'whatsapp' }) %>
+              <% } else { %>
+                <%- include('telefone', { href: canal.href, rotulo: canal.rotulo, tipo: canal.tipo || 'telefone' }) %>
+              <% } %>
+            </li>
+          <% }); %>
+        </ul>
+      </div>
+
+      <% duvidas.situacoes.forEach(function (situacao) { %>
+        <% if (situacao.risco_imediato) { %>
+          <div class="orientacao__resposta orientacao__resposta--risco" data-resposta="<%= situacao.id %>" hidden>
+            <% situacao.resposta.texto.forEach(function (paragrafo) { %><p><%= paragrafo %></p><% }); %>
+            <ul class="orientacao__canais">
+              <% situacao.resposta.canais.forEach(function (canal) { %>
+                <li>
+                  <% if (canal.conselho) { %>
+                    <%- include('telefone', { href: 'https://wa.me/' + conselhos[canal.conselho].plantao_24h_link + '?text=Ol%C3%A1%2C%20preciso%20de%20ajuda', rotulo: conselhos[canal.conselho].nome + ' — plantão 24h', tipo: 'whatsapp' }) %>
+                  <% } else { %>
+                    <%- include('telefone', { href: canal.href, rotulo: canal.rotulo, tipo: canal.tipo || 'telefone' }) %>
+                  <% } %>
+                </li>
+              <% }); %>
+            </ul>
+          </div>
+        <% } else { %>
+          <% situacao.perguntas.forEach(function (pergunta, indice) { %>
+            <div class="orientacao__resposta" data-resposta="<%= situacao.id %>-<%= indice %>" hidden>
+              <% pergunta.resposta.texto.forEach(function (paragrafo) { %><p><%= paragrafo %></p><% }); %>
+              <ul class="orientacao__canais">
+                <% pergunta.resposta.canais.forEach(function (canal) { %>
+                  <li>
+                    <% if (canal.conselho) { %>
+                      <%- include('telefone', { href: 'https://wa.me/' + conselhos[canal.conselho].plantao_24h_link + '?text=Ol%C3%A1%2C%20preciso%20de%20ajuda', rotulo: conselhos[canal.conselho].nome + ' — plantão 24h', tipo: 'whatsapp' }) %>
+                    <% } else { %>
+                      <%- include('telefone', { href: canal.href, rotulo: canal.rotulo, tipo: canal.tipo || 'telefone' }) %>
+                    <% } %>
+                  </li>
+                <% }); %>
+              </ul>
+              <% if (pergunta.resposta.pagina) { %>
+                <p><a class="botao botao--contorno" href="<%= pergunta.resposta.pagina.rota %>"><%= pergunta.resposta.pagina.rotulo %></a></p>
+              <% } %>
+            </div>
+          <% }); %>
+        <% } %>
+      <% }); %>
+    </div>
+
+  </div>
+
+  <div class="orientacao__rodape">
+    <button type="button" class="orientacao__navegar" id="voltar-orientacao" hidden><%= duvidas.rotulo_voltar %></button>
+    <button type="button" class="orientacao__navegar" id="recomecar-orientacao" hidden><%= duvidas.rotulo_recomecar %></button>
+    <p class="orientacao__nota">Nada aqui é registrado.</p>
+  </div>
+</div>
