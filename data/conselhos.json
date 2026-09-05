@@ -2,15 +2,17 @@
   "conselho_1": {
     "nome": "I Conselho Tutelar",
     "instagram": "https://www.instagram.com/conselhotutelar1jn.ce/",
+    "email": "conselhotutelar01jnce@gmail.com",
     "telefones": ["(88) 3587-3349", "(88) 3199-0469"],
     "telefones_link": ["+558835873349", "+558831990469"],
     "plantao_24h": "(88) 98224-6158",
     "plantao_24h_link": "5588982246158",
-    "endereco": "Rua São José, 620 - Centro, Juazeiro do Norte/CE"
+    "endereco": "Rua São José, 620 — Centro, Juazeiro do Norte/CE"
   },
   "conselho_2": {
     "nome": "II Conselho Tutelar",
     "instagram": "https://www.instagram.com/conselhotutelar2.jn/",
+    "email": "segundoconselhotutelarjn@gmail.com",
     "telefones": ["(88) 3199-0470"],
     "telefones_link": ["+558831990470"],
     "plantao_24h": "(88) 98224-4970",

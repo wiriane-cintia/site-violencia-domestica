@@ -1,0 +1,9 @@
+{
+  "titulo": "Precisa de ajuda agora?",
+  "texto": "Estes canais são gratuitos, funcionam 24 horas e atendem em todo o país:",
+  "itens": [
+    { "rotulo": "190 — Polícia Militar, se o risco é agora", "href": "tel:190" },
+    { "rotulo": "180 — Central de Atendimento à Mulher", "href": "tel:180" },
+    { "rotulo": "180 no WhatsApp — (61) 9610-0180", "href": "https://wa.me/5561961000180?text=Ol%C3%A1%2C%20preciso%20de%20ajuda", "tipo": "whatsapp" }
+  ]
+}

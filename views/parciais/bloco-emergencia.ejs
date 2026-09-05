@@ -1,0 +1,16 @@
+<div class="bloco-emergencia">
+  <h2 class="bloco-emergencia__titulo"><%= emergencia.titulo %></h2>
+  <p class="bloco-emergencia__texto"><%= emergencia.texto %></p>
+  <ul class="bloco-emergencia__acoes">
+    <% emergencia.itens.forEach(function (item) { %>
+      <li>
+        <% if (item.conselho) { %>
+          <% var conselho = conselhos[item.conselho]; %>
+          <%- include('telefone', { href: 'https://wa.me/' + conselho.plantao_24h_link + '?text=Ol%C3%A1%2C%20preciso%20de%20ajuda', rotulo: conselho.nome + ' — plantão 24h — ' + conselho.plantao_24h, tipo: 'whatsapp' }) %>
+        <% } else { %>
+          <%- include('telefone', { href: item.href, rotulo: item.rotulo, tipo: item.tipo || 'telefone' }) %>
+        <% } %>
+      </li>
+    <% }); %>
+  </ul>
+</div>

@@ -10,19 +10,19 @@ app.use(helmet({
   contentSecurityPolicy: {
     directives: {
       defaultSrc: ["'self'"],
-      styleSrc: ["'self'", "https://fonts.googleapis.com"],
-      fontSrc: ["'self'", "https://fonts.gstatic.com"],
-      scriptSrc: ["'self'", "https://vlibras.gov.br"],
+      styleSrc: ["'self'", "https://fonts.googleapis.com", "'unsafe-inline'"],
+      fontSrc: ["'self'", "https://fonts.gstatic.com", "https://vlibras.gov.br", "https://cdn.jsdelivr.net", "data:"],
+      scriptSrc: ["'self'", "https://vlibras.gov.br", "https://cdn.jsdelivr.net"],
       frameSrc: ["'self'", "https://vlibras.gov.br"],
-      imgSrc: ["'self'", "data:", "https://vlibras.gov.br"],
+      imgSrc: ["'self'", "data:", "https://vlibras.gov.br", "https://cdn.jsdelivr.net"],
       connectSrc: ["'self'", "https://vlibras.gov.br"],
     },
   },
 }));
 
 const limitador = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutos
-  max: 100, // no máximo 100 requisições por IP nesse período
+  windowMs: 15 * 60 * 1000,
+  max: 100,
   standardHeaders: true,
   legacyHeaders: false,
   message: 'Muitas requisições vindas desse endereço. Tente novamente em alguns minutos.',
@@ -46,6 +46,13 @@ function dados(nomeArquivo) {
   return cache[nomeArquivo];
 }
 
+// Arquivos que existem em um site e nao no outro (ex.: bairros.json, so no CT).
+function dadosOpcionais(nomeArquivo) {
+  const caminho = path.join(__dirname, 'data', nomeArquivo);
+  if (!fs.existsSync(caminho)) return null;
+  return dados(nomeArquivo);
+}
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views', 'paginas'));
 app.use(expressLayouts);
@@ -56,6 +63,9 @@ app.use((req, res, next) => {
   const paginas = dados('paginas.json');
   const site = dados('site.json');
   const conselhos = dados('conselhos.json');
+  const atalhos = dados('atalhos.json');
+  const emergencia = dados('emergencia.json');
+  const bairros = dadosOpcionais('bairros.json');
   const entrada = paginas.navegacao.find(p => p.rota === req.path);
   if (!entrada) return next();
   const pagina = paginas.conteudo[entrada.chave];
@@ -66,11 +76,29 @@ app.use((req, res, next) => {
     navegacao: paginas.navegacao,
     rotaAtual: req.path,
     conselhos,
+    atalhos,
+    emergencia,
+    bairros,
   });
 });
 
 app.use((req, res) => {
-  res.status(404).send('Página não encontrada');
+  const paginas = dados('paginas.json');
+  const site = dados('site.json');
+  const conselhos = dados('conselhos.json');
+  const atalhos = dados('atalhos.json');
+  const emergencia = dados('emergencia.json');
+  const bairros = dadosOpcionais('bairros.json');
+  res.status(404).render('erro-404', {
+    titulo: 'Página não encontrada',
+    site,
+    navegacao: paginas.navegacao,
+    rotaAtual: null,
+    conselhos,
+    atalhos,
+    emergencia,
+    bairros,
+  });
 });
 
 const PORTA = process.env.PORT || 3000;

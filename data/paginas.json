@@ -12,40 +12,418 @@
   ],
   "conteudo": {
     "inicio": {
-      "titulo": "Página inicial do Site Violência Doméstica",
-      "texto": "Testando a recarga automática!"
+      "titulo": "Você não está sozinha",
+      "texto": "Aqui você encontra informação sobre violência doméstica: como reconhecer, onde pedir ajuda em Juazeiro do Norte e o que a lei garante. Você decide o que fazer e em que ritmo. Se há risco agora, ligue 190.",
+      "secoes": [
+        {
+          "tipo": "aviso",
+          "titulo": "Antes de continuar lendo",
+          "texto": "Se a pessoa que te agride tem acesso ao seu celular ou computador, veja a página de segurança digital antes de navegar mais. Ela explica como apagar o histórico e como usar uma janela anônima."
+        },
+        {
+          "tipo": "telefones",
+          "titulo": "Ajuda imediata, 24 horas",
+          "itens": [
+            { "rotulo": "190 — Polícia Militar, para risco agora", "href": "tel:190" },
+            { "rotulo": "180 — Central de Atendimento à Mulher, gratuito e sigiloso", "href": "tel:180" },
+            { "rotulo": "192 — SAMU, para emergência médica", "href": "tel:192" }
+          ]
+        }
+      ]
     },
     "isso-e-violencia": {
       "titulo": "Isso é violência?",
-      "texto": "«CONTEÚDO FICTÍCIO — Etapa 5» Texto provisório ajudando a pessoa a reconhecer diferentes formas de violência doméstica."
+      "texto": "Muita gente demora a reconhecer o que vive como violência porque não houve agressão física. A Lei Maria da Penha reconhece seis formas de violência doméstica e familiar contra a mulher — e a maioria delas não deixa marca no corpo.",
+      "secoes": [
+        {
+          "tipo": "texto",
+          "titulo": "As seis formas previstas na lei",
+          "paragrafos": [
+            "Violência física: qualquer conduta que ofenda a integridade ou a saúde do corpo. Empurrão, tapa, apertão, queimadura, sufocamento, uso de objetos ou armas.",
+            "Violência psicológica: conduta que causa dano emocional, diminui a autoestima ou controla o que você faz, pensa e decide. Ameaça, humilhação, chantagem, vigilância, perseguição, isolamento da família e dos amigos, impedir de trabalhar ou estudar, e distorcer os fatos até você duvidar da sua própria memória.",
+            "Violência sexual: constranger a manter, presenciar ou participar de relação sexual não desejada, mesmo dentro do casamento. Também impedir o uso de métodos contraceptivos ou forçar gravidez, aborto, casamento ou prostituição.",
+            "Violência patrimonial: reter, subtrair ou destruir seus objetos, documentos, bens ou dinheiro. Controlar o seu salário, esconder seus documentos, quebrar suas coisas, deixar de pagar pensão.",
+            "Violência moral: calúnia, difamação ou injúria. Espalhar boatos, acusar falsamente, expor sua vida íntima, xingar em público.",
+            "Violência vicária: usar quem você ama para te atingir. Ameaçar ou machucar seus filhos, seus familiares ou seus animais de estimação, ou usar as crianças para te causar sofrimento."
+          ]
+        },
+        {
+          "tipo": "lista",
+          "titulo": "Sinais que costumam aparecer antes da agressão física",
+          "itens": [
+            "Ele controla quanto você gasta, com quem fala e onde vai",
+            "Ele checa seu celular, suas mensagens e suas redes",
+            "Você se afastou dos seus amigos e da sua família por causa dele",
+            "Você mede as palavras dentro de casa com medo da reação dele",
+            "Ele diz que a culpa é sua quando ele perde o controle",
+            "Ele ameaça se matar, te deixar sem nada ou tirar seus filhos se você sair",
+            "Depois de cada episódio ruim vem um período de arrependimento e promessas, e o ciclo recomeça"
+          ]
+        },
+        {
+          "tipo": "aviso",
+          "titulo": "Nenhum motivo justifica",
+          "texto": "Não existe comportamento seu que autorize alguém a te agredir. Ciúme, bebida, desemprego, nervosismo e discussão não são justificativa — são explicações que o agressor usa, e a lei não aceita nenhuma delas."
+        },
+        {
+          "tipo": "destaque",
+          "titulo": "Se você se reconheceu em alguma coisa aqui",
+          "texto": "Você não precisa decidir nada agora nem denunciar ninguém para conversar com alguém. Ligue 180: é gratuito, funciona 24 horas e você pode só tirar dúvidas."
+        }
+      ]
     },
     "pedir-ajuda": {
       "titulo": "Pedir ajuda agora",
-      "texto": "«CONTEÚDO FICTÍCIO — Etapa 5» Texto provisório com os canais de atendimento imediato, segmentados por quem está em risco."
+      "texto": "Esta página é para quem precisa de ajuda hoje. Escolha pelo que está acontecendo.",
+      "secoes": [
+        {
+          "tipo": "aviso",
+          "titulo": "Se a agressão está acontecendo agora",
+          "texto": "Ligue 190. Se você não puder falar, ligue e deixe a linha aberta: a central consegue localizar a chamada. Se conseguir, saia de casa e vá para um lugar com outras pessoas."
+        },
+        {
+          "tipo": "telefones",
+          "titulo": "Telefones que funcionam 24 horas",
+          "itens": [
+            { "rotulo": "190 — Polícia Militar, emergência", "href": "tel:190" },
+            { "rotulo": "180 — Central de Atendimento à Mulher", "href": "tel:180" },
+            { "rotulo": "180 no WhatsApp — (61) 9610-0180", "href": "https://wa.me/5561961000180?text=Ol%C3%A1%2C%20preciso%20de%20ajuda", "tipo": "whatsapp" },
+            { "rotulo": "192 — SAMU, se você precisa de atendimento médico", "href": "tel:192" }
+          ]
+        },
+        {
+          "tipo": "passos",
+          "titulo": "Se você foi agredida e quer registrar",
+          "itens": [
+            {
+              "titulo": "Procure uma delegacia",
+              "texto": "Você pode ir a qualquer delegacia. Onde houver Delegacia da Mulher, prefira, porque o atendimento é especializado. Não é preciso ter advogado nem pagar nada."
+            },
+            {
+              "titulo": "Peça medida protetiva na hora",
+              "texto": "No mesmo atendimento você pode pedir medida protetiva de urgência, que pode determinar o afastamento do agressor de casa e a proibição de ele se aproximar de você."
+            },
+            {
+              "titulo": "Faça o exame de corpo de delito",
+              "texto": "Se houve agressão física ou sexual, o exame registra as lesões. Procure atendimento de saúde mesmo que as marcas pareçam pequenas."
+            },
+            {
+              "titulo": "Guarde o que você tiver",
+              "texto": "Prints de mensagens, áudios, fotos de ferimentos e de objetos quebrados, nomes de quem presenciou. Envie cópia para alguém de confiança."
+            }
+          ]
+        },
+        {
+          "tipo": "perguntas",
+          "titulo": "Dúvidas de quem está decidindo",
+          "itens": [
+            {
+              "pergunta": "Preciso de advogado?",
+              "resposta": "Não. Registrar ocorrência e pedir medida protetiva não exige advogado nem pagamento. A Defensoria Pública acompanha gratuitamente quem não pode pagar."
+            },
+            {
+              "pergunta": "Posso ir com meus filhos?",
+              "resposta": "Pode. Se as crianças também sofreram violência ou presenciaram, informe no atendimento — isso é levado em conta na proteção."
+            },
+            {
+              "pergunta": "E se eu não tiver para onde ir?",
+              "resposta": "Informe isso no atendimento. A rede de proteção tem serviços de acolhimento para mulheres em risco, e o pedido de medida protetiva pode determinar que quem sai de casa seja o agressor, não você."
+            },
+            {
+              "pergunta": "E se ele descobrir que eu procurei ajuda?",
+              "resposta": "Esse medo é legítimo e deve ser dito no atendimento, porque muda a avaliação de risco. Antes de qualquer passo, veja a página de segurança digital e o plano de saída."
+            }
+          ]
+        }
+      ]
     },
     "nao-quero-denunciar": {
       "titulo": "Se você não quer denunciar",
-      "texto": "«CONTEÚDO FICTÍCIO — Etapa 5» Texto provisório explicando opções de apoio para quem ainda não quer fazer uma denúncia formal."
+      "texto": "Muita mulher busca informação e não quer registrar ocorrência. Os motivos são reais: medo de piorar, dependência financeira, filhos, vergonha, ou simplesmente não querer que ele seja preso. Você tem direito a receber ajuda mesmo assim.",
+      "secoes": [
+        {
+          "tipo": "lista",
+          "titulo": "O que você pode fazer sem denunciar",
+          "itens": [
+            "Ligar 180 para conversar, tirar dúvidas e conhecer seus direitos, sem se identificar",
+            "Procurar o CRAS ou o CREAS para acompanhamento social e acesso a benefícios",
+            "Procurar a unidade de saúde para atendimento médico e psicológico",
+            "Procurar a Defensoria Pública para entender suas opções, inclusive divórcio, guarda e pensão",
+            "Montar um plano de segurança para o caso de precisar sair rápido",
+            "Guardar provas com alguém de confiança, para usar se um dia você decidir"
+          ]
+        },
+        {
+          "tipo": "aviso",
+          "titulo": "Uma informação importante antes de decidir",
+          "texto": "Dependendo do que aconteceu, o processo criminal pode seguir mesmo que você não queira dar continuidade, porque alguns crimes não dependem da manifestação da vítima. Isso não é motivo para não buscar ajuda: é motivo para pedir orientação antes, na Defensoria Pública ou pelo 180."
+        },
+        {
+          "tipo": "texto",
+          "titulo": "Sobre o tempo que você leva",
+          "paragrafos": [
+            "Sair de uma relação violenta costuma levar várias tentativas. Isso não é fraqueza nem falta de decisão: o risco de agressão grave aumenta justamente no momento da separação, e quem vive a situação percebe isso.",
+            "Buscar informação, montar rede de apoio e organizar documentos são passos reais de proteção, mesmo que você continue em casa por enquanto."
+          ]
+        },
+        {
+          "tipo": "destaque",
+          "titulo": "A decisão continua sendo sua",
+          "texto": "Ninguém pode te obrigar a denunciar. Procurar apoio não te compromete com nada e não te obriga a seguir adiante."
+        }
+      ]
     },
     "como-a-lei-protege": {
       "titulo": "Como a lei protege você",
-      "texto": "«CONTEÚDO FICTÍCIO — Etapa 5» Texto provisório sobre a Lei Maria da Penha e como solicitar medida protetiva."
+      "texto": "A Lei Maria da Penha existe desde 2006 e criou instrumentos para proteger a mulher antes que a violência se repita. O principal deles é a medida protetiva de urgência.",
+      "secoes": [
+        {
+          "tipo": "texto",
+          "titulo": "O que é medida protetiva de urgência",
+          "paragrafos": [
+            "É uma decisão da Justiça que impõe obrigações ao agressor para proteger você. Ela não depende de processo criminal concluído e pode ser pedida logo no primeiro atendimento.",
+            "O pedido pode ser feito pela própria mulher, sem advogado, na delegacia, na Defensoria Pública, no Ministério Público ou diretamente na Justiça."
+          ]
+        },
+        {
+          "tipo": "lista",
+          "titulo": "O que a Justiça pode determinar",
+          "itens": [
+            "Afastamento do agressor do lar",
+            "Proibição de ele se aproximar de você, com distância mínima definida",
+            "Proibição de contato por telefone, mensagem ou redes sociais",
+            "Proibição de frequentar determinados lugares, como seu trabalho ou a escola dos filhos",
+            "Restrição ou suspensão de visitas aos filhos",
+            "Pagamento de pensão alimentícia provisória",
+            "Devolução dos seus bens e documentos e suspensão de procurações dadas a ele",
+            "Encaminhamento seu e dos seus filhos a programa de proteção e atendimento"
+          ]
+        },
+        {
+          "tipo": "perguntas",
+          "titulo": "Dúvidas frequentes",
+          "itens": [
+            {
+              "pergunta": "A medida protetiva tem prazo de validade?",
+              "resposta": "Ela vale enquanto durar o risco. O Superior Tribunal de Justiça já decidiu que essas medidas não devem ser fixadas com prazo determinado, e sim mantidas enquanto a situação de risco existir."
+            },
+            {
+              "pergunta": "Preciso registrar ocorrência criminal para pedir medida protetiva?",
+              "resposta": "A medida protetiva tem natureza própria e busca a sua proteção. Peça no atendimento e informe todos os fatos: quem te atender vai orientar sobre os registros necessários."
+            },
+            {
+              "pergunta": "E se ele descumprir a medida?",
+              "resposta": "Descumprir medida protetiva é crime. Ligue 190 na hora, guarde as provas do descumprimento e comunique a delegacia."
+            },
+            {
+              "pergunta": "A lei vale para namoro, para relação que já acabou e para casal de mulheres?",
+              "resposta": "Sim. A lei alcança relações de casamento, união, namoro e relações já encerradas, e se aplica independentemente de orientação sexual."
+            },
+            {
+              "pergunta": "Violência psicológica é crime?",
+              "resposta": "Sim. A violência psicológica contra a mulher é crime previsto no Código Penal, além de ser uma das formas de violência reconhecidas pela Lei Maria da Penha."
+            }
+          ]
+        }
+      ]
     },
     "quero-ajudar": {
       "titulo": "Quero ajudar alguém",
-      "texto": "«CONTEÚDO FICTÍCIO — Etapa 5» Texto provisório com orientações para quem quer apoiar alguém em situação de violência doméstica."
+      "texto": "Se você desconfia que alguém próximo está vivendo violência, o seu papel é importante — e a forma como você age faz diferença no risco que ela corre.",
+      "secoes": [
+        {
+          "tipo": "lista",
+          "titulo": "O que ajuda",
+          "itens": [
+            "Escutar sem julgar e sem perguntar por que ela não sai",
+            "Dizer com clareza que você acredita nela e que a culpa não é dela",
+            "Perguntar o que ela precisa, em vez de decidir por ela",
+            "Combinar um código ou uma palavra para ela avisar que precisa de socorro",
+            "Guardar cópias de documentos e provas na sua casa, se ela pedir",
+            "Manter o contato mesmo quando ela se afasta — o isolamento é parte da violência",
+            "Ligar 190 se você presenciar ou ouvir uma agressão acontecendo"
+          ]
+        },
+        {
+          "tipo": "lista",
+          "titulo": "O que aumenta o risco",
+          "itens": [
+            "Confrontar o agressor ou avisá-lo de que você sabe",
+            "Denunciar por conta própria sem falar com ela antes, salvo se houver risco imediato de vida",
+            "Pressionar para que ela saia hoje, sem plano e sem para onde ir",
+            "Dizer que se fosse com você seria diferente",
+            "Desistir dela quando ela volta atrás"
+          ]
+        },
+        {
+          "tipo": "aviso",
+          "titulo": "Se houver criança ou adolescente envolvido",
+          "texto": "Criança que presencia violência doméstica também é vítima. Nesse caso, comunique o Conselho Tutelar, que atua na proteção de crianças e adolescentes, ou ligue 100."
+        },
+        {
+          "tipo": "telefones",
+          "titulo": "Canais que você pode acionar",
+          "itens": [
+            { "rotulo": "190 — se a agressão está acontecendo agora", "href": "tel:190" },
+            { "rotulo": "180 — para orientação sobre como ajudar", "href": "tel:180" },
+            { "rotulo": "100 — se há criança ou adolescente em risco", "href": "tel:100" }
+          ]
+        }
+      ]
     },
     "para-profissionais": {
       "titulo": "Para escolas, saúde e assistência",
-      "texto": "«CONTEÚDO FICTÍCIO — Etapa 5» Texto provisório sobre a obrigatoriedade de notificação por profissionais dessas áreas."
+      "texto": "Profissionais que atendem mulheres costumam ser o primeiro contato com uma situação de violência. Em serviços de saúde, comunicar não é escolha: é obrigação legal.",
+      "secoes": [
+        {
+          "tipo": "aviso",
+          "titulo": "Notificação compulsória na saúde",
+          "texto": "A lei determina que os serviços de saúde públicos e privados registrem no prontuário e comuniquem à autoridade policial, no prazo de 24 horas, os casos em que houver indícios ou confirmação de violência contra a mulher."
+        },
+        {
+          "tipo": "lista",
+          "titulo": "Sinais que merecem atenção no atendimento",
+          "itens": [
+            "Lesões repetidas ou com explicação que não combina com o ferimento",
+            "Atraso em procurar atendimento após a lesão",
+            "Acompanhante que não deixa a mulher falar sozinha",
+            "Queixas frequentes sem causa clínica definida, como dores e insônia",
+            "Sinais de ansiedade, depressão ou uso de medicação sem acompanhamento",
+            "Faltas seguidas em consultas ou na escola dos filhos",
+            "Gravidez com pré-natal irregular ou relato de sexo forçado"
+          ]
+        },
+        {
+          "tipo": "passos",
+          "titulo": "Como conduzir",
+          "itens": [
+            {
+              "titulo": "Atenda a sós",
+              "texto": "Crie uma justificativa de rotina para separar a mulher do acompanhante. Nunca aborde o tema na frente de quem a acompanha."
+            },
+            {
+              "titulo": "Registre com precisão",
+              "texto": "Descreva as lesões e registre a fala dela entre aspas, sem interpretar. O prontuário pode se tornar prova."
+            },
+            {
+              "titulo": "Não force a denúncia",
+              "texto": "Informe as opções e respeite o tempo dela. Pressionar costuma afastar a mulher do serviço, e o serviço é muitas vezes o único contato seguro que ela tem."
+            },
+            {
+              "titulo": "Cumpra a comunicação legal e encaminhe",
+              "texto": "Faça a notificação prevista em lei e encaminhe à rede de proteção, informando a ela o que será feito."
+            }
+          ]
+        },
+        {
+          "tipo": "destaque",
+          "titulo": "Escolas",
+          "texto": "Se a criança relata ou apresenta sinais de violência em casa, comunique o Conselho Tutelar. O dever de comunicar suspeita de maus-tratos contra criança e adolescente também é previsto em lei."
+        }
+      ]
     },
     "onde-buscar-ajuda": {
       "titulo": "Onde buscar ajuda",
-      "texto": "«CONTEÚDO FICTÍCIO — Etapa 5» Texto provisório listando os serviços da rede de proteção em Juazeiro do Norte."
+      "texto": "Cada serviço da rede faz uma coisa. Saber a qual recorrer evita caminho perdido em um momento em que tempo é proteção.",
+      "secoes": [
+        {
+          "tipo": "telefones",
+          "titulo": "Atendimento nacional, 24 horas",
+          "itens": [
+            { "rotulo": "190 — Polícia Militar, emergência", "href": "tel:190" },
+            { "rotulo": "180 — Central de Atendimento à Mulher", "href": "tel:180" },
+            { "rotulo": "180 no WhatsApp — (61) 9610-0180", "href": "https://wa.me/5561961000180?text=Ol%C3%A1%2C%20preciso%20de%20ajuda", "tipo": "whatsapp" },
+            { "rotulo": "100 — Disque Direitos Humanos, para crianças e adolescentes", "href": "tel:100" },
+            { "rotulo": "192 — SAMU", "href": "tel:192" }
+          ]
+        },
+        {
+          "tipo": "texto",
+          "titulo": "Quem faz o quê",
+          "paragrafos": [
+            "Delegacia da Mulher: registra ocorrência, encaminha o pedido de medida protetiva e investiga. Onde não houver, qualquer delegacia atende.",
+            "Defensoria Pública: assistência jurídica gratuita, inclusive para divórcio, guarda, pensão e acompanhamento do processo.",
+            "Ministério Público: fiscaliza e pode requerer medidas protetivas em favor da mulher.",
+            "CRAS: apoio social à família e acesso a benefícios e programas.",
+            "CREAS: acompanhamento especializado para quem já teve direitos violados.",
+            "Unidade de saúde e CAPS: atendimento médico, saúde mental e acompanhamento psicológico.",
+            "Centro de Referência de Atendimento à Mulher: acolhimento, orientação jurídica e apoio psicológico, sem exigir denúncia.",
+            "Casa de acolhimento: abrigo temporário e sigiloso para mulheres em risco de morte."
+          ]
+        },
+        {
+          "tipo": "aviso",
+          "titulo": "Endereços e horários em Juazeiro do Norte",
+          "texto": "«A CONFIRMAR» Serão informados aqui os endereços, telefones e horários dos serviços que existem no município, incluindo delegacia, CRAS, CREAS e serviços de acolhimento."
+        }
+      ]
     },
     "seguranca": {
       "titulo": "Segurança digital e plano de saída",
-      "texto": "«CONTEÚDO FICTÍCIO — Etapa 5» Texto provisório com orientações de segurança digital e planejamento de saída segura."
+      "texto": "Se a pessoa que te agride tem acesso ao seu celular, ao seu computador ou às suas contas, buscar informação pode ser perigoso. Esta página é sobre reduzir esse risco.",
+      "secoes": [
+        {
+          "tipo": "aviso",
+          "titulo": "Antes de tudo",
+          "texto": "Se você acha que ele pode checar seu aparelho, prefira acessar este site pelo celular de uma pessoa de confiança, no computador de uma lan house ou em uma janela anônima."
+        },
+        {
+          "tipo": "lista",
+          "titulo": "Segurança no celular e no computador",
+          "itens": [
+            "Use janela anônima: no Chrome, toque nos três pontinhos e escolha Nova guia anônima",
+            "Apague o histórico de navegação depois de pesquisar",
+            "Apague conversas sobre o assunto em aplicativos de mensagem",
+            "Verifique se há aplicativos de rastreamento ou de espelhamento instalados no seu celular",
+            "Troque as senhas do e-mail e das redes sociais em um aparelho que ele não use",
+            "Desative o compartilhamento de localização em tempo real",
+            "Cuidado com fotos e publicações que revelem onde você está"
+          ]
+        },
+        {
+          "tipo": "lista",
+          "titulo": "Rede de apoio combinada",
+          "itens": [
+            "Escolha uma pessoa de confiança e combine um código, uma palavra ou um emoji que signifique que você precisa de socorro",
+            "Salve o contato dela com um nome que não chame atenção",
+            "Combine com um vizinho que, ao ouvir gritos ou barulho de briga, ele ligue 190 sem esperar você pedir",
+            "Deixe cópias de documentos e provas guardadas na casa dessa pessoa"
+          ]
+        },
+        {
+          "tipo": "lista",
+          "titulo": "Plano de saída",
+          "itens": [
+            "Separe aos poucos, sem levantar suspeita, documentos seus e dos seus filhos, cartões, remédios de uso contínuo e uma muda de roupa",
+            "Deixe essa bolsa na casa de alguém de confiança, não dentro de casa",
+            "Tenha cópia das chaves guardada fora de casa",
+            "Saiba de antemão para onde ir, com quem e como chegar",
+            "Guarde algum dinheiro em espécie, ainda que pouco",
+            "Se for possível, saia quando ele não estiver em casa, sem avisar"
+          ]
+        },
+        {
+          "tipo": "aviso",
+          "titulo": "Durante uma agressão",
+          "texto": "Não discuta nem revide, porque isso costuma aumentar a violência. Se puder, vá para um cômodo com saída e sem objetos que possam ser usados como arma, evitando cozinha e banheiro. Grite por socorro e chame a atenção dos vizinhos."
+        },
+        {
+          "tipo": "lista",
+          "titulo": "Depois de sair",
+          "itens": [
+            "Troque as fechaduras e reforce portas e janelas",
+            "Avise vizinhos, portaria, escola dos filhos e trabalho sobre a separação e sobre eventual medida protetiva",
+            "Varie os trajetos e os horários",
+            "Evite os lugares que vocês frequentavam juntos",
+            "Guarde print de toda tentativa de contato dele, porque pode ser prova de descumprimento de medida protetiva"
+          ]
+        },
+        {
+          "tipo": "destaque",
+          "titulo": "Se o risco aumentar",
+          "texto": "Ameaça de morte, perseguição, ciúme com controle extremo e presença de arma em casa são sinais de risco grave. Nesses casos, procure ajuda imediatamente pelo 190 ou pelo 180."
+        }
+      ]
     }
   }
 }

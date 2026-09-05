@@ -1,0 +1,97 @@
+<% secoes.forEach(function (secao) { %>
+
+  <% if (secao.tipo === 'texto') { %>
+    <section class="secao texto-corrido">
+      <% if (secao.titulo) { %><h2 class="secao__titulo"><%= secao.titulo %></h2><% } %>
+      <% secao.paragrafos.forEach(function (paragrafo) { %>
+        <p><%= paragrafo %></p>
+      <% }); %>
+    </section>
+
+  <% } else if (secao.tipo === 'lista') { %>
+    <section class="secao texto-corrido">
+      <% if (secao.titulo) { %><h2 class="secao__titulo"><%= secao.titulo %></h2><% } %>
+      <ul class="secao__lista">
+        <% secao.itens.forEach(function (item) { %>
+          <li><%= item %></li>
+        <% }); %>
+      </ul>
+    </section>
+
+  <% } else if (secao.tipo === 'passos') { %>
+    <section class="secao texto-corrido">
+      <% if (secao.titulo) { %><h2 class="secao__titulo"><%= secao.titulo %></h2><% } %>
+      <ol class="secao__passos">
+        <% secao.itens.forEach(function (item) { %>
+          <li>
+            <% if (typeof item === 'string') { %>
+              <%= item %>
+            <% } else { %>
+              <% if (item.titulo) { %><strong class="secao__passo-titulo"><%= item.titulo %></strong><% } %>
+              <span><%= item.texto %></span>
+            <% } %>
+          </li>
+        <% }); %>
+      </ol>
+    </section>
+
+  <% } else if (secao.tipo === 'aviso') { %>
+    <div class="aviso secao">
+      <% if (secao.titulo) { %><h2 class="secao__titulo"><%= secao.titulo %></h2><% } %>
+      <p><%= secao.texto %></p>
+    </div>
+
+  <% } else if (secao.tipo === 'destaque') { %>
+    <div class="destaque secao">
+      <% if (secao.titulo) { %><h2 class="secao__titulo"><%= secao.titulo %></h2><% } %>
+      <p><%= secao.texto %></p>
+    </div>
+
+  <% } else if (secao.tipo === 'perguntas') { %>
+    <section class="secao texto-corrido">
+      <% if (secao.titulo) { %><h2 class="secao__titulo"><%= secao.titulo %></h2><% } %>
+      <% secao.itens.forEach(function (item) { %>
+        <details class="pergunta">
+          <summary class="pergunta__titulo"><%= item.pergunta %></summary>
+          <p class="pergunta__resposta"><%= item.resposta %></p>
+        </details>
+      <% }); %>
+    </section>
+
+  <% } else if (secao.tipo === 'telefones') { %>
+    <section class="secao secao-contatos">
+      <% if (secao.titulo) { %><h2 class="secao__titulo"><%= secao.titulo %></h2><% } %>
+      <ul class="secao-contatos__lista">
+        <% secao.itens.forEach(function (item) { %>
+          <li><%- include('telefone', { href: item.href, rotulo: item.rotulo, tipo: item.tipo || 'telefone' }) %></li>
+        <% }); %>
+      </ul>
+    </section>
+
+  <% } else if (secao.tipo === 'contatos') { %>
+    <section class="secao secao-contatos">
+      <% if (secao.titulo) { %><h2 class="secao__titulo"><%= secao.titulo %></h2><% } %>
+      <div class="secao-contatos__grade">
+        <% [conselhos.conselho_1, conselhos.conselho_2].forEach(function (conselho) { %>
+          <div class="secao-contatos__item">
+            <h3 class="secao-contatos__nome"><%= conselho.nome %></h3>
+            <ul class="secao-contatos__lista">
+              <% conselho.telefones.forEach(function (tel, i) { %>
+                <li><%- include('telefone', { href: 'tel:' + conselho.telefones_link[i], rotulo: tel, tipo: 'telefone' }) %></li>
+              <% }); %>
+              <li><%- include('telefone', { href: 'https://wa.me/' + conselho.plantao_24h_link + '?text=Ol%C3%A1%2C%20preciso%20de%20ajuda', rotulo: 'Plantão 24h — ' + conselho.plantao_24h, tipo: 'whatsapp' }) %></li>
+              <% if (conselho.endereco) { %>
+                <li class="rodape__link rodape__link--icone">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  <%= conselho.endereco %>
+                </li>
+              <% } %>
+            </ul>
+          </div>
+        <% }); %>
+      </div>
+    </section>
+
+  <% } %>
+
+<% }); %>
