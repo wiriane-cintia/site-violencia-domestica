@@ -1,0 +1,14 @@
+<section class="grade-atalhos" aria-labelledby="titulo-atalhos">
+  <h2 class="grade-atalhos__titulo" id="titulo-atalhos"><%= atalhos.titulo %></h2>
+  <ul class="grade-atalhos__lista">
+    <% atalhos.itens.forEach(function (item) { %>
+      <li>
+        <a class="atalho" href="<%= item.rota %>">
+          <span class="atalho__rotulo"><%= item.rotulo %></span>
+          <span class="atalho__descricao"><%= item.descricao %></span>
+          <span class="atalho__seta" aria-hidden="true">&rarr;</span>
+        </a>
+      </li>
+    <% }); %>
+  </ul>
+</section>

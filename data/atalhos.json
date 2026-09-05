@@ -1,0 +1,25 @@
+{
+  "titulo": "Por onde você quer começar?",
+  "itens": [
+    {
+      "rotulo": "Preciso de ajuda agora",
+      "descricao": "Onde ligar, o que fazer em caso de risco imediato e como pedir proteção.",
+      "rota": "/pedir-ajuda"
+    },
+    {
+      "rotulo": "Isso que eu vivo é violência?",
+      "descricao": "Nem toda violência deixa marca no corpo. Veja as formas previstas na Lei Maria da Penha.",
+      "rota": "/isso-e-violencia"
+    },
+    {
+      "rotulo": "Não quero denunciar agora",
+      "descricao": "Você pode receber orientação, apoio e acolhimento sem registrar denúncia.",
+      "rota": "/nao-quero-denunciar"
+    },
+    {
+      "rotulo": "Quero ajudar alguém",
+      "descricao": "Como apoiar uma pessoa que está passando por isso sem colocá-la em mais risco.",
+      "rota": "/quero-ajudar"
+    }
+  ]
+}
