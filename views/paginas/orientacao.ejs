@@ -1,0 +1,55 @@
+<div class="container">
+  <h1><%= pagina.titulo %></h1>
+
+  <% if (pagina.texto) { %>
+    <p class="texto-corrido"><%= pagina.texto %></p>
+  <% } %>
+
+  <% duvidas.situacoes.forEach(function (situacao) { %>
+    <section class="secao texto-corrido">
+      <h2 class="secao__titulo"><%= situacao.rotulo %></h2>
+
+      <% if (situacao.risco_imediato) { %>
+        <div class="aviso">
+          <% situacao.resposta.texto.forEach(function (paragrafo) { %><p><%= paragrafo %></p><% }); %>
+          <ul class="secao-contatos__lista">
+            <% situacao.resposta.canais.forEach(function (canal) { %>
+              <li>
+                <% if (canal.conselho) { %>
+                  <%- include('../parciais/telefone', { href: 'https://wa.me/' + conselhos[canal.conselho].plantao_24h_link + '?text=Ol%C3%A1%2C%20preciso%20de%20ajuda', rotulo: conselhos[canal.conselho].nome + ' — plantão 24h', tipo: 'whatsapp' }) %>
+                <% } else { %>
+                  <%- include('../parciais/telefone', { href: canal.href, rotulo: canal.rotulo, tipo: canal.tipo || 'telefone' }) %>
+                <% } %>
+              </li>
+            <% }); %>
+          </ul>
+        </div>
+      <% } else { %>
+        <% situacao.perguntas.forEach(function (pergunta) { %>
+          <details class="pergunta">
+            <summary class="pergunta__titulo"><%= pergunta.rotulo %></summary>
+            <% pergunta.resposta.texto.forEach(function (paragrafo) { %>
+              <p class="pergunta__resposta"><%= paragrafo %></p>
+            <% }); %>
+            <ul class="secao-contatos__lista">
+              <% pergunta.resposta.canais.forEach(function (canal) { %>
+                <li>
+                  <% if (canal.conselho) { %>
+                    <%- include('../parciais/telefone', { href: 'https://wa.me/' + conselhos[canal.conselho].plantao_24h_link + '?text=Ol%C3%A1%2C%20preciso%20de%20ajuda', rotulo: conselhos[canal.conselho].nome + ' — plantão 24h', tipo: 'whatsapp' }) %>
+                  <% } else { %>
+                    <%- include('../parciais/telefone', { href: canal.href, rotulo: canal.rotulo, tipo: canal.tipo || 'telefone' }) %>
+                  <% } %>
+                </li>
+              <% }); %>
+            </ul>
+            <% if (pergunta.resposta.pagina) { %>
+              <p><a href="<%= pergunta.resposta.pagina.rota %>"><%= pergunta.resposta.pagina.rotulo %></a></p>
+            <% } %>
+          </details>
+        <% }); %>
+      <% } %>
+    </section>
+  <% }); %>
+
+  <%- include('../parciais/bloco-emergencia', { conselhos: conselhos, emergencia: emergencia }) %>
+</div>

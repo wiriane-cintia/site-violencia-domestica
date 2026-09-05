@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><%= titulo %></title>
   <meta name="description" content="<%= site.descricao %>">
+  <% if (site.prototipo) { %>
+    <meta name="robots" content="noindex, nofollow">
+  <% } %>
   <link rel="icon" type="image/png" href="/img/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,6 +16,12 @@
 </head>
 <body>
   <a href="#conteudo-principal" class="pular-link">Pular para o conteúdo</a>
+  <% if (site.prototipo) { %>
+    <p class="faixa-prototipo" role="note"><%= site.prototipo_texto %></p>
+  <% } %>
+  <% if (site.saida_rapida) { %>
+    <%- include('../parciais/saida-rapida') %>
+  <% } %>
   <div class="barra-institucional">
     <div class="container barra-institucional__interno">
       <span class="barra-institucional__nome">Conselho Tutelar de Juazeiro do Norte/CE</span>
@@ -100,6 +109,10 @@
       <p>Desenvolvido por <a href="https://www.instagram.com/wirianecintia/" target="_blank" rel="noopener noreferrer">Wiriane Cintia</a></p>
     </div>
   </footer>
+  <% if (duvidas) { %>
+    <%- include('../parciais/orientacao-guiada', { duvidas: duvidas, conselhos: conselhos }) %>
+  <% } %>
+
   <div vw class="enabled">
     <div vw-access-button class="active"></div>
     <div vw-plugin-wrapper>

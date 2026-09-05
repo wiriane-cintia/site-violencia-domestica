@@ -1,0 +1,374 @@
+{
+  "botao": "Não sei por onde começar",
+  "titulo": "Vamos por partes",
+  "instrucao": "Escolha a situação mais parecida com a sua.",
+  "rotulo_voltar": "Voltar",
+  "rotulo_recomecar": "Começar de novo",
+  "rotulo_perguntas": "O que você quer saber?",
+  "situacoes": [
+    {
+      "id": "risco-imediato",
+      "rotulo": "Estou em perigo agora",
+      "risco_imediato": true,
+      "resposta": {
+        "texto": [
+          "Não continue lendo. Ligue agora.",
+          "Se você não puder falar, ligue para o 190 e deixe a linha aberta."
+        ],
+        "canais": [
+          {
+            "rotulo": "190 — Polícia Militar",
+            "href": "tel:190"
+          },
+          {
+            "rotulo": "180 — Central de Atendimento à Mulher",
+            "href": "tel:180"
+          },
+          {
+            "rotulo": "180 no WhatsApp",
+            "href": "https://wa.me/5561961000180?text=Ol%C3%A1%2C%20preciso%20de%20ajuda",
+            "tipo": "whatsapp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "e-violencia",
+      "rotulo": "Não sei se o que eu vivo é violência",
+      "perguntas": [
+        {
+          "rotulo": "Ele nunca me bateu",
+          "resposta": {
+            "texto": [
+              "A lei reconhece seis formas de violência, e só uma delas é física.",
+              "Ameaça, humilhação, controle do seu dinheiro, vigilância do seu celular, isolamento da sua família e usar seus filhos para te atingir são todas formas previstas em lei."
+            ],
+            "pagina": {
+              "rotulo": "Ver as seis formas",
+              "rota": "/isso-e-violencia"
+            },
+            "canais": [
+              {
+                "rotulo": "180 — para conversar, sem denunciar",
+                "href": "tel:180"
+              }
+            ]
+          }
+        },
+        {
+          "rotulo": "Acho que eu provoco as brigas",
+          "resposta": {
+            "texto": [
+              "Nenhum comportamento seu autoriza alguém a te agredir. Discussão não é justificativa, ciúme não é justificativa, bebida não é justificativa.",
+              "Fazer você acreditar que a culpa é sua é parte do funcionamento da violência psicológica."
+            ],
+            "pagina": {
+              "rotulo": "Ver os sinais",
+              "rota": "/isso-e-violencia"
+            },
+            "canais": [
+              {
+                "rotulo": "180 — orientação gratuita e sigilosa",
+                "href": "tel:180"
+              }
+            ]
+          }
+        },
+        {
+          "rotulo": "Depois ele se arrepende e melhora",
+          "resposta": {
+            "texto": [
+              "Esse período de arrependimento e promessas faz parte de um ciclo que costuma se repetir, e voltar mais grave.",
+              "Buscar informação agora não obriga você a fazer nada — só te deixa preparada."
+            ],
+            "pagina": {
+              "rotulo": "Ver o plano de segurança",
+              "rota": "/seguranca"
+            },
+            "canais": [
+              {
+                "rotulo": "180 — Central de Atendimento à Mulher",
+                "href": "tel:180"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "quero-ajuda",
+      "rotulo": "Quero ajuda, mas não quero denunciar",
+      "perguntas": [
+        {
+          "rotulo": "O que eu posso fazer sem denunciar?",
+          "resposta": {
+            "texto": [
+              "Você pode ligar 180 só para conversar, procurar o CRAS ou o CREAS, buscar atendimento de saúde e psicológico, e falar com a Defensoria Pública sobre seus direitos.",
+              "Nada disso exige registrar ocorrência."
+            ],
+            "pagina": {
+              "rotulo": "Ver todas as opções",
+              "rota": "/nao-quero-denunciar"
+            },
+            "canais": [
+              {
+                "rotulo": "180 — gratuito, 24 horas",
+                "href": "tel:180"
+              },
+              {
+                "rotulo": "180 no WhatsApp",
+                "href": "https://wa.me/5561961000180?text=Ol%C3%A1%2C%20preciso%20de%20ajuda",
+                "tipo": "whatsapp"
+              }
+            ]
+          }
+        },
+        {
+          "rotulo": "Tenho medo de piorar a situação",
+          "resposta": {
+            "texto": [
+              "Esse medo é legítimo, e o risco costuma mesmo aumentar no momento da separação.",
+              "Por isso existe plano de segurança: preparar documentos, combinar um código com alguém de confiança e saber para onde ir são passos de proteção mesmo antes de qualquer decisão."
+            ],
+            "pagina": {
+              "rotulo": "Ver o plano de segurança",
+              "rota": "/seguranca"
+            },
+            "canais": [
+              {
+                "rotulo": "180 — Central de Atendimento à Mulher",
+                "href": "tel:180"
+              }
+            ]
+          }
+        },
+        {
+          "rotulo": "Dependo dele financeiramente",
+          "resposta": {
+            "texto": [
+              "O CRAS orienta sobre benefícios e programas sociais, e a medida protetiva pode incluir pensão alimentícia provisória e determinar que quem sai de casa seja ele, não você."
+            ],
+            "pagina": {
+              "rotulo": "Ver o que a lei garante",
+              "rota": "/como-a-lei-protege"
+            },
+            "canais": [
+              {
+                "rotulo": "180 — orientação sobre seus direitos",
+                "href": "tel:180"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "quero-me-proteger",
+      "rotulo": "Quero registrar e me proteger",
+      "perguntas": [
+        {
+          "rotulo": "Como peço medida protetiva?",
+          "resposta": {
+            "texto": [
+              "Você pode pedir na delegacia, na Defensoria Pública, no Ministério Público ou na Justiça — sem advogado e sem pagar nada.",
+              "Ela pode determinar o afastamento dele de casa, a proibição de se aproximar e de entrar em contato."
+            ],
+            "pagina": {
+              "rotulo": "Ver como funciona",
+              "rota": "/como-a-lei-protege"
+            },
+            "canais": [
+              {
+                "rotulo": "180 — para saber onde ir",
+                "href": "tel:180"
+              }
+            ]
+          }
+        },
+        {
+          "rotulo": "O que eu levo e o que guardo?",
+          "resposta": {
+            "texto": [
+              "Documento com foto, e o que você tiver: prints de mensagens, áudios, fotos de ferimentos e de objetos quebrados.",
+              "Envie cópia desse material para alguém de confiança, para não depender do seu celular."
+            ],
+            "pagina": {
+              "rotulo": "Ver o passo a passo",
+              "rota": "/pedir-ajuda"
+            },
+            "canais": [
+              {
+                "rotulo": "190 — se o risco é agora",
+                "href": "tel:190"
+              },
+              {
+                "rotulo": "180 — Central de Atendimento à Mulher",
+                "href": "tel:180"
+              }
+            ]
+          }
+        },
+        {
+          "rotulo": "Ele descumpriu a medida protetiva",
+          "resposta": {
+            "texto": [
+              "Descumprir medida protetiva é crime. Ligue 190 na hora, guarde a prova do contato e comunique a delegacia."
+            ],
+            "pagina": {
+              "rotulo": "Ver seus direitos",
+              "rota": "/como-a-lei-protege"
+            },
+            "canais": [
+              {
+                "rotulo": "190 — Polícia Militar",
+                "href": "tel:190"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ajudar-alguem",
+      "rotulo": "Quero ajudar outra pessoa",
+      "perguntas": [
+        {
+          "rotulo": "O que eu falo para ela?",
+          "resposta": {
+            "texto": [
+              "Escute sem julgar, diga que você acredita nela e que a culpa não é dela, e pergunte o que ela precisa em vez de decidir por ela.",
+              "Não pergunte por que ela não sai."
+            ],
+            "pagina": {
+              "rotulo": "Ver as orientações",
+              "rota": "/quero-ajudar"
+            },
+            "canais": [
+              {
+                "rotulo": "180 — orientação sobre como ajudar",
+                "href": "tel:180"
+              }
+            ]
+          }
+        },
+        {
+          "rotulo": "Posso denunciar por ela?",
+          "resposta": {
+            "texto": [
+              "Se você presenciar agressão ou houver risco imediato, ligue 190 na hora.",
+              "Fora disso, converse com ela antes: denunciar sem que ela saiba pode aumentar o risco que ela corre."
+            ],
+            "pagina": {
+              "rotulo": "Ver o que ajuda e o que piora",
+              "rota": "/quero-ajudar"
+            },
+            "canais": [
+              {
+                "rotulo": "190 — se está acontecendo agora",
+                "href": "tel:190"
+              },
+              {
+                "rotulo": "180 — para orientação",
+                "href": "tel:180"
+              }
+            ]
+          }
+        },
+        {
+          "rotulo": "Tem criança envolvida",
+          "resposta": {
+            "texto": [
+              "Criança que presencia violência doméstica também é vítima. Comunique o Conselho Tutelar ou ligue 100."
+            ],
+            "pagina": {
+              "rotulo": "Ver as orientações",
+              "rota": "/quero-ajudar"
+            },
+            "canais": [
+              {
+                "rotulo": "100 — Disque Direitos Humanos",
+                "href": "tel:100"
+              },
+              {
+                "rotulo": "190 — risco imediato",
+                "href": "tel:190"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "seguranca",
+      "rotulo": "Preciso navegar com segurança",
+      "perguntas": [
+        {
+          "rotulo": "Ele pode ver o que eu pesquiso",
+          "resposta": {
+            "texto": [
+              "Use uma janela anônima, apague o histórico depois de pesquisar, e prefira o celular de alguém de confiança.",
+              "Verifique se há aplicativo de rastreamento instalado no seu aparelho e troque suas senhas em um dispositivo que ele não use."
+            ],
+            "pagina": {
+              "rotulo": "Ver as orientações completas",
+              "rota": "/seguranca"
+            },
+            "canais": [
+              {
+                "rotulo": "180 — Central de Atendimento à Mulher",
+                "href": "tel:180"
+              }
+            ]
+          }
+        },
+        {
+          "rotulo": "Preciso sair de casa rápido",
+          "resposta": {
+            "texto": [
+              "Separe aos poucos documentos, remédios, cartões e uma muda de roupa, e deixe essa bolsa na casa de alguém de confiança.",
+              "Saiba antes para onde ir, com quem e como chegar. Se puder, saia quando ele não estiver em casa."
+            ],
+            "pagina": {
+              "rotulo": "Ver o plano de saída",
+              "rota": "/seguranca"
+            },
+            "canais": [
+              {
+                "rotulo": "190 — em caso de risco",
+                "href": "tel:190"
+              },
+              {
+                "rotulo": "180 — Central de Atendimento à Mulher",
+                "href": "tel:180"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "sem_correspondencia": {
+    "rotulo": "Nenhuma dessas é a minha situação",
+    "resposta": {
+      "texto": [
+        "Tudo bem. Esta lista não cobre tudo, e não saber encaixar o que você vive não é motivo para desistir.",
+        "O 180 atende qualquer dúvida sobre violência contra a mulher, é gratuito, funciona 24 horas e você não precisa dizer seu nome."
+      ],
+      "canais": [
+        {
+          "rotulo": "180 — Central de Atendimento à Mulher",
+          "href": "tel:180"
+        },
+        {
+          "rotulo": "180 no WhatsApp — (61) 9610-0180",
+          "href": "https://wa.me/5561961000180?text=Ol%C3%A1%2C%20preciso%20de%20ajuda",
+          "tipo": "whatsapp"
+        },
+        {
+          "rotulo": "190 — se o risco é agora",
+          "href": "tel:190"
+        }
+      ]
+    }
+  }
+}

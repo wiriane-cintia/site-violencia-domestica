@@ -1,14 +1,65 @@
 {
   "navegacao": [
-    { "chave": "inicio", "rota": "/", "view": "inicio", "rotulo": "Início" },
-    { "chave": "isso-e-violencia", "rota": "/isso-e-violencia", "view": "generica", "rotulo": "Isso é violência?" },
-    { "chave": "pedir-ajuda", "rota": "/pedir-ajuda", "view": "generica", "rotulo": "Pedir ajuda agora" },
-    { "chave": "nao-quero-denunciar", "rota": "/nao-quero-denunciar", "view": "generica", "rotulo": "Se você não quer denunciar" },
-    { "chave": "como-a-lei-protege", "rota": "/como-a-lei-protege", "view": "generica", "rotulo": "Como a lei protege você" },
-    { "chave": "quero-ajudar", "rota": "/quero-ajudar", "view": "generica", "rotulo": "Quero ajudar alguém" },
-    { "chave": "para-profissionais", "rota": "/para-profissionais", "view": "generica", "rotulo": "Para escolas, saúde e assistência" },
-    { "chave": "onde-buscar-ajuda", "rota": "/onde-buscar-ajuda", "view": "generica", "rotulo": "Onde buscar ajuda" },
-    { "chave": "seguranca", "rota": "/seguranca", "view": "generica", "rotulo": "Segurança digital e plano de saída" }
+    {
+      "chave": "inicio",
+      "rota": "/",
+      "view": "inicio",
+      "rotulo": "Início"
+    },
+    {
+      "chave": "isso-e-violencia",
+      "rota": "/isso-e-violencia",
+      "view": "generica",
+      "rotulo": "Isso é violência?"
+    },
+    {
+      "chave": "pedir-ajuda",
+      "rota": "/pedir-ajuda",
+      "view": "generica",
+      "rotulo": "Pedir ajuda agora"
+    },
+    {
+      "chave": "nao-quero-denunciar",
+      "rota": "/nao-quero-denunciar",
+      "view": "generica",
+      "rotulo": "Se você não quer denunciar"
+    },
+    {
+      "chave": "como-a-lei-protege",
+      "rota": "/como-a-lei-protege",
+      "view": "generica",
+      "rotulo": "Como a lei protege você"
+    },
+    {
+      "chave": "quero-ajudar",
+      "rota": "/quero-ajudar",
+      "view": "generica",
+      "rotulo": "Quero ajudar alguém"
+    },
+    {
+      "chave": "para-profissionais",
+      "rota": "/para-profissionais",
+      "view": "generica",
+      "rotulo": "Para escolas, saúde e assistência"
+    },
+    {
+      "chave": "onde-buscar-ajuda",
+      "rota": "/onde-buscar-ajuda",
+      "view": "generica",
+      "rotulo": "Onde buscar ajuda"
+    },
+    {
+      "chave": "seguranca",
+      "rota": "/seguranca",
+      "view": "generica",
+      "rotulo": "Segurança digital e plano de saída"
+    },
+    {
+      "chave": "orientacao",
+      "rota": "/orientacao",
+      "view": "orientacao",
+      "rotulo": "Orientação passo a passo"
+    }
   ],
   "conteudo": {
     "inicio": {
@@ -24,9 +75,18 @@
           "tipo": "telefones",
           "titulo": "Ajuda imediata, 24 horas",
           "itens": [
-            { "rotulo": "190 — Polícia Militar, para risco agora", "href": "tel:190" },
-            { "rotulo": "180 — Central de Atendimento à Mulher, gratuito e sigiloso", "href": "tel:180" },
-            { "rotulo": "192 — SAMU, para emergência médica", "href": "tel:192" }
+            {
+              "rotulo": "190 — Polícia Militar, para risco agora",
+              "href": "tel:190"
+            },
+            {
+              "rotulo": "180 — Central de Atendimento à Mulher, gratuito e sigiloso",
+              "href": "tel:180"
+            },
+            {
+              "rotulo": "192 — SAMU, para emergência médica",
+              "href": "tel:192"
+            }
           ]
         }
       ]
@@ -85,10 +145,23 @@
           "tipo": "telefones",
           "titulo": "Telefones que funcionam 24 horas",
           "itens": [
-            { "rotulo": "190 — Polícia Militar, emergência", "href": "tel:190" },
-            { "rotulo": "180 — Central de Atendimento à Mulher", "href": "tel:180" },
-            { "rotulo": "180 no WhatsApp — (61) 9610-0180", "href": "https://wa.me/5561961000180?text=Ol%C3%A1%2C%20preciso%20de%20ajuda", "tipo": "whatsapp" },
-            { "rotulo": "192 — SAMU, se você precisa de atendimento médico", "href": "tel:192" }
+            {
+              "rotulo": "190 — Polícia Militar, emergência",
+              "href": "tel:190"
+            },
+            {
+              "rotulo": "180 — Central de Atendimento à Mulher",
+              "href": "tel:180"
+            },
+            {
+              "rotulo": "180 no WhatsApp — (61) 9610-0180",
+              "href": "https://wa.me/5561961000180?text=Ol%C3%A1%2C%20preciso%20de%20ajuda",
+              "tipo": "whatsapp"
+            },
+            {
+              "rotulo": "192 — SAMU, se você precisa de atendimento médico",
+              "href": "tel:192"
+            }
           ]
         },
         {
@@ -264,9 +337,18 @@
           "tipo": "telefones",
           "titulo": "Canais que você pode acionar",
           "itens": [
-            { "rotulo": "190 — se a agressão está acontecendo agora", "href": "tel:190" },
-            { "rotulo": "180 — para orientação sobre como ajudar", "href": "tel:180" },
-            { "rotulo": "100 — se há criança ou adolescente em risco", "href": "tel:100" }
+            {
+              "rotulo": "190 — se a agressão está acontecendo agora",
+              "href": "tel:190"
+            },
+            {
+              "rotulo": "180 — para orientação sobre como ajudar",
+              "href": "tel:180"
+            },
+            {
+              "rotulo": "100 — se há criança ou adolescente em risco",
+              "href": "tel:100"
+            }
           ]
         }
       ]
@@ -330,11 +412,27 @@
           "tipo": "telefones",
           "titulo": "Atendimento nacional, 24 horas",
           "itens": [
-            { "rotulo": "190 — Polícia Militar, emergência", "href": "tel:190" },
-            { "rotulo": "180 — Central de Atendimento à Mulher", "href": "tel:180" },
-            { "rotulo": "180 no WhatsApp — (61) 9610-0180", "href": "https://wa.me/5561961000180?text=Ol%C3%A1%2C%20preciso%20de%20ajuda", "tipo": "whatsapp" },
-            { "rotulo": "100 — Disque Direitos Humanos, para crianças e adolescentes", "href": "tel:100" },
-            { "rotulo": "192 — SAMU", "href": "tel:192" }
+            {
+              "rotulo": "190 — Polícia Militar, emergência",
+              "href": "tel:190"
+            },
+            {
+              "rotulo": "180 — Central de Atendimento à Mulher",
+              "href": "tel:180"
+            },
+            {
+              "rotulo": "180 no WhatsApp — (61) 9610-0180",
+              "href": "https://wa.me/5561961000180?text=Ol%C3%A1%2C%20preciso%20de%20ajuda",
+              "tipo": "whatsapp"
+            },
+            {
+              "rotulo": "100 — Disque Direitos Humanos, para crianças e adolescentes",
+              "href": "tel:100"
+            },
+            {
+              "rotulo": "192 — SAMU",
+              "href": "tel:192"
+            }
           ]
         },
         {
@@ -424,6 +522,10 @@
           "texto": "Ameaça de morte, perseguição, ciúme com controle extremo e presença de arma em casa são sinais de risco grave. Nesses casos, procure ajuda imediatamente pelo 190 ou pelo 180."
         }
       ]
+    },
+    "orientacao": {
+      "titulo": "Orientação passo a passo",
+      "texto": "Se você não sabe por onde começar, escolha abaixo a situação mais parecida com a sua. As mesmas perguntas aparecem no botão “Não sei por onde começar”, presente em todas as páginas."
     }
   }
 }

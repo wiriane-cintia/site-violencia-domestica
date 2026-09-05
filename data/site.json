@@ -1,5 +1,8 @@
 {
-  "nome": "Site de Violência Doméstica - Conselho Tutelar de Juazeiro do Norte",
+  "nome": "Site de Violência Doméstica",
   "identidade": "vd",
+  "saida_rapida": true,
+  "prototipo": true,
+  "prototipo_texto": "PROTÓTIPO — conteúdo em validação. Não use como fonte oficial.",
   "descricao": "Site de apoio a vítimas de violência doméstica em Juazeiro do Norte/CE — canais de atendimento, orientação e rede de proteção."
 }

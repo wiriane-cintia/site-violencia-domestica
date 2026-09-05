@@ -30,6 +30,16 @@ const limitador = rateLimit({
 
 app.use(limitador);
 
+// Enquanto for prototipo, pede a todos os buscadores que nao indexem nada.
+// O robots.txt nao serve aqui: ele impede o robo de LER a pagina e, por isso,
+// de enxergar o proprio pedido de nao indexar.
+app.use((req, res, next) => {
+  if (dados('site.json').prototipo) {
+    res.set('X-Robots-Tag', 'noindex, nofollow');
+  }
+  next();
+});
+
 const DEV = process.env.NODE_ENV !== 'production';
 
 function lerJSON(nomeArquivo) {
@@ -66,6 +76,7 @@ app.use((req, res, next) => {
   const atalhos = dados('atalhos.json');
   const emergencia = dados('emergencia.json');
   const bairros = dadosOpcionais('bairros.json');
+  const duvidas = dadosOpcionais('duvidas.json');
   const entrada = paginas.navegacao.find(p => p.rota === req.path);
   if (!entrada) return next();
   const pagina = paginas.conteudo[entrada.chave];
@@ -79,6 +90,7 @@ app.use((req, res, next) => {
     atalhos,
     emergencia,
     bairros,
+    duvidas,
   });
 });
 
@@ -89,6 +101,7 @@ app.use((req, res) => {
   const atalhos = dados('atalhos.json');
   const emergencia = dados('emergencia.json');
   const bairros = dadosOpcionais('bairros.json');
+  const duvidas = dadosOpcionais('duvidas.json');
   res.status(404).render('erro-404', {
     titulo: 'Página não encontrada',
     site,
@@ -98,6 +111,7 @@ app.use((req, res) => {
     atalhos,
     emergencia,
     bairros,
+    duvidas,
   });
 });
 
