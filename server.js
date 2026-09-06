@@ -77,6 +77,7 @@ app.use((req, res, next) => {
   const emergencia = dados('emergencia.json');
   const bairros = dadosOpcionais('bairros.json');
   const duvidas = dadosOpcionais('duvidas.json');
+  const rede = dadosOpcionais('rede.json');
   const entrada = paginas.navegacao.find(p => p.rota === req.path);
   if (!entrada) return next();
   const pagina = paginas.conteudo[entrada.chave];
@@ -91,6 +92,7 @@ app.use((req, res, next) => {
     emergencia,
     bairros,
     duvidas,
+    rede,
   });
 });
 
@@ -102,6 +104,7 @@ app.use((req, res) => {
   const emergencia = dados('emergencia.json');
   const bairros = dadosOpcionais('bairros.json');
   const duvidas = dadosOpcionais('duvidas.json');
+  const rede = dadosOpcionais('rede.json');
   res.status(404).render('erro-404', {
     titulo: 'Página não encontrada',
     site,
@@ -112,10 +115,16 @@ app.use((req, res) => {
     emergencia,
     bairros,
     duvidas,
+    rede,
   });
 });
 
-const PORTA = process.env.PORT || 3000;
-app.listen(PORTA, () => {
-  console.log(`Servidor rodando em http://localhost:${PORTA}`);
-});
+if (process.env.VERCEL) {
+  module.exports = app;
+} else {
+  const PORTA = process.env.PORT || 3000;
+  app.listen(PORTA, () => {
+    console.log(`Servidor rodando em http://localhost:${PORTA}`);
+  });
+  module.exports = app;
+}

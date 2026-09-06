@@ -1,0 +1,164 @@
+{
+  "atualizado_em": "setembro de 2026",
+  "fonte": "Portal da Prefeitura de Juazeiro do Norte, Ministério Público do Ceará e Defensoria Pública do Ceará. «A CONFIRMAR» antes da publicação definitiva.",
+  "grupos": [
+    {
+      "titulo": "Atendimento especializado à mulher",
+      "itens": [
+        {
+          "nome": "Centro de Referência da Mulher",
+          "descricao": "Acolhimento, orientação jurídica e apoio psicológico. Não é preciso ter registrado ocorrência.",
+          "endereco": "Rua Delmiro Gouveia — Salesianos",
+          "telefone": "(88) 3199-0472",
+          "telefone_link": "+558831990472",
+          "horario": "Segunda a sexta, das 8h às 14h"
+        },
+        {
+          "nome": "Unidade de Acolhimento para Mulheres Vítimas de Violência Doméstica",
+          "descricao": "Abrigo para mulheres em risco. O endereço não é divulgado por segurança: o contato é feito pelo telefone.",
+          "telefone": "(88) 93618-0174",
+          "telefone_link": "+5588936180174",
+          "whatsapp_link": "5588936180174",
+          "horario": "Todos os dias, 24 horas"
+        },
+        {
+          "nome": "Delegacia de Defesa da Mulher de Juazeiro do Norte",
+          "descricao": "Registro de ocorrência, pedido de medida protetiva e investigação, com atendimento especializado.",
+          "endereco": "Rua das Flores, s/n — Santa Tereza",
+          "telefone": "(88) 3102-1102",
+          "telefone_link": "+558831021102"
+        },
+        {
+          "nome": "Juizado de Violência Doméstica e Familiar contra a Mulher",
+          "descricao": "Comarca de Juazeiro do Norte. É quem decide sobre as medidas protetivas.",
+          "endereco": "Avenida Padre Cícero, 4501 — São José",
+          "telefone": "(88) 98113-5748",
+          "telefone_link": "+5588981135748"
+        },
+        {
+          "nome": "Delegacia de Defesa da Mulher do Crato",
+          "descricao": "Alternativa na região, se você estiver mais perto do Crato.",
+          "endereco": "Rua Coronel Segundo, 216 — Centro, Crato",
+          "telefone": "(88) 3102-1250",
+          "telefone_link": "+558831021250"
+        }
+      ]
+    },
+    {
+      "titulo": "Apoio social e benefícios",
+      "descricao": "O CRAS atende por território: procure o do seu bairro. O CREAS acompanha quem já teve direitos violados.",
+      "itens": [
+        {
+          "nome": "CREAS — Centro de Referência Especializado de Assistência Social",
+          "endereco": "Rua Santa Cecília — Socorro",
+          "telefone": "(88) 3199-0484",
+          "telefone_link": "+558831990484",
+          "horario": "Segunda a sexta, das 8h às 17h"
+        },
+        {
+          "nome": "CRAS 01 — Triângulo",
+          "endereco": "Rua Maria Diva de Carvalho, 650 — Triângulo",
+          "telefone": "(88) 3199-0474",
+          "telefone_link": "+558831990474",
+          "atende": "Antônio Vieira, Cajuína São Geraldo, Salesianos, Santa Tereza, Santo Antônio e Triângulo"
+        },
+        {
+          "nome": "CRAS 02 — Frei Damião",
+          "endereco": "Rua Sargento José Marcolino Brasileiro, 945 — Frei Damião",
+          "telefone": "(88) 3199-0482",
+          "telefone_link": "+558831990482",
+          "atende": "Frei Damião, São José, Vila Real I e II"
+        },
+        {
+          "nome": "CRAS 03 — Timbaúbas",
+          "endereco": "Rua João Paulo I, 620 — Timbaúbas",
+          "telefone": "(88) 3199-0475",
+          "telefone_link": "+558831990475",
+          "atende": "Juvêncio Santana, Leandro Bezerra de Menezes, Limoeiro, Pio XII, São Miguel, Timbaúbas e Vila Fátima"
+        },
+        {
+          "nome": "CRAS 04 — Palmeirinha",
+          "endereco": "Rua Antônio Cruz Macedo — Vila Padre Cícero",
+          "telefone": "(88) 3199-0479",
+          "telefone_link": "+558831990479"
+        },
+        {
+          "nome": "CRAS 05 — João Cabral",
+          "endereco": "Rua Perpétua Carneiro da Cunha, s/n — João Cabral",
+          "telefone": "(88) 3199-0447",
+          "telefone_link": "+558831990447",
+          "atende": "Franciscanos, João Cabral, Pirajá e Romeirão"
+        },
+        {
+          "nome": "CRAS 06 — Aeroporto",
+          "endereco": "Rua Joaquim Cruz, s/n — Pedrinhas",
+          "telefone": "(88) 3199-0480",
+          "telefone_link": "+558831990480",
+          "atende": "Aeroporto, Carité, Pedrinhas, Vila Nova e sítios da região"
+        },
+        {
+          "nome": "CRAS 07 — São Gonçalo",
+          "endereco": "Rua Francisco Lira Pereira — Vila São Gonçalo",
+          "telefone": "(88) 3199-0483",
+          "telefone_link": "+558831990483"
+        },
+        {
+          "nome": "CRAS 08 — Horto",
+          "endereco": "Avenida Padre Jezú Flor — Horto",
+          "telefone": "(88) 3199-0478",
+          "telefone_link": "+558831990478"
+        },
+        {
+          "nome": "CRAS 09 — Jardim Gonzaga",
+          "endereco": "Rua Arnóbio Bacelar Caneca — Lagoa Seca",
+          "telefone": "(88) 3199-0476",
+          "telefone_link": "+558831990476"
+        },
+        {
+          "nome": "CRAS 10 — Campo Alegre",
+          "endereco": "Rua José Martins Filho — Campo Alegre",
+          "telefone": "(88) 93618-0149",
+          "telefone_link": "+5588936180149"
+        }
+      ]
+    },
+    {
+      "titulo": "Saúde e saúde mental",
+      "itens": [
+        {
+          "nome": "CAPS III — Mental",
+          "descricao": "Saúde mental de adultos, com atendimento também à noite e nos fins de semana.",
+          "endereco": "Rua Raimundo Machado da Silva, 236 — Triângulo",
+          "telefone": "(88) 3178-9144",
+          "telefone_link": "+558831789144",
+          "horario": "Todos os dias, 24 horas"
+        },
+        {
+          "nome": "CAPS Infantil — Seu Mocinho",
+          "descricao": "Saúde mental de crianças e adolescentes.",
+          "endereco": "Rua Tabelião João Machado, s/n — Santa Tereza",
+          "telefone": "(88) 3199-0398",
+          "telefone_link": "+558831990398",
+          "horario": "Segunda a sexta, das 7h30 às 17h"
+        }
+      ]
+    },
+    {
+      "titulo": "Direitos e apoio jurídico",
+      "itens": [
+        {
+          "nome": "Defensoria Pública do Estado do Ceará",
+          "descricao": "Assistência jurídica gratuita, inclusive para divórcio, guarda, pensão e acompanhamento do processo.",
+          "endereco": "Rua Jonas de Sousa Silva, 60 — Lagoa Seca",
+          "telefone": "(88) 3587-1642",
+          "telefone_link": "+558835871642"
+        },
+        {
+          "nome": "Conselho Tutelar",
+          "descricao": "Quando há criança ou adolescente envolvido. Os contatos dos dois conselhos estão no rodapé deste site.",
+          "endereco": "I Conselho: Rua São José, 620 — Centro · II Conselho: Rua do Limoeiro, 119 — São Miguel"
+        }
+      ]
+    }
+  ]
+}

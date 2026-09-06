@@ -450,9 +450,8 @@
           ]
         },
         {
-          "tipo": "aviso",
-          "titulo": "Endereços e horários em Juazeiro do Norte",
-          "texto": "«A CONFIRMAR» Serão informados aqui os endereços, telefones e horários dos serviços que existem no município, incluindo delegacia, CRAS, CREAS e serviços de acolhimento."
+          "tipo": "rede",
+          "titulo": "Serviços em Juazeiro do Norte"
         }
       ]
     },

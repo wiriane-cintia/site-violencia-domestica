@@ -1,4 +1,8 @@
 (function () {
+  // Marca que o JavaScript carregou. O CSS usa isso para so ativar recursos
+  // que dependem dele (a gaveta do menu, o filtro da busca).
+  document.documentElement.classList.add('com-js');
+
   // ---------- Menu do celular ----------
   const botaoMenu = document.getElementById('botao-menu');
   const botaoFechar = document.getElementById('botao-fechar-menu');
@@ -49,8 +53,6 @@
 
     const alternar = document.getElementById('alternar-lista');
 
-    // A lista só é escondida quando o JavaScript carrega: sem ele, tudo fica visível.
-    document.body.classList.add('com-js');
     if (alternar) alternar.hidden = false;
 
     // Verdadeiro quando a pessoa pediu para ver a lista inteira pelo botão.
