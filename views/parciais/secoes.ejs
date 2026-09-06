@@ -58,6 +58,44 @@
       <% }); %>
     </section>
 
+  <% } else if (secao.tipo === 'rede') { %>
+    <section class="secao secao-rede">
+      <% if (secao.titulo) { %><h2 class="secao__titulo"><%= secao.titulo %></h2><% } %>
+      <% rede.grupos.forEach(function (grupo) { %>
+        <div class="secao-rede__grupo">
+          <h3 class="secao-rede__grupo-titulo"><%= grupo.titulo %></h3>
+          <% if (grupo.descricao) { %><p class="secao-rede__grupo-texto"><%= grupo.descricao %></p><% } %>
+          <ul class="secao-rede__lista">
+            <% grupo.itens.forEach(function (item) { %>
+              <li class="secao-rede__item">
+                <p class="secao-rede__nome"><%= item.nome %></p>
+                <% if (item.descricao) { %><p class="secao-rede__descricao"><%= item.descricao %></p><% } %>
+                <% if (item.endereco) { %>
+                  <p class="secao-rede__linha secao-rede__linha--icone">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <%= item.endereco %>
+                  </p>
+                <% } %>
+                <% if (item.telefone) { %>
+                  <p class="secao-rede__linha">
+                    <%- include('telefone', { href: 'tel:' + item.telefone_link, rotulo: item.telefone, tipo: 'telefone' }) %>
+                  </p>
+                <% } %>
+                <% if (item.whatsapp_link) { %>
+                  <p class="secao-rede__linha">
+                    <%- include('telefone', { href: 'https://wa.me/' + item.whatsapp_link + '?text=Ol%C3%A1%2C%20preciso%20de%20ajuda', rotulo: 'Falar no WhatsApp', tipo: 'whatsapp' }) %>
+                  </p>
+                <% } %>
+                <% if (item.horario) { %><p class="secao-rede__linha secao-rede__horario"><%= item.horario %></p><% } %>
+                <% if (item.atende) { %><p class="secao-rede__linha secao-rede__atende">Atende: <%= item.atende %></p><% } %>
+              </li>
+            <% }); %>
+          </ul>
+        </div>
+      <% }); %>
+      <p class="secao-rede__fonte">Fonte: <%= rede.fonte %> Atualizado em <%= rede.atualizado_em %>.</p>
+    </section>
+
   <% } else if (secao.tipo === 'telefones') { %>
     <section class="secao secao-contatos">
       <% if (secao.titulo) { %><h2 class="secao__titulo"><%= secao.titulo %></h2><% } %>

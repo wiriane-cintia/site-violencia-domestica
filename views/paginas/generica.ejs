@@ -6,7 +6,7 @@
   <% } %>
 
   <% if (pagina.secoes) { %>
-    <%- include('../parciais/secoes', { secoes: pagina.secoes, conselhos: conselhos }) %>
+    <%- include('../parciais/secoes', { secoes: pagina.secoes, conselhos: conselhos, rede: rede }) %>
   <% } %>
 
   <%- include('../parciais/bloco-emergencia', { conselhos: conselhos, emergencia: emergencia }) %>
