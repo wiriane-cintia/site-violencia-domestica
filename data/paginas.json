@@ -63,7 +63,7 @@
   ],
   "conteudo": {
     "inicio": {
-      "titulo": "Você não está sozinha",
+      "titulo": "Proteção e apoio em Juazeiro do Norte",
       "texto": "Aqui você encontra informação sobre violência doméstica: como reconhecer, onde pedir ajuda em Juazeiro do Norte e o que a lei garante. Você decide o que fazer e em que ritmo. Se há risco agora, ligue 190.",
       "secoes": [
         {
@@ -89,7 +89,8 @@
             }
           ]
         }
-      ]
+      ],
+      "titulo_aba": "Rede de Proteção — Juazeiro do Norte"
     },
     "isso-e-violencia": {
       "titulo": "Isso é violência?",
@@ -130,7 +131,8 @@
           "titulo": "Se você se reconheceu em alguma coisa aqui",
           "texto": "Você não precisa decidir nada agora nem denunciar ninguém para conversar com alguém. Ligue 180: é gratuito, funciona 24 horas e você pode só tirar dúvidas."
         }
-      ]
+      ],
+      "titulo_aba": "Informações — Rede de Proteção"
     },
     "pedir-ajuda": {
       "titulo": "Pedir ajuda agora",
@@ -208,7 +210,8 @@
             }
           ]
         }
-      ]
+      ],
+      "titulo_aba": "Atendimento — Rede de Proteção"
     },
     "nao-quero-denunciar": {
       "titulo": "Se você não quer denunciar",
@@ -244,7 +247,8 @@
           "titulo": "A decisão continua sendo sua",
           "texto": "Ninguém pode te obrigar a denunciar. Procurar apoio não te compromete com nada e não te obriga a seguir adiante."
         }
-      ]
+      ],
+      "titulo_aba": "Orientação — Rede de Proteção"
     },
     "como-a-lei-protege": {
       "titulo": "Como a lei protege você",
@@ -298,7 +302,8 @@
             }
           ]
         }
-      ]
+      ],
+      "titulo_aba": "Direitos — Rede de Proteção"
     },
     "quero-ajudar": {
       "titulo": "Quero ajudar alguém",
@@ -351,7 +356,8 @@
             }
           ]
         }
-      ]
+      ],
+      "titulo_aba": "Apoiar alguém — Rede de Proteção"
     },
     "para-profissionais": {
       "titulo": "Para escolas, saúde e assistência",
@@ -402,7 +408,8 @@
           "titulo": "Escolas",
           "texto": "Se a criança relata ou apresenta sinais de violência em casa, comunique o Conselho Tutelar. O dever de comunicar suspeita de maus-tratos contra criança e adolescente também é previsto em lei."
         }
-      ]
+      ],
+      "titulo_aba": "Profissionais — Rede de Proteção"
     },
     "onde-buscar-ajuda": {
       "titulo": "Onde buscar ajuda",
@@ -453,7 +460,8 @@
           "tipo": "rede",
           "titulo": "Serviços em Juazeiro do Norte"
         }
-      ]
+      ],
+      "titulo_aba": "Serviços — Rede de Proteção"
     },
     "seguranca": {
       "titulo": "Segurança digital e plano de saída",
@@ -520,11 +528,13 @@
           "titulo": "Se o risco aumentar",
           "texto": "Ameaça de morte, perseguição, ciúme com controle extremo e presença de arma em casa são sinais de risco grave. Nesses casos, procure ajuda imediatamente pelo 190 ou pelo 180."
         }
-      ]
+      ],
+      "titulo_aba": "Segurança digital — Rede de Proteção"
     },
     "orientacao": {
       "titulo": "Orientação passo a passo",
-      "texto": "Se você não sabe por onde começar, escolha abaixo a situação mais parecida com a sua. As mesmas perguntas aparecem no botão “Não sei por onde começar”, presente em todas as páginas."
+      "texto": "Se você não sabe por onde começar, escolha abaixo a situação mais parecida com a sua. As mesmas perguntas aparecem no botão “Não sei por onde começar”, presente em todas as páginas.",
+      "titulo_aba": "Passo a passo — Rede de Proteção"
     }
   }
 }

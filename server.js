@@ -82,7 +82,9 @@ app.use((req, res, next) => {
   if (!entrada) return next();
   const pagina = paginas.conteudo[entrada.chave];
   res.render(entrada.view, {
-    titulo: pagina.titulo,
+    // O titulo da aba pode ser diferente do titulo na tela: no site VD ele e
+    // neutro, para nao denunciar o assunto no historico do navegador.
+    titulo: pagina.titulo_aba || pagina.titulo,
     pagina,
     site,
     navegacao: paginas.navegacao,
@@ -119,6 +121,8 @@ app.use((req, res) => {
   });
 });
 
+// Na Vercel o site roda como funcao: nao existe porta para escutar, o app e
+// chamado a cada requisicao. Localmente, continua subindo o servidor normal.
 if (process.env.VERCEL) {
   module.exports = app;
 } else {
