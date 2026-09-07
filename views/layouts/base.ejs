@@ -11,8 +11,11 @@
   <link rel="icon" type="image/png" href="/img/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/estilo.css">
+  <!-- Sem "defer": precisa rodar antes da primeira pintura, senao o menu
+       pisca como lista comum a cada troca de pagina. -->
+  <script src="/js/marcador.js"></script>
 </head>
 <body>
   <a href="#conteudo-principal" class="pular-link">Pular para o conteúdo</a>
@@ -22,31 +25,36 @@
   <% if (site.saida_rapida) { %>
     <%- include('../parciais/saida-rapida') %>
   <% } %>
-  <div class="barra-institucional">
-    <div class="container barra-institucional__interno">
-      <span class="barra-institucional__nome">Conselho Tutelar de Juazeiro do Norte/CE</span>
-      <div class="barra-institucional__links">
-        <a href="https://www.instagram.com/conselhotutelar1jn.ce/" class="barra-institucional__link" target="_blank" rel="noopener noreferrer">I Conselho Tutelar</a>
-        <a href="https://www.instagram.com/conselhotutelar2.jn/" class="barra-institucional__link" target="_blank" rel="noopener noreferrer">II Conselho Tutelar</a>
+  <header class="cabecalho">
+    <div class="cabecalho__topo">
+      <div class="container cabecalho__topo-interno">
+        <a href="/" class="cabecalho__marca">
+          <img src="/img/logo.png" alt="" class="cabecalho__logo">
+          <span class="cabecalho__nome"><%= site.nome %></span>
+        </a>
+        <div class="cabecalho__acoes">
+          <a class="cabecalho__acao cabecalho__acao--um" href="https://www.instagram.com/conselhotutelar1jn.ce/" aria-label="Instagram do I Conselho Tutelar" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <span class="cabecalho__acao-texto">I Conselho Tutelar</span>
+          </a>
+          <a class="cabecalho__acao cabecalho__acao--dois" href="https://www.instagram.com/conselhotutelar2.jn/" aria-label="Instagram do II Conselho Tutelar" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <span class="cabecalho__acao-texto">II Conselho Tutelar</span>
+          </a>
+          <button type="button" class="cabecalho__botao-menu" id="botao-menu" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            <span class="cabecalho__botao-menu-texto">Menu</span>
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="faixa-identidade"></div>
-  <header class="cabecalho">
-    <div class="container cabecalho__interno">
-      <a href="/" class="cabecalho__marca">
-        <img src="/img/logo.png" alt="<%= site.nome %>" class="cabecalho__logo">
-        <span class="cabecalho__nome"><%= site.nome %></span>
-      </a>
-      <button type="button" class="cabecalho__botao-menu" id="botao-menu" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-      </button>
-      <nav class="cabecalho__nav" id="menu-principal" aria-label="Navegação principal">
-        <button type="button" class="cabecalho__botao-fechar" id="botao-fechar-menu" aria-label="Fechar menu">&times;</button>
+    <nav class="cabecalho__nav" id="menu-principal" aria-label="Navegação principal">
+      <button type="button" class="cabecalho__botao-fechar" id="botao-fechar-menu" aria-label="Fechar menu">&times;</button>
+      <div class="container">
         <ul class="cabecalho__lista">
           <% navegacao.forEach(function(item) { %>
             <li>
@@ -54,59 +62,64 @@
             </li>
           <% }); %>
         </ul>
-      </nav>
-      <div class="cabecalho__fundo" id="fundo-menu"></div>
-    </div>
+      </div>
+    </nav>
+    <div class="cabecalho__fundo" id="fundo-menu"></div>
   </header>
   <main id="conteudo-principal" tabindex="-1">
     <%- body %>
   </main>
   <footer class="rodape">
-    <div class="faixa-identidade"></div>
     <div class="container rodape__interno">
-      <div class="rodape__coluna">
-        <h2 class="rodape__titulo"><%= conselhos.conselho_1.nome %></h2>
-        <ul class="rodape__lista">
-          <% conselhos.conselho_1.telefones.forEach(function(tel, i) { %>
-            <li><%- include('../parciais/telefone', { href: 'tel:' + conselhos.conselho_1.telefones_link[i], rotulo: tel, tipo: 'telefone' }) %></li>
-          <% }); %>
-          <li><%- include('../parciais/telefone', { href: 'https://wa.me/' + conselhos.conselho_1.plantao_24h_link + '?text=Ol%C3%A1%2C%20preciso%20de%20ajuda', rotulo: 'Plantão 24h — ' + conselhos.conselho_1.plantao_24h, tipo: 'whatsapp' }) %></li>
-          <% if (conselhos.conselho_1.endereco) { %>
-            <li class="rodape__link rodape__link--icone">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-              <%= conselhos.conselho_1.endereco %>
-            </li>
-          <% } %>
-          <li>
-            <a href="<%= conselhos.conselho_1.instagram %>" target="_blank" rel="noopener noreferrer" class="rodape__link rodape__link--icone">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-              Instagram
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="rodape__coluna">
-        <h2 class="rodape__titulo"><%= conselhos.conselho_2.nome %></h2>
-        <ul class="rodape__lista">
-          <% conselhos.conselho_2.telefones.forEach(function(tel, i) { %>
-            <li><%- include('../parciais/telefone', { href: 'tel:' + conselhos.conselho_2.telefones_link[i], rotulo: tel, tipo: 'telefone' }) %></li>
-          <% }); %>
-          <li><%- include('../parciais/telefone', { href: 'https://wa.me/' + conselhos.conselho_2.plantao_24h_link + '?text=Ol%C3%A1%2C%20preciso%20de%20ajuda', rotulo: 'Plantão 24h — ' + conselhos.conselho_2.plantao_24h, tipo: 'whatsapp' }) %></li>
-          <li class="rodape__link rodape__link--icone">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-            <%= conselhos.conselho_2.endereco %>
-          </li>
-          <li>
-            <a href="<%= conselhos.conselho_2.instagram %>" target="_blank" rel="noopener noreferrer" class="rodape__link rodape__link--icone">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-              Instagram
-            </a>
-          </li>
-        </ul>
-      </div>
+      <% rodape.colunas.forEach(function (coluna) { %>
+        <div class="rodape__coluna">
+          <h2 class="rodape__titulo"><%= coluna.titulo %></h2>
+          <ul class="rodape__lista">
+            <% coluna.itens.forEach(function (item) { %>
+              <% if (item.conselho) { %>
+                <% var c = conselhos[item.conselho]; %>
+                <% if (item.campo === 'telefones') { %>
+                  <% c.telefones.forEach(function (tel, i) { %>
+                    <li><%- include('../parciais/telefone', { href: 'tel:' + c.telefones_link[i], rotulo: tel, tipo: 'telefone' }) %></li>
+                  <% }); %>
+                <% } else if (item.campo === 'plantao') { %>
+                  <li><%- include('../parciais/telefone', { href: 'https://wa.me/' + c.plantao_24h_link + '?text=Ol%C3%A1%2C%20preciso%20de%20ajuda', rotulo: c.nome + ' — plantão 24h', tipo: 'whatsapp' }) %></li>
+                <% } else if (item.campo === 'endereco' && c.endereco) { %>
+                  <li><%- include('../parciais/endereco', { texto: c.endereco, mapa: c.endereco_mapa }) %></li>
+                <% } else if (item.campo === 'instagram') { %>
+                  <li>
+                    <a href="<%= c.instagram %>" target="_blank" rel="noopener noreferrer" class="rodape__link rodape__link--icone">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                      Instagram
+                    </a>
+                  </li>
+                <% } %>
+              <% } else { %>
+                <li><%- include('../parciais/telefone', { href: item.href, rotulo: item.rotulo, tipo: item.tipo || 'telefone' }) %></li>
+              <% } %>
+            <% }); %>
+          </ul>
+        </div>
+      <% }); %>
     </div>
+    <div class="container rodape__mapa">
+      <h2 class="rodape__titulo">Todas as páginas</h2>
+      <ul class="rodape__mapa-lista">
+        <% navegacao.forEach(function (item) { %>
+          <li>
+            <a href="<%= item.rota %>" class="rodape__mapa-link">
+              <span class="rodape__mapa-rotulo"><%= item.rotulo %></span>
+              <% if (conteudo[item.chave] && conteudo[item.chave].resumo) { %>
+                <span class="rodape__mapa-resumo"><%= conteudo[item.chave].resumo %></span>
+              <% } %>
+            </a>
+          </li>
+        <% }); %>
+      </ul>
+    </div>
+
     <div class="rodape__creditos">
-      <p>Desenvolvido por <a href="https://www.instagram.com/wirianecintia/" target="_blank" rel="noopener noreferrer">Wiriane Cintia</a></p>
+      <p>Desenvolvido por <a href="https://www.instagram.com/wirianecintia/" target="_blank" rel="noopener noreferrer">WC</a></p>
     </div>
   </footer>
   <% if (duvidas) { %>

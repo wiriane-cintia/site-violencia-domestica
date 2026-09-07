@@ -1,9 +1,13 @@
-<div class="container">
-  <h1><%= pagina.titulo %></h1>
+<div class="faixa faixa--titulo">
+  <div class="container">
+    <h1><%= pagina.titulo %></h1>
+    <% if (pagina.texto) { %>
+      <p class="texto-corrido"><%= pagina.texto %></p>
+    <% } %>
+  </div>
+</div>
 
-  <% if (pagina.texto) { %>
-    <p class="texto-corrido"><%= pagina.texto %></p>
-  <% } %>
+<div class="container">
 
   <% duvidas.situacoes.forEach(function (situacao) { %>
     <section class="secao texto-corrido">

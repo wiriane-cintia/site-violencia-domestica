@@ -1,0 +1,23 @@
+<%
+  // Monta o link do Google Maps a partir do proprio endereco escrito.
+  // 1) troca o travessao e a barra do estado por virgula, que e o separador
+  //    que o Maps entende; 2) se o texto nao disser a cidade, acrescenta, para
+  //    o Maps nao cair em uma rua de mesmo nome em outro lugar do Brasil.
+  var consultaMapa;
+  if (typeof mapa !== 'undefined' && mapa) {
+    consultaMapa = mapa;
+  } else {
+    consultaMapa = texto
+      .replace(/\s*—\s*/g, ', ')
+      .replace(/\/CE/g, ', CE')
+      .replace(/,\s*,/g, ',');
+    if (consultaMapa.indexOf('Juazeiro do Norte') < 0) {
+      consultaMapa += ', Juazeiro do Norte, CE';
+    }
+  }
+%>
+<a class="endereco" href="https://www.google.com/maps/search/?api=1&amp;query=<%= encodeURIComponent(consultaMapa) %>" target="_blank" rel="noopener noreferrer">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+  <span><%= texto %></span>
+  <span class="apenas-leitor">— abre o Google Maps em uma nova aba</span>
+</a>
