@@ -52,8 +52,34 @@
     };
 
     const alternar = document.getElementById('alternar-lista');
+    const limpar = document.getElementById('limpar-busca');
 
     if (alternar) alternar.hidden = false;
+
+    // Em tela estreita a instrucao completa nao cabe dentro do campo, entao
+    // usamos a versao curta. A completa continua no rotulo, para leitor de tela.
+    const textoLongo = campo.getAttribute('placeholder');
+    const textoCurto = campo.getAttribute('data-placeholder-curto') || textoLongo;
+
+    // Mede o proprio campo em vez da tela: se a frase inteira nao couber ali
+    // dentro, usa a versao curta, para nunca aparecer cortada.
+    function ajustarPlaceholder() {
+      var cabe = campo.clientWidth >= 540;
+      campo.setAttribute('placeholder', cabe ? textoLongo : textoCurto);
+    }
+
+    ajustarPlaceholder();
+    window.addEventListener('resize', ajustarPlaceholder);
+
+    // Ao clicar no campo, a instrucao some e o cursor fica sozinho na
+    // esquerda, pronto para digitar. Se sair sem escrever nada, ela volta.
+    campo.addEventListener('focus', function () {
+      campo.setAttribute('placeholder', '');
+    });
+
+    campo.addEventListener('blur', function () {
+      if (campo.value === '') ajustarPlaceholder();
+    });
 
     // Verdadeiro quando a pessoa pediu para ver a lista inteira pelo botão.
     let listaAberta = false;
@@ -79,7 +105,15 @@
       lista.hidden = !mostrar;
       if (alternar) {
         alternar.setAttribute('aria-expanded', listaAberta ? 'true' : 'false');
-        alternar.textContent = listaAberta ? 'Esconder a lista de bairros' : 'Ver todos os bairros';
+        // Troca so o texto: mexer no botao inteiro apagaria o icone da seta.
+        const textoBotao = alternar.querySelector('.busca-bairro__alternar-texto');
+        if (textoBotao) {
+          // Os dois rotulos vem do bairros.json, pelos data-atributos do proprio
+          // elemento: trocar a palavra nao exige mexer no JavaScript.
+          textoBotao.textContent = listaAberta
+            ? (textoBotao.getAttribute('data-rotulo-aberto') || 'Fechar lista')
+            : (textoBotao.getAttribute('data-rotulo-fechado') || 'Listar bairros');
+        }
         alternar.hidden = termo !== '';
       }
     }
@@ -97,6 +131,9 @@
 
       semResultado.hidden = visiveis !== 0;
       atualizarVisibilidadeDaLista(termo);
+
+      // O X so aparece quando ha o que limpar.
+      if (limpar) limpar.hidden = campo.value === '';
 
       if (termo === '') {
         contador.textContent = '';
@@ -142,8 +179,32 @@
       });
     }
 
-    // Estado inicial: lista escondida, botão "Ver todos os bairros" disponível.
+    // Estado inicial: lista escondida, botão de listar os bairros disponível.
     filtrar();
+
+    // Fecha a busca inteira: apaga o que foi digitado, esconde a lista e a
+    // resposta, e devolve o cursor ao campo para quem quiser buscar de novo.
+    function limparBusca() {
+      campo.value = '';
+      listaAberta = false;
+      filtrar();
+      campo.focus();
+    }
+
+    if (limpar) {
+      limpar.addEventListener('click', limparBusca);
+    }
+
+    // Esc dentro do campo tambem limpa — menos no site que tem saida rapida,
+    // onde o Esc pertence a ela e nao pode ser desviado para outra coisa.
+    if (!document.getElementById('saida-rapida')) {
+      campo.addEventListener('keydown', function (evento) {
+        if (evento.key === 'Escape' && campo.value !== '') {
+          evento.preventDefault();
+          limparBusca();
+        }
+      });
+    }
 
     lista.addEventListener('click', function (evento) {
       const botao = evento.target.closest('.busca-bairro__botao');
@@ -317,6 +378,73 @@
           fecharPainel();
         }
       });
+    }
+  }
+
+  // ---------- Cabecalho que encolhe ao rolar ----------
+  var cabecalho = document.querySelector('.cabecalho');
+
+  if (cabecalho) {
+    var ultimoEstado = false;
+
+    function ajustarCabecalho() {
+      var compacto = window.scrollY > 40;
+      if (compacto !== ultimoEstado) {
+        cabecalho.classList.toggle('cabecalho--compacto', compacto);
+        ultimoEstado = compacto;
+      }
+    }
+
+    ajustarCabecalho();
+    window.addEventListener('scroll', ajustarCabecalho, { passive: true });
+  }
+
+  // ---------- Blocos que aparecem conforme a pessoa rola ----------
+  // A classe que esconde so e colocada aqui, pelo JavaScript. Se o JavaScript
+  // nao rodar, nada fica escondido. E se o navegador nao tiver
+  // IntersectionObserver, mostramos tudo de uma vez em vez de deixar sumido.
+  var alvos = document.querySelectorAll(
+    '.bloco-emergencia, .grade-atalhos, .secao, .aviso, .destaque, ' +
+    '.rodape__coluna, .rodape__mapa, .busca-bairro'
+  );
+
+  if (alvos.length) {
+    var i;
+
+    if (!('IntersectionObserver' in window)) {
+      for (i = 0; i < alvos.length; i++) {
+        alvos[i].classList.add('revela', 'revela--visivel');
+      }
+    } else {
+      for (i = 0; i < alvos.length; i++) {
+        alvos[i].classList.add('revela');
+      }
+
+      var observador = new IntersectionObserver(function (entradas) {
+        entradas.forEach(function (entrada) {
+          if (!entrada.isIntersecting) return;
+          entrada.target.classList.add('revela--visivel');
+          if (entrada.target.classList.contains('grade-atalhos')) {
+            entrada.target.classList.add('grade-atalhos--visivel');
+          }
+          observador.unobserve(entrada.target);
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+
+      for (i = 0; i < alvos.length; i++) {
+        observador.observe(alvos[i]);
+      }
+
+      // Rede de seguranca: se por qualquer motivo o observador nao disparar,
+      // depois de dois segundos tudo aparece assim mesmo.
+      window.setTimeout(function () {
+        for (var j = 0; j < alvos.length; j++) {
+          alvos[j].classList.add('revela--visivel');
+          if (alvos[j].classList.contains('grade-atalhos')) {
+            alvos[j].classList.add('grade-atalhos--visivel');
+          }
+        }
+      }, 2000);
     }
   }
 

@@ -78,16 +78,18 @@ app.use((req, res, next) => {
   const bairros = dadosOpcionais('bairros.json');
   const duvidas = dadosOpcionais('duvidas.json');
   const rede = dadosOpcionais('rede.json');
+  const rodape = dados('rodape.json');
   const entrada = paginas.navegacao.find(p => p.rota === req.path);
   if (!entrada) return next();
   const pagina = paginas.conteudo[entrada.chave];
   res.render(entrada.view, {
     // O titulo da aba pode ser diferente do titulo na tela: no site VD ele e
     // neutro, para nao denunciar o assunto no historico do navegador.
-    titulo: pagina.titulo_aba || pagina.titulo,
+    titulo: (pagina.titulo_aba || pagina.titulo) + (site.sufixo_aba ? ' — ' + site.sufixo_aba : ''),
     pagina,
     site,
     navegacao: paginas.navegacao,
+    conteudo: paginas.conteudo,
     rotaAtual: req.path,
     conselhos,
     atalhos,
@@ -95,6 +97,7 @@ app.use((req, res, next) => {
     bairros,
     duvidas,
     rede,
+    rodape,
   });
 });
 
@@ -107,10 +110,12 @@ app.use((req, res) => {
   const bairros = dadosOpcionais('bairros.json');
   const duvidas = dadosOpcionais('duvidas.json');
   const rede = dadosOpcionais('rede.json');
+  const rodape = dados('rodape.json');
   res.status(404).render('erro-404', {
-    titulo: 'Página não encontrada',
+    titulo: 'Página não encontrada' + (site.sufixo_aba ? ' — ' + site.sufixo_aba : ''),
     site,
     navegacao: paginas.navegacao,
+    conteudo: paginas.conteudo,
     rotaAtual: null,
     conselhos,
     atalhos,
@@ -118,6 +123,7 @@ app.use((req, res) => {
     bairros,
     duvidas,
     rede,
+    rodape,
   });
 });
 

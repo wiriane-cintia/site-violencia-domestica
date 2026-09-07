@@ -63,25 +63,38 @@
   ],
   "conteudo": {
     "inicio": {
-      "titulo": "Proteção e apoio em Juazeiro do Norte",
-      "texto": "Aqui você encontra informação sobre violência doméstica: como reconhecer, onde pedir ajuda em Juazeiro do Norte e o que a lei garante. Você decide o que fazer e em que ritmo. Se há risco agora, ligue 190.",
+      "titulo": "Existe ajuda perto de você",
+      "texto": "Este site reúne os serviços de Juazeiro do Norte que atendem quem sofre violência dentro de casa: criança, adolescente, mulher, pessoa idosa e pessoa com deficiência. Aqui você vê o que a lei garante, para onde ligar e o que acontece depois de cada caminho. Você decide o que fazer e em que ritmo. Se o risco é agora, ligue 190.",
       "secoes": [
         {
           "tipo": "aviso",
           "titulo": "Antes de continuar lendo",
-          "texto": "Se a pessoa que te agride tem acesso ao seu celular ou computador, veja a página de segurança digital antes de navegar mais. Ela explica como apagar o histórico e como usar uma janela anônima."
+          "texto": "Se a pessoa que agride tem acesso ao seu celular ou computador, veja a página de segurança digital antes de navegar mais. Ela explica como apagar o histórico e como usar uma janela anônima."
+        },
+        {
+          "tipo": "texto",
+          "titulo": "Este site é para quem sofre violência dentro de casa",
+          "paragrafos": [
+            "Violência doméstica não é só a que um homem comete contra a mulher, ainda que essa seja a mais denunciada. É a que acontece dentro da família e da convivência: contra a criança e o adolescente, contra a mulher, contra a pessoa idosa, contra a pessoa com deficiência, e também contra o homem agredido por quem mora com ele.",
+            "Quem agride pode ser o companheiro ou a companheira, o pai, a mãe, o filho adulto, o padrasto, o cuidador, o irmão, o neto. O que define é a relação e a casa, não o sexo de quem agride nem o de quem sofre.",
+            "Cada situação tem um caminho diferente de atendimento, e cada canal desta página diz quem ele atende."
+          ]
         },
         {
           "tipo": "telefones",
           "titulo": "Ajuda imediata, 24 horas",
           "itens": [
             {
-              "rotulo": "190 — Polícia Militar, para risco agora",
+              "rotulo": "190 — Polícia Militar, para risco agora, em qualquer caso",
               "href": "tel:190"
             },
             {
-              "rotulo": "180 — Central de Atendimento à Mulher, gratuito e sigiloso",
+              "rotulo": "180 — Central de Atendimento à Mulher",
               "href": "tel:180"
+            },
+            {
+              "rotulo": "100 — Direitos Humanos: criança, adolescente, pessoa idosa e pessoa com deficiência",
+              "href": "tel:100"
             },
             {
               "rotulo": "192 — SAMU, para emergência médica",
@@ -90,49 +103,65 @@
           ]
         }
       ],
-      "titulo_aba": "Rede de Proteção — Juazeiro do Norte"
+      "titulo_aba": "Início",
+      "resumo": "Por onde começar e para onde ligar"
     },
     "isso-e-violencia": {
       "titulo": "Isso é violência?",
-      "texto": "Muita gente demora a reconhecer o que vive como violência porque não houve agressão física. A Lei Maria da Penha reconhece seis formas de violência doméstica e familiar contra a mulher — e a maioria delas não deixa marca no corpo.",
+      "texto": "Muita gente demora a reconhecer o que vive como violência porque não houve agressão física. A Lei Maria da Penha reconhece seis formas de violência doméstica, e a maioria delas não deixa marca no corpo. As mesmas condutas contra criança, adolescente, pessoa idosa ou pessoa com deficiência também são violência, previstas nos estatutos de cada um.",
       "secoes": [
         {
           "tipo": "texto",
           "titulo": "As seis formas previstas na lei",
           "paragrafos": [
+            "Estas seis formas estão escritas na Lei Maria da Penha, que trata da violência contra a mulher. As mesmas condutas, quando praticadas contra criança, adolescente, pessoa idosa ou pessoa com deficiência, também são violência, e estão previstas no Estatuto da Criança e do Adolescente, no Estatuto da Pessoa Idosa e na Lei Brasileira de Inclusão. Muda a lei que protege e o serviço que atende; não muda o fato de ser violência.",
             "Violência física: qualquer conduta que ofenda a integridade ou a saúde do corpo. Empurrão, tapa, apertão, queimadura, sufocamento, uso de objetos ou armas.",
-            "Violência psicológica: conduta que causa dano emocional, diminui a autoestima ou controla o que você faz, pensa e decide. Ameaça, humilhação, chantagem, vigilância, perseguição, isolamento da família e dos amigos, impedir de trabalhar ou estudar, e distorcer os fatos até você duvidar da sua própria memória.",
+            "Violência psicológica: conduta que causa dano emocional, diminui a autoestima ou controla o que a pessoa faz, pensa e decide. Ameaça, humilhação, chantagem, vigilância, perseguição, isolamento da família e dos amigos, impedir de trabalhar ou estudar, e distorcer os fatos até a pessoa duvidar da própria memória.",
             "Violência sexual: constranger a manter, presenciar ou participar de relação sexual não desejada, mesmo dentro do casamento. Também impedir o uso de métodos contraceptivos ou forçar gravidez, aborto, casamento ou prostituição.",
-            "Violência patrimonial: reter, subtrair ou destruir seus objetos, documentos, bens ou dinheiro. Controlar o seu salário, esconder seus documentos, quebrar suas coisas, deixar de pagar pensão.",
-            "Violência moral: calúnia, difamação ou injúria. Espalhar boatos, acusar falsamente, expor sua vida íntima, xingar em público.",
-            "Violência vicária: usar quem você ama para te atingir. Ameaçar ou machucar seus filhos, seus familiares ou seus animais de estimação, ou usar as crianças para te causar sofrimento."
+            "Violência patrimonial: reter, subtrair ou destruir objetos, documentos, bens ou dinheiro. Controlar o salário, esconder documentos, quebrar as coisas, deixar de pagar pensão. Contra a pessoa idosa, é também tomar o cartão do benefício, fazer empréstimo em nome dela ou obrigá-la a assinar procuração.",
+            "Violência moral: calúnia, difamação ou injúria. Espalhar boatos, acusar falsamente, expor a vida íntima, xingar em público.",
+            "Violência vicária: usar quem a pessoa ama para atingi-la. Ameaçar ou machucar os filhos, os familiares ou os animais de estimação, ou usar as crianças para causar sofrimento."
+          ]
+        },
+        {
+          "tipo": "texto",
+          "titulo": "Como isso aparece em cada caso",
+          "paragrafos": [
+            "Criança e adolescente: apanhar como castigo, ser deixado sozinho ou sem comida, remédio e escola, ouvir humilhação constante, ser tocado por adulto da casa, ser usado como moeda de troca entre os pais. Presenciar a agressão contra a mãe ou contra outra pessoa querida também é violência contra a criança, por decisão expressa da Lei 13.431/2017.",
+            "Mulher: as seis formas acima, praticadas pelo companheiro, ex-companheiro, pai, irmão ou filho, dentro da relação doméstica ou afetiva.",
+            "Pessoa idosa: ficar sem os remédios, sem banho ou sem comida por descuido de quem cuida; ter o cartão do benefício retido; ser trancada em casa; ser xingada ou ameaçada de ser mandada para um asilo; ter empréstimo feito em seu nome.",
+            "Pessoa com deficiência: ter o cuidado necessário negado, ter a cadeira de rodas, a bengala, o aparelho auditivo ou o remédio escondidos ou quebrados, ser impedida de sair ou de falar com outras pessoas, ter o benefício tomado, ser tratada como incapaz de decidir sobre a própria vida.",
+            "Homem: agressão física, ameaça, destruição de bens ou humilhação praticada por quem mora com ele — companheira, companheiro, filho adulto ou outro familiar. O atendimento é na delegacia comum, e o 190 vale igualmente."
           ]
         },
         {
           "tipo": "lista",
           "titulo": "Sinais que costumam aparecer antes da agressão física",
           "itens": [
-            "Ele controla quanto você gasta, com quem fala e onde vai",
-            "Ele checa seu celular, suas mensagens e suas redes",
-            "Você se afastou dos seus amigos e da sua família por causa dele",
-            "Você mede as palavras dentro de casa com medo da reação dele",
-            "Ele diz que a culpa é sua quando ele perde o controle",
-            "Ele ameaça se matar, te deixar sem nada ou tirar seus filhos se você sair",
+            "A pessoa que agride controla quanto se gasta, com quem se fala e onde se vai",
+            "Ela checa o celular, as mensagens e as redes",
+            "A vítima se afastou dos amigos e da família por causa dela",
+            "Todo mundo mede as palavras dentro de casa com medo da reação dela",
+            "Ela diz que a culpa é da vítima quando perde o controle",
+            "Ela ameaça se matar, deixar sem nada ou tirar os filhos se a pessoa sair",
+            "No caso de quem depende de cuidado, ela ameaça abandonar, internar ou parar de dar o remédio",
             "Depois de cada episódio ruim vem um período de arrependimento e promessas, e o ciclo recomeça"
           ]
         },
         {
           "tipo": "aviso",
           "titulo": "Nenhum motivo justifica",
-          "texto": "Não existe comportamento seu que autorize alguém a te agredir. Ciúme, bebida, desemprego, nervosismo e discussão não são justificativa — são explicações que o agressor usa, e a lei não aceita nenhuma delas."
+          "texto": "Não existe comportamento da vítima que autorize alguém a agredir. Ciúme, bebida, desemprego, nervosismo, cansaço de cuidar e discussão não são justificativa — são explicações que quem agride usa, e a lei não aceita nenhuma delas."
         },
         {
           "tipo": "destaque",
           "titulo": "Se você se reconheceu em alguma coisa aqui",
-          "texto": "Você não precisa decidir nada agora nem denunciar ninguém para conversar com alguém. Ligue 180: é gratuito, funciona 24 horas e você pode só tirar dúvidas."
+          "texto": "Você não precisa decidir nada agora nem denunciar ninguém para conversar com alguém. Ligue 180 se a violência é contra uma mulher, ou 100 se é contra criança, adolescente, pessoa idosa ou pessoa com deficiência. Os dois são gratuitos, funcionam 24 horas e você pode só tirar dúvidas."
         }
       ],
-      "titulo_aba": "Informações — Rede de Proteção"
+      "titulo_aba": "Informações",
+      "resumo": "As seis formas de violência e como aparecem em cada caso",
+      "icone": "duvida"
     },
     "pedir-ajuda": {
       "titulo": "Pedir ajuda agora",
@@ -141,14 +170,26 @@
         {
           "tipo": "aviso",
           "titulo": "Se a agressão está acontecendo agora",
-          "texto": "Ligue 190. Se você não puder falar, ligue e deixe a linha aberta: a central consegue localizar a chamada. Se conseguir, saia de casa e vá para um lugar com outras pessoas."
+          "texto": "Ligue 190, qualquer que seja a vítima. Se você não puder falar, ligue e deixe a linha aberta: a central consegue localizar a chamada. Se conseguir, saia de casa e vá para um lugar com outras pessoas."
+        },
+        {
+          "tipo": "texto",
+          "titulo": "Primeiro: quem está sofrendo?",
+          "paragrafos": [
+            "O caminho muda conforme quem é a vítima, porque os serviços são diferentes. Encontre abaixo a sua situação.",
+            "Mulher: ligue 180 ou procure a Delegacia da Mulher. Onde não houver, qualquer delegacia atende. O pedido de medida protetiva é feito no mesmo atendimento.",
+            "Criança ou adolescente: comunique o Conselho Tutelar ou ligue 100. Em caso de crime, também a delegacia. A Lei Henry Borel prevê medidas protetivas próprias para criança e adolescente.",
+            "Pessoa idosa: ligue 100, procure o CREAS ou a delegacia. O Ministério Público e o Conselho da Pessoa Idosa também recebem a comunicação.",
+            "Pessoa com deficiência: ligue 100, procure o CREAS ou a delegacia. O Ministério Público também recebe a comunicação.",
+            "Homem agredido por quem mora com ele: procure qualquer delegacia. O 190 vale para risco imediato, e a Defensoria Pública orienta sobre medidas cabíveis."
+          ]
         },
         {
           "tipo": "telefones",
           "titulo": "Telefones que funcionam 24 horas",
           "itens": [
             {
-              "rotulo": "190 — Polícia Militar, emergência",
+              "rotulo": "190 — Polícia Militar, emergência, qualquer vítima",
               "href": "tel:190"
             },
             {
@@ -161,30 +202,34 @@
               "tipo": "whatsapp"
             },
             {
-              "rotulo": "192 — SAMU, se você precisa de atendimento médico",
+              "rotulo": "100 — criança, adolescente, pessoa idosa e pessoa com deficiência",
+              "href": "tel:100"
+            },
+            {
+              "rotulo": "192 — SAMU, se há necessidade de atendimento médico",
               "href": "tel:192"
             }
           ]
         },
         {
           "tipo": "passos",
-          "titulo": "Se você foi agredida e quer registrar",
+          "titulo": "Se houve agressão e você quer registrar",
           "itens": [
             {
               "titulo": "Procure uma delegacia",
-              "texto": "Você pode ir a qualquer delegacia. Onde houver Delegacia da Mulher, prefira, porque o atendimento é especializado. Não é preciso ter advogado nem pagar nada."
+              "texto": "Qualquer delegacia registra. Se a vítima é mulher e houver Delegacia da Mulher, prefira, porque o atendimento é especializado. Não é preciso ter advogado nem pagar nada."
             },
             {
               "titulo": "Peça medida protetiva na hora",
-              "texto": "No mesmo atendimento você pode pedir medida protetiva de urgência, que pode determinar o afastamento do agressor de casa e a proibição de ele se aproximar de você."
+              "texto": "No mesmo atendimento é possível pedir medida protetiva de urgência, que pode afastar de casa quem agride e proibir a aproximação. Existe para mulher, pela Lei Maria da Penha, e para criança e adolescente, pela Lei Henry Borel. Para pessoa idosa e pessoa com deficiência, o pedido é feito pela via judicial comum, com apoio da Defensoria ou do Ministério Público."
             },
             {
               "titulo": "Faça o exame de corpo de delito",
               "texto": "Se houve agressão física ou sexual, o exame registra as lesões. Procure atendimento de saúde mesmo que as marcas pareçam pequenas."
             },
             {
-              "titulo": "Guarde o que você tiver",
-              "texto": "Prints de mensagens, áudios, fotos de ferimentos e de objetos quebrados, nomes de quem presenciou. Envie cópia para alguém de confiança."
+              "titulo": "Guarde o que tiver",
+              "texto": "Prints de mensagens, áudios, fotos de ferimentos e de objetos quebrados, extratos que mostrem movimentação estranha na conta, nomes de quem presenciou. Envie cópia para alguém de confiança."
             }
           ]
         },
@@ -198,82 +243,109 @@
             },
             {
               "pergunta": "Posso ir com meus filhos?",
-              "resposta": "Pode. Se as crianças também sofreram violência ou presenciaram, informe no atendimento — isso é levado em conta na proteção."
+              "resposta": "Pode. Se as crianças também sofreram violência ou presenciaram, informe no atendimento — isso é levado em conta na proteção, e presenciar já é, por lei, violência contra elas."
             },
             {
               "pergunta": "E se eu não tiver para onde ir?",
-              "resposta": "Informe isso no atendimento. A rede de proteção tem serviços de acolhimento para mulheres em risco, e o pedido de medida protetiva pode determinar que quem sai de casa seja o agressor, não você."
+              "resposta": "Informe isso no atendimento. Há serviços de acolhimento na rede, e o pedido de medida protetiva pode determinar que quem sai de casa seja quem agride, não a vítima."
             },
             {
-              "pergunta": "E se ele descobrir que eu procurei ajuda?",
+              "pergunta": "Posso denunciar por outra pessoa?",
+              "resposta": "Pode. Quando a vítima é criança, adolescente, pessoa idosa ou pessoa com deficiência, qualquer pessoa pode e deve comunicar, e não é preciso ter certeza nem provas."
+            },
+            {
+              "pergunta": "E se a pessoa descobrir que eu procurei ajuda?",
               "resposta": "Esse medo é legítimo e deve ser dito no atendimento, porque muda a avaliação de risco. Antes de qualquer passo, veja a página de segurança digital e o plano de saída."
             }
           ]
         }
       ],
-      "titulo_aba": "Atendimento — Rede de Proteção"
+      "titulo_aba": "Atendimento",
+      "resumo": "Canais de atendimento e o que fazer agora",
+      "icone": "socorro"
     },
     "nao-quero-denunciar": {
       "titulo": "Se você não quer denunciar",
-      "texto": "Muita mulher busca informação e não quer registrar ocorrência. Os motivos são reais: medo de piorar, dependência financeira, filhos, vergonha, ou simplesmente não querer que ele seja preso. Você tem direito a receber ajuda mesmo assim.",
+      "texto": "Muita gente busca informação e não quer registrar ocorrência. Os motivos são reais: medo de piorar, dependência financeira ou de cuidado, filhos, vergonha, ou simplesmente não querer que a pessoa seja presa. Você tem direito a receber ajuda mesmo assim — com um limite, que esta página explica logo abaixo.",
       "secoes": [
         {
           "tipo": "lista",
           "titulo": "O que você pode fazer sem denunciar",
           "itens": [
-            "Ligar 180 para conversar, tirar dúvidas e conhecer seus direitos, sem se identificar",
+            "Ligar 180 (mulher) ou 100 (criança, adolescente, pessoa idosa, pessoa com deficiência) para conversar, tirar dúvidas e conhecer seus direitos, sem se identificar",
             "Procurar o CRAS ou o CREAS para acompanhamento social e acesso a benefícios",
             "Procurar a unidade de saúde para atendimento médico e psicológico",
-            "Procurar a Defensoria Pública para entender suas opções, inclusive divórcio, guarda e pensão",
+            "Procurar a Defensoria Pública para entender suas opções, inclusive divórcio, guarda, pensão, curatela e interdição de procuração",
             "Montar um plano de segurança para o caso de precisar sair rápido",
             "Guardar provas com alguém de confiança, para usar se um dia você decidir"
           ]
         },
         {
           "tipo": "aviso",
+          "titulo": "O limite honesto desta página",
+          "texto": "Quando a vítima é criança, adolescente, pessoa idosa ou pessoa com deficiência, a comunicação é obrigatória por lei e não depende da vontade de quem sofreu nem de quem soube. Nesses casos, quem atende é obrigado a comunicar. Isso não é motivo para não buscar ajuda: é motivo para saber disso antes de decidir."
+        },
+        {
+          "tipo": "aviso",
           "titulo": "Uma informação importante antes de decidir",
-          "texto": "Dependendo do que aconteceu, o processo criminal pode seguir mesmo que você não queira dar continuidade, porque alguns crimes não dependem da manifestação da vítima. Isso não é motivo para não buscar ajuda: é motivo para pedir orientação antes, na Defensoria Pública ou pelo 180."
+          "texto": "Dependendo do que aconteceu, o processo criminal pode seguir mesmo que você não queira dar continuidade, porque alguns crimes não dependem da manifestação da vítima. Peça orientação antes, na Defensoria Pública, pelo 180 ou pelo 100."
         },
         {
           "tipo": "texto",
           "titulo": "Sobre o tempo que você leva",
           "paragrafos": [
             "Sair de uma relação violenta costuma levar várias tentativas. Isso não é fraqueza nem falta de decisão: o risco de agressão grave aumenta justamente no momento da separação, e quem vive a situação percebe isso.",
-            "Buscar informação, montar rede de apoio e organizar documentos são passos reais de proteção, mesmo que você continue em casa por enquanto."
+            "Quem depende de cuidado — pessoa idosa, pessoa com deficiência, criança — muitas vezes depende financeira ou fisicamente de quem agride. Isso torna a saída mais lenta, e não menos legítima.",
+            "Buscar informação, montar rede de apoio e organizar documentos são passos reais de proteção, mesmo que você continue na mesma casa por enquanto."
           ]
         },
         {
           "tipo": "destaque",
           "titulo": "A decisão continua sendo sua",
-          "texto": "Ninguém pode te obrigar a denunciar. Procurar apoio não te compromete com nada e não te obriga a seguir adiante."
+          "texto": "Fora dos casos de comunicação obrigatória acima, ninguém pode te obrigar a denunciar. Procurar apoio não te compromete com nada e não te obriga a seguir adiante."
         }
       ],
-      "titulo_aba": "Orientação — Rede de Proteção"
+      "titulo_aba": "Orientação",
+      "resumo": "Apoio e orientação sem registrar denúncia",
+      "icone": "escudo"
     },
     "como-a-lei-protege": {
       "titulo": "Como a lei protege você",
-      "texto": "A Lei Maria da Penha existe desde 2006 e criou instrumentos para proteger a mulher antes que a violência se repita. O principal deles é a medida protetiva de urgência.",
+      "texto": "Existem leis diferentes para cada vítima de violência dentro de casa, e elas não oferecem os mesmos instrumentos. Esta página mostra o que cada uma garante e como se pede proteção em cada caso.",
       "secoes": [
         {
           "tipo": "texto",
           "titulo": "O que é medida protetiva de urgência",
           "paragrafos": [
-            "É uma decisão da Justiça que impõe obrigações ao agressor para proteger você. Ela não depende de processo criminal concluído e pode ser pedida logo no primeiro atendimento.",
-            "O pedido pode ser feito pela própria mulher, sem advogado, na delegacia, na Defensoria Pública, no Ministério Público ou diretamente na Justiça."
+            "É uma decisão da Justiça que impõe obrigações a quem agride para proteger a vítima. Ela não depende de processo criminal concluído e pode ser pedida logo no primeiro atendimento.",
+            "Existem dois sistemas de medida protetiva no Brasil. Para a mulher, a Lei Maria da Penha (Lei 11.340/2006). Para a criança e o adolescente, a Lei Henry Borel (Lei 14.344/2022), em vigor desde 2022, que criou medidas parecidas para vítimas de violência doméstica e familiar.",
+            "Para a pessoa idosa e a pessoa com deficiência não existe lei própria de medida protetiva. A proteção vem do Estatuto da Pessoa Idosa e da Lei Brasileira de Inclusão, e as medidas são pedidas pela via judicial comum, normalmente com apoio da Defensoria Pública ou do Ministério Público, que tem legitimidade para agir em favor delas."
           ]
         },
         {
           "tipo": "lista",
           "titulo": "O que a Justiça pode determinar",
           "itens": [
-            "Afastamento do agressor do lar",
-            "Proibição de ele se aproximar de você, com distância mínima definida",
+            "Afastamento de quem agride do lar",
+            "Proibição de aproximação, com distância mínima definida",
             "Proibição de contato por telefone, mensagem ou redes sociais",
-            "Proibição de frequentar determinados lugares, como seu trabalho ou a escola dos filhos",
+            "Proibição de frequentar determinados lugares, como o trabalho da vítima ou a escola dos filhos",
             "Restrição ou suspensão de visitas aos filhos",
             "Pagamento de pensão alimentícia provisória",
-            "Devolução dos seus bens e documentos e suspensão de procurações dadas a ele",
-            "Encaminhamento seu e dos seus filhos a programa de proteção e atendimento"
+            "Devolução de bens e documentos e suspensão de procurações dadas a quem agride",
+            "Encaminhamento da vítima e dos filhos a programa de proteção e atendimento",
+            "No caso de criança e adolescente, o afastamento do agressor da casa e a suspensão do poder familiar quando necessário"
+          ]
+        },
+        {
+          "tipo": "texto",
+          "titulo": "Quem protege cada pessoa",
+          "paragrafos": [
+            "Mulher: Lei Maria da Penha (11.340/2006). Prevê as seis formas de violência, as medidas protetivas e o atendimento especializado.",
+            "Criança e adolescente: Estatuto da Criança e do Adolescente e Lei Henry Borel (14.344/2022). O ECA obriga a comunicação de suspeita de maus-tratos ao Conselho Tutelar, e a Lei 13.431/2017 reconhece como vítima a criança que presencia violência contra alguém de quem gosta.",
+            "Pessoa idosa: Estatuto da Pessoa Idosa (Lei 10.741/2003). O artigo 19 determina que casos de suspeita ou confirmação de violência sejam comunicados à autoridade policial, ao Ministério Público e aos Conselhos da Pessoa Idosa.",
+            "Pessoa com deficiência: Lei Brasileira de Inclusão (Lei 13.146/2015). O artigo 26 determina a notificação compulsória de suspeita ou confirmação de violência à autoridade policial, ao Ministério Público e aos Conselhos de Direitos da Pessoa com Deficiência.",
+            "Homem: não há lei específica de violência doméstica, mas a agressão, a ameaça, o dano ao patrimônio e a injúria são crimes previstos no Código Penal, registrados em qualquer delegacia."
           ]
         },
         {
@@ -286,39 +358,46 @@
             },
             {
               "pergunta": "Preciso registrar ocorrência criminal para pedir medida protetiva?",
-              "resposta": "A medida protetiva tem natureza própria e busca a sua proteção. Peça no atendimento e informe todos os fatos: quem te atender vai orientar sobre os registros necessários."
+              "resposta": "A medida protetiva tem natureza própria e busca a proteção da vítima. Peça no atendimento e informe todos os fatos: quem te atender vai orientar sobre os registros necessários."
             },
             {
-              "pergunta": "E se ele descumprir a medida?",
+              "pergunta": "E se a medida for descumprida?",
               "resposta": "Descumprir medida protetiva é crime. Ligue 190 na hora, guarde as provas do descumprimento e comunique a delegacia."
             },
             {
-              "pergunta": "A lei vale para namoro, para relação que já acabou e para casal de mulheres?",
+              "pergunta": "A Lei Maria da Penha vale para namoro, para relação que já acabou e para casal de mulheres?",
               "resposta": "Sim. A lei alcança relações de casamento, união, namoro e relações já encerradas, e se aplica independentemente de orientação sexual."
             },
             {
               "pergunta": "Violência psicológica é crime?",
-              "resposta": "Sim. A violência psicológica contra a mulher é crime previsto no Código Penal, além de ser uma das formas de violência reconhecidas pela Lei Maria da Penha."
+              "resposta": "Sim. A violência psicológica contra a mulher é crime previsto no Código Penal, além de ser uma das formas reconhecidas pela Lei Maria da Penha. Contra criança, adolescente, pessoa idosa e pessoa com deficiência, a violência psicológica é reconhecida pelos respectivos estatutos e pode configurar outros crimes, como maus-tratos e ameaça."
+            },
+            {
+              "pergunta": "Quem cuida de alguém pode ser responsabilizado por deixar de cuidar?",
+              "resposta": "Pode. Deixar de dar comida, remédio, higiene ou atendimento de saúde a quem depende de cuidado é violência por omissão e pode configurar o crime de maus-tratos ou abandono."
             }
           ]
         }
       ],
-      "titulo_aba": "Direitos — Rede de Proteção"
+      "titulo_aba": "Direitos",
+      "resumo": "Medidas protetivas e a lei que protege cada pessoa",
+      "icone": "balanca"
     },
     "quero-ajudar": {
       "titulo": "Quero ajudar alguém",
-      "texto": "Se você desconfia que alguém próximo está vivendo violência, o seu papel é importante — e a forma como você age faz diferença no risco que ela corre.",
+      "texto": "Se você desconfia que alguém próximo está vivendo violência, o seu papel é importante — e a forma como você age faz diferença no risco que essa pessoa corre. Há também situações em que comunicar deixa de ser escolha sua e passa a ser obrigação legal.",
       "secoes": [
         {
           "tipo": "lista",
           "titulo": "O que ajuda",
           "itens": [
-            "Escutar sem julgar e sem perguntar por que ela não sai",
+            "Escutar sem julgar e sem perguntar por que a pessoa não sai",
             "Dizer com clareza que você acredita nela e que a culpa não é dela",
             "Perguntar o que ela precisa, em vez de decidir por ela",
             "Combinar um código ou uma palavra para ela avisar que precisa de socorro",
             "Guardar cópias de documentos e provas na sua casa, se ela pedir",
             "Manter o contato mesmo quando ela se afasta — o isolamento é parte da violência",
+            "Se for pessoa idosa ou pessoa com deficiência, visitar com frequência e insistir em ficar a sós com ela por alguns minutos",
             "Ligar 190 se você presenciar ou ouvir uma agressão acontecendo"
           ]
         },
@@ -326,8 +405,8 @@
           "tipo": "lista",
           "titulo": "O que aumenta o risco",
           "itens": [
-            "Confrontar o agressor ou avisá-lo de que você sabe",
-            "Denunciar por conta própria sem falar com ela antes, salvo se houver risco imediato de vida",
+            "Confrontar quem agride ou avisar que você sabe",
+            "Denunciar por conta própria sem falar com a pessoa antes, salvo se houver risco imediato de vida ou se a vítima for criança, adolescente, pessoa idosa ou pessoa com deficiência — nesses casos comunique",
             "Pressionar para que ela saia hoje, sem plano e sem para onde ir",
             "Dizer que se fosse com você seria diferente",
             "Desistir dela quando ela volta atrás"
@@ -335,8 +414,8 @@
         },
         {
           "tipo": "aviso",
-          "titulo": "Se houver criança ou adolescente envolvido",
-          "texto": "Criança que presencia violência doméstica também é vítima. Nesse caso, comunique o Conselho Tutelar, que atua na proteção de crianças e adolescentes, ou ligue 100."
+          "titulo": "Quando comunicar não é opcional",
+          "texto": "Se a vítima é criança, adolescente, pessoa idosa ou pessoa com deficiência, a comunicação é obrigatória por lei e independe da vontade dela. Criança que presencia violência doméstica também é vítima. Comunique o Conselho Tutelar, no caso de criança e adolescente, ou ligue 100 nos demais casos. Você não precisa ter certeza nem provas — quem avalia é o serviço."
         },
         {
           "tipo": "telefones",
@@ -347,26 +426,39 @@
               "href": "tel:190"
             },
             {
-              "rotulo": "180 — para orientação sobre como ajudar",
+              "rotulo": "180 — para orientação sobre como ajudar uma mulher",
               "href": "tel:180"
             },
             {
-              "rotulo": "100 — se há criança ou adolescente em risco",
+              "rotulo": "100 — criança, adolescente, pessoa idosa e pessoa com deficiência",
               "href": "tel:100"
             }
           ]
         }
       ],
-      "titulo_aba": "Apoiar alguém — Rede de Proteção"
+      "titulo_aba": "Apoiar alguém",
+      "resumo": "Como apoiar alguém sem aumentar o risco",
+      "icone": "apoiar"
     },
     "para-profissionais": {
       "titulo": "Para escolas, saúde e assistência",
-      "texto": "Profissionais que atendem mulheres costumam ser o primeiro contato com uma situação de violência. Em serviços de saúde, comunicar não é escolha: é obrigação legal.",
+      "texto": "Quem trabalha em escola, saúde ou assistência costuma ser o primeiro contato com uma situação de violência dentro de casa. Comunicar não é escolha: é obrigação legal, e a lei muda conforme quem é a vítima.",
       "secoes": [
         {
           "tipo": "aviso",
-          "titulo": "Notificação compulsória na saúde",
-          "texto": "A lei determina que os serviços de saúde públicos e privados registrem no prontuário e comuniquem à autoridade policial, no prazo de 24 horas, os casos em que houver indícios ou confirmação de violência contra a mulher."
+          "titulo": "Comunicar é obrigação legal, não escolha",
+          "texto": "Em todos os casos abaixo a comunicação independe da vontade da vítima e da sua avaliação sobre a gravidade. Suspeita já basta: quem investiga é o serviço, não você."
+        },
+        {
+          "tipo": "texto",
+          "titulo": "O que a lei exige de cada serviço",
+          "paragrafos": [
+            "Violência contra a mulher: a Lei 13.931/2019 determina que os serviços de saúde públicos e privados registrem no prontuário e comuniquem à autoridade policial no prazo de 24 horas os casos de indício ou confirmação.",
+            "Violência contra criança e adolescente: o Estatuto da Criança e do Adolescente obriga médicos, professores e responsáveis por estabelecimento de saúde e de ensino a comunicar ao Conselho Tutelar os casos de suspeita ou confirmação de maus-tratos. Deixar de comunicar é infração administrativa com multa, prevista no artigo 245.",
+            "Violência contra pessoa idosa: o artigo 19 do Estatuto da Pessoa Idosa determina que os casos de suspeita ou confirmação sejam comunicados à autoridade policial, ao Ministério Público e aos Conselhos Municipal, Estadual e Nacional da Pessoa Idosa, além da notificação compulsória à autoridade sanitária pelos serviços de saúde.",
+            "Violência contra pessoa com deficiência: o artigo 26 da Lei Brasileira de Inclusão determina a notificação compulsória, pelos serviços de saúde públicos e privados, à autoridade policial, ao Ministério Público e aos Conselhos dos Direitos da Pessoa com Deficiência.",
+            "O prazo de 24 horas escrito em lei existe para o caso da mulher. Nos demais, a lei diz que a comunicação é obrigatória sem fixar prazo — o que não autoriza demora."
+          ]
         },
         {
           "tipo": "lista",
@@ -374,10 +466,12 @@
           "itens": [
             "Lesões repetidas ou com explicação que não combina com o ferimento",
             "Atraso em procurar atendimento após a lesão",
-            "Acompanhante que não deixa a mulher falar sozinha",
+            "Acompanhante que não deixa a pessoa falar sozinha, ou que responde por ela",
             "Queixas frequentes sem causa clínica definida, como dores e insônia",
             "Sinais de ansiedade, depressão ou uso de medicação sem acompanhamento",
-            "Faltas seguidas em consultas ou na escola dos filhos",
+            "Faltas seguidas em consultas, na escola ou no serviço de convivência",
+            "Em criança: medo do contato físico, comportamento sexualizado para a idade, fome, higiene precária, roupa inadequada",
+            "Em pessoa idosa ou pessoa com deficiência: desnutrição, desidratação, escaras, remédio em falta, ausência de órtese ou prótese, movimentação estranha no benefício",
             "Gravidez com pré-natal irregular ou relato de sexo forçado"
           ]
         },
@@ -387,29 +481,35 @@
           "itens": [
             {
               "titulo": "Atenda a sós",
-              "texto": "Crie uma justificativa de rotina para separar a mulher do acompanhante. Nunca aborde o tema na frente de quem a acompanha."
+              "texto": "Crie uma justificativa de rotina para separar a pessoa do acompanhante. Nunca aborde o tema na frente de quem a acompanha — o acompanhante pode ser quem agride."
             },
             {
               "titulo": "Registre com precisão",
-              "texto": "Descreva as lesões e registre a fala dela entre aspas, sem interpretar. O prontuário pode se tornar prova."
+              "texto": "Descreva as lesões e registre a fala da pessoa entre aspas, sem interpretar. O prontuário pode se tornar prova."
             },
             {
-              "titulo": "Não force a denúncia",
-              "texto": "Informe as opções e respeite o tempo dela. Pressionar costuma afastar a mulher do serviço, e o serviço é muitas vezes o único contato seguro que ela tem."
+              "titulo": "Cumpra a comunicação legal",
+              "texto": "Faça a comunicação prevista para aquele tipo de vítima, mesmo que a pessoa peça para não fazer. Explique a ela o que será feito e por quê."
             },
             {
-              "titulo": "Cumpra a comunicação legal e encaminhe",
-              "texto": "Faça a notificação prevista em lei e encaminhe à rede de proteção, informando a ela o que será feito."
+              "titulo": "Não force a denúncia quando ela é opcional",
+              "texto": "No caso da mulher adulta, informe as opções e respeite o tempo dela. Pressionar costuma afastar do serviço, e o serviço é muitas vezes o único contato seguro que ela tem."
+            },
+            {
+              "titulo": "Encaminhe para a rede",
+              "texto": "Comunicar não encerra o caso. Encaminhe ao CREAS, ao Conselho Tutelar, ao Centro de Referência ou à Defensoria, conforme a situação."
             }
           ]
         },
         {
           "tipo": "destaque",
           "titulo": "Escolas",
-          "texto": "Se a criança relata ou apresenta sinais de violência em casa, comunique o Conselho Tutelar. O dever de comunicar suspeita de maus-tratos contra criança e adolescente também é previsto em lei."
+          "texto": "Se a criança ou o adolescente relata ou apresenta sinais de violência em casa, comunique o Conselho Tutelar. A escola é, muitas vezes, o único adulto de fora que enxerga a situação. Não é preciso ter certeza."
         }
       ],
-      "titulo_aba": "Profissionais — Rede de Proteção"
+      "titulo_aba": "Profissionais",
+      "resumo": "Notificação obrigatória e condução do atendimento",
+      "icone": "escola"
     },
     "onde-buscar-ajuda": {
       "titulo": "Onde buscar ajuda",
@@ -420,7 +520,7 @@
           "titulo": "Atendimento nacional, 24 horas",
           "itens": [
             {
-              "rotulo": "190 — Polícia Militar, emergência",
+              "rotulo": "190 — Polícia Militar, emergência, qualquer vítima",
               "href": "tel:190"
             },
             {
@@ -433,27 +533,29 @@
               "tipo": "whatsapp"
             },
             {
-              "rotulo": "100 — Disque Direitos Humanos, para crianças e adolescentes",
+              "rotulo": "100 — Direitos Humanos: criança, adolescente, pessoa idosa e pessoa com deficiência",
               "href": "tel:100"
             },
             {
-              "rotulo": "192 — SAMU",
+              "rotulo": "192 — SAMU, emergência médica",
               "href": "tel:192"
             }
           ]
         },
         {
           "tipo": "texto",
-          "titulo": "Quem faz o quê",
+          "titulo": "Quem faz o quê, e quem cada um atende",
           "paragrafos": [
-            "Delegacia da Mulher: registra ocorrência, encaminha o pedido de medida protetiva e investiga. Onde não houver, qualquer delegacia atende.",
-            "Defensoria Pública: assistência jurídica gratuita, inclusive para divórcio, guarda, pensão e acompanhamento do processo.",
-            "Ministério Público: fiscaliza e pode requerer medidas protetivas em favor da mulher.",
-            "CRAS: apoio social à família e acesso a benefícios e programas.",
-            "CREAS: acompanhamento especializado para quem já teve direitos violados.",
-            "Unidade de saúde e CAPS: atendimento médico, saúde mental e acompanhamento psicológico.",
-            "Centro de Referência de Atendimento à Mulher: acolhimento, orientação jurídica e apoio psicológico, sem exigir denúncia.",
-            "Casa de acolhimento: abrigo temporário e sigiloso para mulheres em risco de morte."
+            "Delegacia da Mulher: registra ocorrência, encaminha o pedido de medida protetiva e investiga. Atende mulheres. Onde não houver, qualquer delegacia atende.",
+            "Qualquer delegacia: registra ocorrência de qualquer vítima, inclusive homem, pessoa idosa e pessoa com deficiência.",
+            "Conselho Tutelar: atende criança e adolescente. Recebe a comunicação de suspeita, avalia e aciona a rede. Não precisa de prova nem de identificação de quem comunica.",
+            "Defensoria Pública: assistência jurídica gratuita para qualquer vítima, inclusive para divórcio, guarda, pensão, curatela e acompanhamento do processo.",
+            "Ministério Público: fiscaliza a rede e pode requerer medidas protetivas em favor de mulher, criança, adolescente, pessoa idosa e pessoa com deficiência.",
+            "CRAS: apoio social à família e acesso a benefícios e programas. Atende qualquer pessoa da casa.",
+            "CREAS: acompanhamento especializado para quem já teve direitos violados — inclusive pessoa idosa e pessoa com deficiência em situação de violência ou abandono.",
+            "Unidade de saúde e CAPS: atendimento médico, saúde mental e acompanhamento psicológico, para qualquer vítima.",
+            "Centro de Referência de Atendimento à Mulher: acolhimento, orientação jurídica e apoio psicológico, sem exigir denúncia. Atende mulheres.",
+            "Casa de acolhimento: abrigo temporário e sigiloso para mulheres em risco de morte. Para criança e adolescente, o acolhimento é determinado pelo Conselho Tutelar ou pela Justiça; para pessoa idosa, pelo CREAS e pelo Ministério Público."
           ]
         },
         {
@@ -461,16 +563,18 @@
           "titulo": "Serviços em Juazeiro do Norte"
         }
       ],
-      "titulo_aba": "Serviços — Rede de Proteção"
+      "titulo_aba": "Serviços",
+      "resumo": "Serviços da rede em Juazeiro do Norte",
+      "icone": "mapa"
     },
     "seguranca": {
       "titulo": "Segurança digital e plano de saída",
-      "texto": "Se a pessoa que te agride tem acesso ao seu celular, ao seu computador ou às suas contas, buscar informação pode ser perigoso. Esta página é sobre reduzir esse risco.",
+      "texto": "Se a pessoa que agride tem acesso ao seu celular, ao seu computador ou às suas contas, buscar informação pode ser perigoso. Esta página é sobre reduzir esse risco.",
       "secoes": [
         {
           "tipo": "aviso",
           "titulo": "Antes de tudo",
-          "texto": "Se você acha que ele pode checar seu aparelho, prefira acessar este site pelo celular de uma pessoa de confiança, no computador de uma lan house ou em uma janela anônima."
+          "texto": "Se você acha que a pessoa que agride pode checar seu aparelho, prefira acessar este site pelo celular de alguém de confiança, no computador de uma lan house ou em uma janela anônima."
         },
         {
           "tipo": "lista",
@@ -480,7 +584,7 @@
             "Apague o histórico de navegação depois de pesquisar",
             "Apague conversas sobre o assunto em aplicativos de mensagem",
             "Verifique se há aplicativos de rastreamento ou de espelhamento instalados no seu celular",
-            "Troque as senhas do e-mail e das redes sociais em um aparelho que ele não use",
+            "Troque as senhas do e-mail e das redes sociais em um aparelho que essa pessoa não use",
             "Desative o compartilhamento de localização em tempo real",
             "Cuidado com fotos e publicações que revelem onde você está"
           ]
@@ -492,19 +596,21 @@
             "Escolha uma pessoa de confiança e combine um código, uma palavra ou um emoji que signifique que você precisa de socorro",
             "Salve o contato dela com um nome que não chame atenção",
             "Combine com um vizinho que, ao ouvir gritos ou barulho de briga, ele ligue 190 sem esperar você pedir",
-            "Deixe cópias de documentos e provas guardadas na casa dessa pessoa"
+            "Deixe cópias de documentos e provas guardadas na casa dessa pessoa",
+            "Se você cuida ou é cuidado por alguém, combine com um familiar de fora visitas frequentes e sem hora marcada"
           ]
         },
         {
           "tipo": "lista",
           "titulo": "Plano de saída",
           "itens": [
-            "Separe aos poucos, sem levantar suspeita, documentos seus e dos seus filhos, cartões, remédios de uso contínuo e uma muda de roupa",
+            "Separe aos poucos, sem levantar suspeita, documentos seus e das crianças, cartões, remédios de uso contínuo, receitas e uma muda de roupa",
+            "Quem usa órtese, prótese, aparelho auditivo ou cadeira de rodas: pense antes em como levá-los, e avise a pessoa de confiança",
             "Deixe essa bolsa na casa de alguém de confiança, não dentro de casa",
             "Tenha cópia das chaves guardada fora de casa",
             "Saiba de antemão para onde ir, com quem e como chegar",
             "Guarde algum dinheiro em espécie, ainda que pouco",
-            "Se for possível, saia quando ele não estiver em casa, sem avisar"
+            "Se for possível, saia quando a pessoa que agride não estiver em casa, sem avisar"
           ]
         },
         {
@@ -517,24 +623,29 @@
           "titulo": "Depois de sair",
           "itens": [
             "Troque as fechaduras e reforce portas e janelas",
-            "Avise vizinhos, portaria, escola dos filhos e trabalho sobre a separação e sobre eventual medida protetiva",
+            "Avise vizinhos, portaria, escola das crianças e trabalho sobre a separação e sobre eventual medida protetiva",
             "Varie os trajetos e os horários",
             "Evite os lugares que vocês frequentavam juntos",
-            "Guarde print de toda tentativa de contato dele, porque pode ser prova de descumprimento de medida protetiva"
+            "Se houve violência patrimonial, cancele procurações, troque a senha do benefício e avise o banco",
+            "Guarde print de toda tentativa de contato, porque pode ser prova de descumprimento de medida protetiva"
           ]
         },
         {
           "tipo": "destaque",
           "titulo": "Se o risco aumentar",
-          "texto": "Ameaça de morte, perseguição, ciúme com controle extremo e presença de arma em casa são sinais de risco grave. Nesses casos, procure ajuda imediatamente pelo 190 ou pelo 180."
+          "texto": "Ameaça de morte, perseguição, ciúme com controle extremo e presença de arma em casa são sinais de risco grave. Nesses casos, procure ajuda imediatamente pelo 190, pelo 180 ou pelo 100."
         }
       ],
-      "titulo_aba": "Segurança digital — Rede de Proteção"
+      "titulo_aba": "Segurança digital",
+      "resumo": "Navegar com segurança e plano de saída",
+      "icone": "cadeado"
     },
     "orientacao": {
       "titulo": "Orientação passo a passo",
       "texto": "Se você não sabe por onde começar, escolha abaixo a situação mais parecida com a sua. As mesmas perguntas aparecem no botão “Não sei por onde começar”, presente em todas as páginas.",
-      "titulo_aba": "Passo a passo — Rede de Proteção"
+      "titulo_aba": "Passo a passo",
+      "resumo": "Perguntas e respostas por situação",
+      "icone": "bussola"
     }
   }
 }

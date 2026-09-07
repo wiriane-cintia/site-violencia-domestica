@@ -1,12 +1,25 @@
+<%
+  // A grade mostra TODAS as paginas do menu, menos a que a pessoa ja esta
+  // vendo. Titulo e descricao vem do paginas.json, entao menu, rodape e grade
+  // nunca ficam diferentes entre si.
+  var itens = navegacao.filter(function (item) { return item.rota !== rotaAtual; });
+%>
 <section class="grade-atalhos" aria-labelledby="titulo-atalhos">
   <h2 class="grade-atalhos__titulo" id="titulo-atalhos"><%= atalhos.titulo %></h2>
+  <% if (atalhos.subtitulo) { %>
+    <p class="grade-atalhos__subtitulo"><%= atalhos.subtitulo %></p>
+  <% } %>
+
   <ul class="grade-atalhos__lista">
-    <% atalhos.itens.forEach(function (item) { %>
+    <% itens.forEach(function (item) { %>
+      <% var pag = conteudo[item.chave] || {}; %>
       <li>
         <a class="atalho" href="<%= item.rota %>">
+          <span class="atalho__icone" aria-hidden="true"><%- include('icone', { nome: pag.icone || 'padrao' }) %></span>
           <span class="atalho__rotulo"><%= item.rotulo %></span>
-          <span class="atalho__descricao"><%= item.descricao %></span>
-          <span class="atalho__seta" aria-hidden="true">&rarr;</span>
+          <% if (pag.resumo) { %>
+            <span class="atalho__descricao"><%= pag.resumo %></span>
+          <% } %>
         </a>
       </li>
     <% }); %>

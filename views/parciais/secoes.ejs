@@ -71,10 +71,7 @@
                 <p class="secao-rede__nome"><%= item.nome %></p>
                 <% if (item.descricao) { %><p class="secao-rede__descricao"><%= item.descricao %></p><% } %>
                 <% if (item.endereco) { %>
-                  <p class="secao-rede__linha secao-rede__linha--icone">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                    <%= item.endereco %>
-                  </p>
+                  <p class="secao-rede__linha"><%- include('endereco', { texto: item.endereco, mapa: item.endereco_mapa }) %></p>
                 <% } %>
                 <% if (item.telefone) { %>
                   <p class="secao-rede__linha">
@@ -119,10 +116,7 @@
               <% }); %>
               <li><%- include('telefone', { href: 'https://wa.me/' + conselho.plantao_24h_link + '?text=Ol%C3%A1%2C%20preciso%20de%20ajuda', rotulo: 'Plantão 24h — ' + conselho.plantao_24h, tipo: 'whatsapp' }) %></li>
               <% if (conselho.endereco) { %>
-                <li class="rodape__link rodape__link--icone">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                  <%= conselho.endereco %>
-                </li>
+                <li><%- include('endereco', { texto: conselho.endereco, mapa: conselho.endereco_mapa }) %></li>
               <% } %>
             </ul>
           </div>

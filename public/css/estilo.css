@@ -20,47 +20,87 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Visível apenas para leitores de tela. */
+.apenas-leitor {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 /* O atributo hidden do HTML precisa vencer qualquer display definido depois. */
 [hidden] {
     display: none !important;
 }
 
 :focus-visible {
-    outline: 3px solid var(--cor-acao);
-    outline-offset: 2px;
+    outline: 3px solid var(--cor-identidade);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+a:focus-visible,
+button:focus-visible {
+    box-shadow: 0 0 0 6px rgba(29, 78, 155, 0.15);
 }
 
 :root {
+    /* Cores — estrutura do Design System gov.br, com o azul da logo do Conselho */
     --cor-fundo: #ffffff;
-    --cor-superficie: #f2f2f4;
-    --cor-texto: #1f1f24;
-    --cor-texto-secundario: #55555c;
+    --cor-superficie: #f8f8f8;
+    --cor-borda: #e6e9ec;
+    --cor-texto: #333333;
+    --cor-texto-secundario: #5c6670;
     --cor-identidade: #1D4E9B;
+    --cor-identidade-escura: #0b2c5e;
+    --cor-identidade-clara: #2670e8;
     --cor-acao: #d8a73d;
     --cor-alerta: #c0392b;
+    /* Cinza da instrucao dentro do campo de busca: bem mais claro que o texto
+       digitado, mas ainda legivel para quem enxerga pouco. */
+    --cor-texto-placeholder: #6b7480;
 
-    --fonte-titulo: 'Archivo', Arial, sans-serif;
-    --fonte-texto: 'Inter', Arial, sans-serif;
+    /* Tipografia — Sora nos titulos, Inter no texto corrido.
+       A Inter foi desenhada para ser lida em tela pequena; a Sora tem a forma
+       geometrica que da personalidade aos titulos sem atrapalhar a leitura. */
+    --fonte-titulo: 'Sora', 'Segoe UI', Arial, sans-serif;
+    --fonte-texto: 'Inter', 'Segoe UI', Arial, sans-serif;
 
-    --texto-corpo: clamp(0.95rem, 0.92rem + 0.18vw, 1.05rem);
-    --texto-pequeno: clamp(0.82rem, 0.8rem + 0.1vw, 0.9rem);
+    --texto-corpo: clamp(0.95rem, 0.92rem + 0.18vw, 1rem);
+    --texto-pequeno: clamp(0.82rem, 0.8rem + 0.1vw, 0.875rem);
     --texto-chamada: clamp(1.05rem, 1rem + 0.35vw, 1.25rem);
-    --titulo-1: clamp(1.6rem, 1.15rem + 2.2vw, 2.5rem);
-    --titulo-2: clamp(1.3rem, 1.1rem + 0.9vw, 1.7rem);
-    --titulo-3: clamp(1.02rem, 0.97rem + 0.28vw, 1.18rem);
-    --titulo-4: clamp(0.95rem, 0.92rem + 0.15vw, 1.02rem);
+    --titulo-1: clamp(1.75rem, 1.3rem + 2.2vw, 2.5rem);
+    --titulo-2: clamp(1.35rem, 1.15rem + 0.9vw, 1.75rem);
+    --titulo-3: clamp(1.05rem, 1rem + 0.28vw, 1.2rem);
+    --titulo-4: clamp(0.95rem, 0.92rem + 0.15vw, 1rem);
 
-    --altura-texto: 1.55;
-    --altura-titulo: 1.15;
+    --altura-texto: 1.6;
+    --altura-titulo: 1.25;
 
+    /* Espaçamento — escala de 8px do gov.br */
     --espaco-1: 0.5rem;
     --espaco-2: 1rem;
     --espaco-3: 1.5rem;
     --espaco-4: 2rem;
     --espaco-5: 3rem;
+    --espaco-6: 4rem;
+
+    --raio-1: 4px;
+    --raio-2: 8px;
+    --raio-3: 16px;
+    --sombra-1: 0 1px 3px rgba(0, 0, 0, 0.10);
+    --sombra-2: 0 3px 6px rgba(0, 0, 0, 0.16);
+    --sombra-3: 0 6px 12px rgba(0, 0, 0, 0.16);
+    --borda-sutil: 1px solid var(--cor-borda);
+    --transicao: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
 
     --largura-maxima: 1200px;
-    --largura-leitura: 65ch;
+    --largura-leitura: 68ch;
 }
 
 body {
@@ -111,40 +151,56 @@ h1 + .texto-corrido {
 }
 
 .cartao {
-    background: var(--cor-superficie);
-    border-radius: 8px;
-    padding: 1.25rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background: var(--cor-fundo);
+    border: var(--borda-sutil);
+    border-radius: var(--raio-2);
+    padding: var(--espaco-3);
+    box-shadow: var(--sombra-1);
 }
 
 .aviso {
-    background: #fff7e6;
+    background: #fffaf0;
+    border: 1px solid rgba(216, 167, 61, 0.35);
     border-left: 4px solid var(--cor-acao);
-    border-radius: 4px;
-    padding: 1rem 1.25rem;
+    border-radius: var(--raio-1);
+    padding: var(--espaco-3);
 }
 
 .destaque {
-    background: var(--cor-identidade);
+    background: linear-gradient(135deg, var(--cor-identidade), #16407f);
     color: #ffffff;
-    border-radius: 8px;
-    padding: 1.5rem;
+    border-radius: var(--raio-2);
+    padding: var(--espaco-4);
+    box-shadow: var(--sombra-2);
 }
 
 .botao {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 44px;
+    gap: 0.5rem;
+    min-height: 46px;
     padding: 0.75rem 1.5rem;
-    border-radius: 6px;
+    border-radius: var(--raio-1);
     font-family: var(--fonte-texto);
     font-weight: 600;
     font-size: var(--texto-corpo);
     text-decoration: none;
     cursor: pointer;
     border: 2px solid transparent;
-    transition: filter 0.15s ease;
+    box-shadow: var(--sombra-1);
+    transition: transform var(--transicao), box-shadow var(--transicao),
+                background-color var(--transicao), color var(--transicao);
+}
+
+.botao:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--sombra-2);
+}
+
+.botao:active {
+    transform: translateY(0);
+    box-shadow: var(--sombra-1);
 }
 
 .botao--principal {
@@ -153,7 +209,7 @@ h1 + .texto-corrido {
 }
 
 .botao--principal:hover {
-    filter: brightness(0.92);
+    background: #c9982f;
 }
 
 .botao--contorno {
@@ -187,6 +243,53 @@ h1 + .texto-corrido {
     padding: 0 var(--espaco-3);
 }
 
+@media (min-width: 900px) {
+    .container {
+        padding: 0 var(--espaco-4);
+    }
+}
+
+main {
+    padding-bottom: var(--espaco-6);
+}
+
+.pagina-topo {
+    padding-top: var(--espaco-4);
+    padding-bottom: var(--espaco-3);
+}
+
+main > .container > h1:first-child {
+    padding-top: var(--espaco-5);
+}
+
+/* Faixa de largura total, como as seções do gov.br */
+.faixa {
+    width: 100%;
+    padding: var(--espaco-5) 0;
+}
+
+.faixa--busca {
+    background: var(--cor-fundo);
+    border: none;
+}
+
+.faixa--titulo {
+    background: var(--cor-superficie);
+    border-bottom: var(--borda-sutil);
+    padding: var(--espaco-5) 0;
+    margin-bottom: var(--espaco-2);
+}
+
+.faixa--titulo h1 {
+    color: var(--cor-identidade);
+}
+
+.faixa--titulo .texto-corrido {
+    margin-top: var(--espaco-2);
+    font-size: var(--texto-chamada);
+    color: var(--cor-texto-secundario);
+}
+
 .texto-corrido {
     max-width: var(--largura-leitura);
 }
@@ -213,6 +316,71 @@ h1 + .texto-corrido {
 
 .acoes {
   margin-top: 1.5rem;
+}
+
+.intro {
+  margin-top: 0;
+}
+
+.intro__resumo {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-2);
+  cursor: pointer;
+  list-style: none;
+}
+
+.intro__resumo::-webkit-details-marker {
+  display: none;
+}
+
+.intro__titulo {
+  margin: 0;
+}
+
+/* O "+" fica ao lado do titulo e vira "-" quando o texto esta aberto. */
+.intro__mais {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 999px;
+  color: var(--cor-identidade);
+  background: var(--cor-fundo);
+  transition: background-color var(--transicao), border-color var(--transicao), transform var(--transicao);
+}
+
+.intro__mais svg {
+  width: 20px;
+  height: 20px;
+}
+
+.intro__resumo:hover .intro__mais {
+  background: var(--cor-identidade);
+  border-color: var(--cor-identidade);
+  color: #ffffff;
+}
+
+.intro__resumo:focus-visible {
+  outline: 3px solid var(--cor-identidade);
+  outline-offset: 4px;
+  border-radius: var(--raio-2);
+}
+
+.intro[open] .intro__mais {
+  transform: rotate(45deg);
+  background: var(--cor-identidade);
+  border-color: var(--cor-identidade);
+  color: #ffffff;
+}
+
+.intro__texto {
+  margin-top: var(--espaco-3);
+  color: var(--cor-texto-secundario);
+  font-size: var(--texto-chamada);
 }
 
 .contato {
@@ -264,61 +432,66 @@ h1 + .texto-corrido {
   font-size: var(--texto-pequeno);
 }
 
-.barra-institucional {
-  background: var(--cor-identidade);
-  color: #ffffff;
-  font-size: var(--texto-pequeno);
-}
-
-.barra-institucional__interno {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
-.barra-institucional__nome {
-  font-weight: 600;
-}
-
-.barra-institucional__links {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.barra-institucional__link {
-  color: #ffffff;
-  text-decoration: none;
-}
-
-.barra-institucional__link:hover,
-.barra-institucional__link:focus-visible {
-  text-decoration: underline;
-}
-
 .cabecalho {
+  position: sticky;
+  top: 0;
+  z-index: 900;
   background: var(--cor-fundo);
-  border-bottom: 1px solid var(--cor-superficie);
+  transition: box-shadow var(--transicao);
 }
 
-.cabecalho__interno {
+/* Depois que a pessoa rola, o cabecalho encolhe e ganha sombra, para ficar
+   claro que ele esta flutuando por cima do conteudo. */
+.cabecalho--compacto {
+  box-shadow: var(--sombra-2);
+}
+
+.cabecalho__topo-interno {
+  transition: padding var(--transicao);
+}
+
+.cabecalho--compacto .cabecalho__topo-interno {
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+}
+
+.cabecalho__logo,
+.cabecalho__nome {
+  transition: width var(--transicao), height var(--transicao), font-size var(--transicao);
+}
+
+.cabecalho--compacto .cabecalho__logo {
+  width: 30px;
+  height: 30px;
+}
+
+.cabecalho--compacto .cabecalho__nome {
+  font-size: var(--texto-corpo);
+}
+
+.cabecalho__topo {
+  border-bottom: var(--borda-sutil);
+}
+
+.cabecalho__topo-interno {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  gap: var(--espaco-2);
+  padding-top: var(--espaco-2);
+  padding-bottom: var(--espaco-2);
+}
+
+.com-js .cabecalho__nav {
+  border-bottom: none;
 }
 
 .cabecalho__marca {
   display: flex;
   align-items: center;
   gap: 0.6rem;
+  min-width: 0;
+  flex: 1 1 auto;
   text-decoration: none;
   color: var(--cor-texto);
 }
@@ -341,18 +514,20 @@ h1 + .texto-corrido {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 1.25rem;
+  column-gap: var(--espaco-3);
+  row-gap: 0;
   margin: 0;
   padding: 0;
 }
 
 .cabecalho__link {
+  display: inline-block;
   color: var(--cor-texto);
   text-decoration: none;
   font-weight: 500;
   font-size: var(--texto-pequeno);
-  padding: 0.25rem 0;
-  border-bottom: 2px solid transparent;
+  padding: 0.9rem 0;
+  border-bottom: 3px solid transparent;
 }
 
 .cabecalho__link:hover,
@@ -363,22 +538,97 @@ h1 + .texto-corrido {
 .cabecalho__link--ativo {
   color: var(--cor-identidade);
   border-bottom-color: var(--cor-identidade);
+  font-weight: 700;
+}
+
+.cabecalho__acoes {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-1);
+}
+
+.cabecalho__acao {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 40px;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: var(--texto-pequeno);
   font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: filter var(--transicao);
+}
+
+.cabecalho__acao svg {
+  width: 16px;
+  height: 16px;
+  flex: none;
+}
+
+.cabecalho__acao:hover {
+  filter: brightness(0.94);
+}
+
+.cabecalho__acao--um {
+  background: var(--cor-fundo);
+  border-color: var(--cor-identidade);
+  color: var(--cor-identidade);
+}
+
+.cabecalho__acao--dois {
+  background: var(--cor-identidade);
+  color: #ffffff;
 }
 
 .cabecalho__botao-menu {
   display: none;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 40px;
+  margin-left: var(--espaco-1);
+  padding: 0.4rem 0.9rem;
   background: none;
-  border: none;
+  border: 1px solid var(--cor-borda);
+  border-radius: 999px;
   cursor: pointer;
-  padding: 0.5rem;
+  font-family: var(--fonte-texto);
+  font-weight: 600;
+  font-size: var(--texto-pequeno);
   color: var(--cor-texto);
 }
 
+.cabecalho__botao-menu:hover {
+  border-color: var(--cor-identidade);
+  color: var(--cor-identidade);
+}
+
 .cabecalho__botao-menu svg {
-  width: 28px;
-  height: 28px;
+  width: 20px;
+  height: 20px;
   display: block;
+}
+
+@media (max-width: 620px) {
+  .cabecalho__acao {
+    padding: 0.4rem;
+  }
+
+  .cabecalho__acao-texto {
+    display: none;
+  }
+
+  .cabecalho__acao svg {
+    width: 20px;
+    height: 20px;
+    flex: none;
+  }
+
+  .cabecalho__botao-menu-texto {
+    display: none;
+  }
 }
 
 .cabecalho__botao-fechar {
@@ -401,9 +651,9 @@ body.menu-aberto {
   overflow: hidden;
 }
 
-@media (max-width: 760px) {
-  /* A gaveta lateral so existe quando o JavaScript carregou. Sem ele, o menu
-     vira uma lista normal empilhada e o botao hamburguer nao aparece. */
+/* A gaveta existe em qualquer largura, como no gov.br. Sem JavaScript o menu
+   vira uma lista normal e o botao hamburguer nao aparece. */
+@media (min-width: 0px) {
   .com-js .cabecalho__botao-menu {
     display: inline-flex;
   }
@@ -413,7 +663,7 @@ body.menu-aberto {
     top: 0;
     right: 0;
     height: 100%;
-    width: min(320px, 85vw);
+    width: min(380px, 90vw);
     background: var(--cor-fundo);
     box-shadow: -4px 0 16px rgba(0, 0, 0, 0.15);
     transform: translateX(100%);
@@ -425,6 +675,30 @@ body.menu-aberto {
 
   .com-js .cabecalho__nav--aberto {
     transform: translateX(0);
+  }
+
+  .com-js .cabecalho__lista {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .com-js .cabecalho__nav .container {
+    padding: 0 var(--espaco-3);
+  }
+
+  .com-js .cabecalho__link {
+    display: block;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--cor-borda);
+    border-left: 4px solid transparent;
+    padding-left: var(--espaco-2);
+    font-size: var(--texto-corpo);
+  }
+
+  .com-js .cabecalho__link--ativo {
+    border-bottom-color: var(--cor-borda);
+    border-left-color: var(--cor-identidade);
+    background: var(--cor-superficie);
   }
 
   .com-js .cabecalho__botao-fechar {
@@ -485,17 +759,17 @@ body.menu-aberto {
 }
 
 .rodape {
-  background: var(--cor-identidade);
+  background: var(--cor-identidade-escura);
   color: #ffffff;
-  margin-top: var(--espaco-5);
+  margin-top: 0;
 }
 
 .rodape__interno {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--espaco-4);
-  padding-top: var(--espaco-4);
-  padding-bottom: var(--espaco-4);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--espaco-5);
+  padding-top: var(--espaco-5);
+  padding-bottom: var(--espaco-5);
 }
 
 .rodape__titulo {
@@ -517,10 +791,19 @@ body.menu-aberto {
   gap: 0.6rem;
 }
 
+/* O componente de telefone nasceu no rodape, que tem fundo escuro, e por isso
+   ficava branco por padrao — em qualquer outro lugar da pagina ele sumia no
+   fundo claro. Agora o padrao e a cor de identidade, e o branco vale so dentro
+   do rodape. Assim nao e preciso lembrar de corrigir a cor a cada lugar novo
+   onde o telefone for usado. */
 .rodape__link {
-  color: #ffffff;
+  color: var(--cor-identidade);
   text-decoration: none;
   font-size: 0.9rem;
+}
+
+.rodape .rodape__link {
+  color: #ffffff;
   opacity: 0.92;
 }
 
@@ -540,6 +823,58 @@ body.menu-aberto {
   width: 18px;
   height: 18px;
   flex-shrink: 0;
+}
+
+.rodape__mapa {
+  padding-bottom: var(--espaco-5);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: var(--espaco-4);
+}
+
+.rodape__mapa-lista {
+  list-style: none;
+  margin: var(--espaco-2) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--espaco-1);
+}
+
+.rodape__mapa-link {
+  display: block;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--raio-1);
+  color: #ffffff;
+  text-decoration: none;
+  transition: background-color var(--transicao);
+}
+
+.rodape__mapa-link:hover,
+.rodape__mapa-link:focus-visible {
+  background: rgba(255, 255, 255, 0.10);
+}
+
+.rodape__mapa-rotulo {
+  display: block;
+  font-weight: 600;
+  font-size: var(--texto-pequeno);
+}
+
+.rodape__mapa-resumo {
+  display: block;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  font-size: var(--texto-pequeno);
+  color: rgba(255, 255, 255, 0.75);
+  transition: max-height var(--transicao), opacity var(--transicao);
+}
+
+.rodape__mapa-link:hover .rodape__mapa-resumo,
+.rodape__mapa-link:focus-visible .rodape__mapa-resumo {
+  max-height: 4rem;
+  opacity: 1;
+  margin-top: 0.15rem;
 }
 
 .rodape__creditos {
@@ -576,11 +911,34 @@ body.menu-aberto {
 }
 
 .secao {
-  margin-top: var(--espaco-4);
+  margin-top: var(--espaco-5);
 }
 
 .secao__titulo {
+  position: relative;
   margin-bottom: var(--espaco-2);
+  padding-left: 0.85rem;
+}
+
+.secao__titulo::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  bottom: 0.15em;
+  width: 4px;
+  border-radius: 2px;
+  background: var(--cor-identidade);
+}
+
+.aviso .secao__titulo::before,
+.destaque .secao__titulo::before {
+  display: none;
+}
+
+.aviso .secao__titulo,
+.destaque .secao__titulo {
+  padding-left: 0;
 }
 
 .secao > p,
@@ -657,45 +1015,72 @@ body.menu-aberto {
 }
 
 .busca-bairro {
-  margin-top: var(--espaco-4);
-  background: var(--cor-superficie);
-  border-radius: 8px;
-  padding: var(--espaco-3);
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.topo-linha__busca .busca-bairro {
+  max-width: none;
+  margin: 0;
 }
 
 .busca-bairro__titulo {
   font-size: var(--titulo-2);
-  margin-bottom: var(--espaco-2);
+  color: var(--cor-identidade);
+  margin-bottom: var(--espaco-1);
 }
 
 .busca-bairro__rotulo {
   display: block;
-  font-weight: 600;
-  margin-bottom: var(--espaco-1);
+  color: var(--cor-texto-secundario);
+  margin-bottom: var(--espaco-2);
+}
+
+.busca-bairro__linha {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-2);
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .busca-bairro__campo {
+  flex: 1 1 320px;
   width: 100%;
-  max-width: 26rem;
-  min-height: 48px;
-  padding: 0.75rem 1rem;
+  min-height: 56px;
+  padding: 1rem 1.25rem;
   font-family: var(--fonte-texto);
-  font-size: var(--texto-corpo);
+  font-size: var(--texto-chamada);
   color: var(--cor-texto);
   background: var(--cor-fundo);
-  border: 2px solid var(--cor-texto-secundario);
-  border-radius: 6px;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-3);
+  box-shadow: var(--sombra-1);
+  text-align: left;
 }
 
+/* A instrucao dentro do campo fica bem mais clara que o texto digitado, mas
+   nao tao clara a ponto de sumir para quem enxerga pouco. */
+.busca-bairro__campo::placeholder {
+  color: var(--cor-texto-placeholder);
+  opacity: 1;
+}
+
+.busca-bairro__campo:focus,
 .busca-bairro__campo:focus-visible {
+  background: var(--cor-fundo);
   border-color: var(--cor-identidade);
+  box-shadow: none;
+  outline: 2px solid var(--cor-identidade);
+  outline-offset: 1px;
 }
 
 .busca-bairro__ajuda,
 .busca-bairro__aviso {
   color: var(--cor-texto-secundario);
   font-size: var(--texto-pequeno);
-  margin-top: var(--espaco-1);
+  margin-top: var(--espaco-2);
 }
 
 .busca-bairro__contador {
@@ -706,12 +1091,14 @@ body.menu-aberto {
 }
 
 .busca-bairro__alternar {
-  margin-top: var(--espaco-2);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
   min-height: 44px;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.75rem;
   background: transparent;
-  border: 2px solid var(--cor-identidade);
-  border-radius: 6px;
+  border: none;
   color: var(--cor-identidade);
   font-family: var(--fonte-texto);
   font-weight: 600;
@@ -719,17 +1106,27 @@ body.menu-aberto {
   cursor: pointer;
 }
 
-.busca-bairro__alternar:hover {
-  background: var(--cor-identidade);
-  color: #ffffff;
+.busca-bairro__alternar:hover .busca-bairro__alternar-texto {
+  text-decoration: underline;
+}
+
+.busca-bairro__seta {
+  width: 18px;
+  height: 18px;
+  transition: transform var(--transicao);
+}
+
+.busca-bairro__alternar[aria-expanded="true"] .busca-bairro__seta {
+  transform: rotate(180deg);
 }
 
 .busca-bairro__lista {
   list-style: none;
-  margin: var(--espaco-2) 0 0;
+  margin: var(--espaco-3) 0 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: var(--espaco-1);
   max-height: 16rem;
   overflow-y: auto;
@@ -764,10 +1161,13 @@ body.menu-aberto {
 .busca-bairro__resultado,
 .busca-bairro__vazio {
   margin-top: var(--espaco-3);
+  text-align: left;
   background: var(--cor-fundo);
-  border-left: 4px solid var(--cor-identidade);
-  border-radius: 4px;
-  padding: var(--espaco-3);
+  border: var(--borda-sutil);
+  border-top: 4px solid var(--cor-identidade);
+  border-radius: var(--raio-2);
+  padding: var(--espaco-4);
+  box-shadow: var(--sombra-1);
 }
 
 .busca-bairro__vazio {
@@ -818,9 +1218,17 @@ body.menu-aberto {
 }
 
 .secao-rede__item {
-  background: var(--cor-superficie);
-  border-radius: 10px;
+  background: var(--cor-fundo);
+  border: var(--borda-sutil);
+  border-radius: var(--raio-2);
   padding: var(--espaco-3);
+  box-shadow: var(--sombra-1);
+  transition: box-shadow var(--transicao), transform var(--transicao);
+}
+
+.secao-rede__item:hover {
+  box-shadow: var(--sombra-2);
+  transform: translateY(-2px);
 }
 
 .secao-rede__nome {
@@ -881,9 +1289,11 @@ body.menu-aberto {
 }
 
 .secao-contatos__item {
-  background: var(--cor-superficie);
-  border-radius: 8px;
+  background: var(--cor-fundo);
+  border: var(--borda-sutil);
+  border-radius: var(--raio-2);
   padding: var(--espaco-3);
+  box-shadow: var(--sombra-1);
 }
 
 .secao-contatos__nome {
@@ -907,11 +1317,18 @@ body.menu-aberto {
 }
 
 .grade-atalhos {
-  margin-top: var(--espaco-4);
+  margin-top: var(--espaco-6);
+  text-align: center;
 }
 
 .grade-atalhos__titulo {
-  margin-bottom: var(--espaco-3);
+  color: var(--cor-identidade);
+  margin-bottom: var(--espaco-1);
+}
+
+.grade-atalhos__subtitulo {
+  color: var(--cor-texto-secundario);
+  margin-bottom: var(--espaco-4);
 }
 
 .grade-atalhos__lista {
@@ -919,40 +1336,69 @@ body.menu-aberto {
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: var(--espaco-2);
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: var(--espaco-3);
 }
 
 .atalho {
+  position: relative;
+  overflow: hidden;
+  min-height: 215px;
+  justify-content: flex-start;
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  align-items: center;
+  gap: var(--espaco-1);
   height: 100%;
-  padding: var(--espaco-3);
-  background: var(--cor-superficie);
-  border-left: 4px solid var(--cor-identidade);
-  border-radius: 8px;
+  padding: var(--espaco-4) var(--espaco-3);
+  background: var(--cor-fundo);
+  border: var(--borda-sutil);
+  border-radius: var(--raio-2);
   text-decoration: none;
-  color: var(--cor-texto);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  color: var(--cor-identidade);
+  text-align: center;
+  transition: background-color var(--transicao), box-shadow var(--transicao), transform var(--transicao);
 }
 
 .atalho:hover {
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+  background: var(--cor-identidade);
+  color: #ffffff;
+  box-shadow: var(--sombra-2);
   transform: translateY(-2px);
+}
+
+.atalho__icone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: var(--espaco-1);
+  color: inherit;
+}
+
+.atalho__icone svg {
+  width: 40px;
+  height: 40px;
+  stroke-width: 1.5;
 }
 
 .atalho__rotulo {
   font-family: var(--fonte-titulo);
-  font-weight: 600;
-  font-size: var(--titulo-3);
-  line-height: 1.25;
-  letter-spacing: -0.008em;
+  font-weight: 700;
+  font-size: var(--texto-corpo);
+  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
 }
 
 .atalho__descricao {
   color: var(--cor-texto-secundario);
   font-size: var(--texto-pequeno);
+}
+
+.atalho:hover .atalho__descricao {
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .atalho__seta {
@@ -963,12 +1409,18 @@ body.menu-aberto {
 }
 
 .bloco-emergencia {
-  margin-top: var(--espaco-4);
-  margin-bottom: var(--espaco-4);
-  background: var(--cor-superficie);
-  border-left: 4px solid var(--cor-alerta);
-  border-radius: 4px;
-  padding: var(--espaco-3);
+  margin-top: var(--espaco-5);
+  margin-bottom: var(--espaco-5);
+  background: linear-gradient(135deg, #fff6ee, #ffeee6);
+  border: 1px solid rgba(192, 57, 43, 0.25);
+  border-left: 6px solid var(--cor-alerta);
+  border-radius: var(--raio-2);
+  padding: var(--espaco-4);
+  box-shadow: var(--sombra-2);
+}
+
+.bloco-emergencia__titulo {
+  color: var(--cor-alerta);
 }
 
 .bloco-emergencia__titulo {
@@ -1093,7 +1545,6 @@ body.menu-aberto {
     display: none;
   }
 
-  .barra-institucional,
   .rodape {
     background: none;
     color: #000;
@@ -1449,4 +1900,372 @@ body.menu-aberto {
   .orientacao__painel {
     display: none !important;
   }
+}
+
+/* Em telas estreitas, a instrucao dentro do campo precisa caber. */
+@media (max-width: 560px) {
+  .busca-bairro__campo {
+    font-size: 1rem;
+  }
+
+  .busca-bairro__campo::placeholder {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .cabecalho__nome {
+    font-size: 1rem;
+  }
+
+  .cabecalho__logo {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* ---------- Grade de paginas: descricao aparece no hover ---------- */
+
+/* Em telas com mouse, o cartao mostra so icone e titulo, como o gov.br.
+   A descricao sobe de baixo quando a pessoa passa o mouse ou chega pelo Tab. */
+@media (hover: hover) {
+  .atalho__descricao {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: var(--espaco-2) var(--espaco-3);
+    background: var(--cor-identidade);
+    color: #ffffff;
+    font-size: var(--texto-pequeno);
+    line-height: 1.45;
+    transform: translateY(101%);
+    transition: transform var(--transicao);
+  }
+
+  .atalho:hover .atalho__descricao,
+  .atalho:focus-visible .atalho__descricao {
+    transform: translateY(0);
+  }
+
+  /* Com o cartao inteiro azul no hover, a faixa da descricao some. Mantemos
+     o cartao claro e deixamos so a faixa colorida. */
+  .atalho:hover {
+    background: var(--cor-fundo);
+    color: var(--cor-identidade);
+  }
+}
+
+/* Em celular e tablet nao existe hover: a descricao fica sempre visivel. */
+@media (hover: none) {
+  .atalho {
+    min-height: 0;
+  }
+
+  .atalho__descricao {
+    margin-top: var(--espaco-1);
+    color: var(--cor-texto-secundario);
+    font-size: var(--texto-pequeno);
+    line-height: 1.45;
+  }
+
+  .atalho:hover .atalho__descricao {
+    color: inherit;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atalho__descricao {
+    transition: none;
+  }
+}
+
+/* ---------- Endereco que abre o Google Maps ---------- */
+
+.endereco {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.endereco svg {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 0.15rem;
+}
+
+.endereco:hover span:first-of-type,
+.endereco:focus-visible span:first-of-type {
+  text-decoration: underline;
+}
+
+/* ---------- Topo da home ---------- */
+
+/* O titulo fica em cima e a busca logo abaixo, os dois no mesmo fundo branco:
+   nao existe mais a faixa cinza em volta do campo. */
+.faixa--topo {
+  padding: 0;
+  background: var(--cor-fundo);
+  border-bottom: var(--borda-sutil);
+}
+
+.topo-linha {
+  padding-top: var(--espaco-4);
+  padding-bottom: var(--espaco-4);
+}
+
+/* Na home o titulo e menor que nas paginas internas, para o campo de busca
+   aparecer sem precisar rolar a tela. */
+.topo-linha .intro__titulo {
+  font-size: var(--titulo-2);
+  line-height: 1.2;
+}
+
+.topo-linha .intro__mais {
+  width: 40px;
+  height: 40px;
+}
+
+.topo-linha .intro__mais svg {
+  width: 18px;
+  height: 18px;
+}
+
+.topo-linha__busca {
+  margin-top: var(--espaco-3);
+}
+
+.topo-linha__busca .busca-bairro {
+  max-width: 840px;
+  margin: 0;
+}
+
+.topo-linha__busca .busca-bairro__linha {
+  justify-content: flex-start;
+}
+
+/* Botao dentro do bloco de destaque, que tem fundo azul. */
+.secao__acao {
+  margin-top: var(--espaco-2);
+  margin-bottom: 0;
+}
+
+.destaque .botao--contorno {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.destaque .botao--contorno:hover,
+.destaque .botao--contorno:focus-visible {
+  background: #ffffff;
+  color: var(--cor-identidade);
+}
+
+/* O contador so ocupa espaco quando tem texto. */
+.busca-bairro__contador:empty {
+  display: none;
+}
+
+/* ---------- Movimento ---------- */
+
+/* Cada bloco entra com um fade curto e um deslocamento pequeno quando chega na
+   tela. A classe so e aplicada pelo JavaScript: sem JS, tudo ja nasce visivel. */
+.com-js .revela {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 520ms ease, transform 520ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.com-js .revela--visivel {
+  opacity: 1;
+  transform: none;
+}
+
+/* Na grade, os cartoes entram em sequencia: 60ms de diferenca entre um e outro,
+   menos de meio segundo do primeiro ao ultimo. */
+.com-js .grade-atalhos__lista li {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 460ms ease, transform 460ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.com-js .grade-atalhos--visivel .grade-atalhos__lista li {
+  opacity: 1;
+  transform: none;
+}
+
+.com-js .grade-atalhos__lista li:nth-child(1) { transition-delay: 0ms; }
+.com-js .grade-atalhos__lista li:nth-child(2) { transition-delay: 60ms; }
+.com-js .grade-atalhos__lista li:nth-child(3) { transition-delay: 120ms; }
+.com-js .grade-atalhos__lista li:nth-child(4) { transition-delay: 180ms; }
+.com-js .grade-atalhos__lista li:nth-child(5) { transition-delay: 240ms; }
+.com-js .grade-atalhos__lista li:nth-child(6) { transition-delay: 300ms; }
+.com-js .grade-atalhos__lista li:nth-child(7) { transition-delay: 360ms; }
+.com-js .grade-atalhos__lista li:nth-child(8) { transition-delay: 420ms; }
+.com-js .grade-atalhos__lista li:nth-child(9) { transition-delay: 480ms; }
+
+/* Quem pediu menos movimento no proprio aparelho ve tudo parado e ja visivel. */
+@media (prefers-reduced-motion: reduce) {
+  .com-js .revela,
+  .com-js .grade-atalhos__lista li {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ---------- Microinteracoes ---------- */
+
+.atalho:active {
+  transform: translateY(0);
+}
+
+.botao,
+.cabecalho__acao,
+.busca-bairro__alternar,
+.intro__mais {
+  transition: background-color var(--transicao), color var(--transicao),
+              border-color var(--transicao), transform var(--transicao),
+              box-shadow var(--transicao);
+}
+
+.botao:active,
+.cabecalho__acao:active,
+.busca-bairro__alternar:active {
+  transform: translateY(1px);
+}
+
+.rodape__link,
+.endereco,
+.rodape__mapa-link {
+  transition: color var(--transicao), background-color var(--transicao);
+}
+
+.secao-rede__item {
+  transition: box-shadow var(--transicao), transform var(--transicao);
+}
+
+.secao-rede__item:hover {
+  box-shadow: var(--sombra-1);
+}
+
+/* O foco pelo teclado tem que ser visivel em qualquer fundo. */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--cor-acao);
+  outline-offset: 2px;
+}
+
+/* ---------- Ajustes de tipografia para a Sora e a Inter ---------- */
+
+/* A Sora e mais larga que a Raleway: apertar levemente o espacamento deixa os
+   titulos com o desenho que o tipografo desenhou, e nao esparramados. */
+h1, h2, h3,
+.intro__titulo,
+.grade-atalhos__titulo,
+.secao__titulo {
+  letter-spacing: -0.02em;
+}
+
+/* Maiuscula com fonte larga precisa de menos espacamento entre letras, nao de
+   mais, senao o rotulo do cartao quebra em linhas demais. */
+.atalho__rotulo {
+  letter-spacing: 0.005em;
+}
+
+/* A Inter tem numeros de largura variavel por padrao. Em telefone e endereco
+   isso desalinha; a variante tabular resolve. */
+.rodape__link,
+.endereco,
+.secao-contatos__lista,
+.secao-rede__linha,
+.bloco-emergencia a {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Lupa dentro do campo de busca ---------- */
+
+/* O campo precisa se anunciar como campo antes de qualquer clique: fundo
+   branco, borda visivel e uma lupa. Sem isso ele some no fundo da pagina. */
+.busca-bairro__caixa {
+  position: relative;
+  flex: 1 1 320px;
+  min-width: 0;
+  display: flex;
+}
+
+.busca-bairro__lupa {
+  position: absolute;
+  left: 1.1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  color: var(--cor-texto-placeholder);
+  pointer-events: none;
+}
+
+.busca-bairro__caixa .busca-bairro__campo {
+  flex: 1 1 auto;
+  padding-left: 3.1rem;
+  padding-right: 3.4rem;
+}
+
+/* O X so existe quando ha algo escrito. Alvo de 44px, que e o minimo para
+   dedo, mesmo com o desenho do X sendo menor que isso. */
+.busca-bairro__limpar {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: none;
+  color: var(--cor-texto-secundario);
+  cursor: pointer;
+  transition: background-color var(--transicao), color var(--transicao);
+}
+
+.busca-bairro__limpar svg {
+  width: 18px;
+  height: 18px;
+}
+
+.busca-bairro__limpar:hover,
+.busca-bairro__limpar:focus-visible {
+  background: var(--cor-superficie);
+  color: var(--cor-identidade);
+}
+
+/* Na pagina estatica da orientacao, a lista de canais fica logo depois de um
+   paragrafo. Sem respiro entre os dois, o telefone parece continuacao do texto. */
+.aviso .secao-contatos__lista,
+.destaque .secao-contatos__lista {
+  margin-top: var(--espaco-2);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.aviso .rodape__link,
+.destaque .rodape__link {
+  font-size: var(--texto-corpo);
+  font-weight: 600;
+}
+
+.destaque .rodape__link {
+  color: #ffffff;
 }

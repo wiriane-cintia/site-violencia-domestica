@@ -1,10 +1,13 @@
+<div class="faixa faixa--titulo">
+  <div class="container">
+    <h1><%= pagina.titulo %></h1>
+    <% if (pagina.texto) { %>
+      <p class="texto-corrido"><%= pagina.texto %></p>
+    <% } %>
+  </div>
+</div>
+
 <div class="container">
-  <h1><%= pagina.titulo %></h1>
-
-  <% if (pagina.texto) { %>
-    <p class="texto-corrido"><%= pagina.texto %></p>
-  <% } %>
-
   <% if (pagina.secoes) { %>
     <%- include('../parciais/secoes', { secoes: pagina.secoes, conselhos: conselhos, rede: rede }) %>
   <% } %>

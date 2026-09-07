@@ -1,7 +1,7 @@
 {
   "botao": "Não sei por onde começar",
   "titulo": "Vamos por partes",
-  "instrucao": "Escolha a situação mais parecida com a sua.",
+  "instrucao": "Escolha a situação mais parecida com a sua. Nada do que você escolher fica gravado.",
   "rotulo_voltar": "Voltar",
   "rotulo_recomecar": "Começar de novo",
   "rotulo_perguntas": "O que você quer saber?",
@@ -13,11 +13,11 @@
       "resposta": {
         "texto": [
           "Não continue lendo. Ligue agora.",
-          "Se você não puder falar, ligue para o 190 e deixe a linha aberta."
+          "Se você não puder falar, ligue para o 190 e deixe a linha aberta: a central consegue localizar a chamada."
         ],
         "canais": [
           {
-            "rotulo": "190 — Polícia Militar",
+            "rotulo": "190 — Polícia Militar, se o risco é agora",
             "href": "tel:190"
           },
           {
@@ -25,9 +25,12 @@
             "href": "tel:180"
           },
           {
-            "rotulo": "180 no WhatsApp",
-            "href": "https://wa.me/5561961000180?text=Ol%C3%A1%2C%20preciso%20de%20ajuda",
-            "tipo": "whatsapp"
+            "rotulo": "100 — criança, adolescente, pessoa idosa e pessoa com deficiência",
+            "href": "tel:100"
+          },
+          {
+            "rotulo": "192 — SAMU, se há ferimento",
+            "href": "tel:192"
           }
         ]
       }
@@ -37,11 +40,11 @@
       "rotulo": "Não sei se o que eu vivo é violência",
       "perguntas": [
         {
-          "rotulo": "Ele nunca me bateu",
+          "rotulo": "Nunca me bateram",
           "resposta": {
             "texto": [
               "A lei reconhece seis formas de violência, e só uma delas é física.",
-              "Ameaça, humilhação, controle do seu dinheiro, vigilância do seu celular, isolamento da sua família e usar seus filhos para te atingir são todas formas previstas em lei."
+              "Ameaça, humilhação, controle do seu dinheiro, vigilância do seu celular, isolamento da sua família e usar quem você ama para te atingir são todas formas previstas em lei."
             ],
             "pagina": {
               "rotulo": "Ver as seis formas",
@@ -51,6 +54,10 @@
               {
                 "rotulo": "180 — para conversar, sem denunciar",
                 "href": "tel:180"
+              },
+              {
+                "rotulo": "100 — criança, adolescente, pessoa idosa e pessoa com deficiência",
+                "href": "tel:100"
               }
             ]
           }
@@ -59,7 +66,7 @@
           "rotulo": "Acho que eu provoco as brigas",
           "resposta": {
             "texto": [
-              "Nenhum comportamento seu autoriza alguém a te agredir. Discussão não é justificativa, ciúme não é justificativa, bebida não é justificativa.",
+              "Nenhum comportamento seu autoriza alguém a te agredir. Discussão não é justificativa, ciúme não é justificativa, bebida não é justificativa, cansaço de cuidar não é justificativa.",
               "Fazer você acreditar que a culpa é sua é parte do funcionamento da violência psicológica."
             ],
             "pagina": {
@@ -70,16 +77,20 @@
               {
                 "rotulo": "180 — orientação gratuita e sigilosa",
                 "href": "tel:180"
+              },
+              {
+                "rotulo": "100 — criança, adolescente, pessoa idosa e pessoa com deficiência",
+                "href": "tel:100"
               }
             ]
           }
         },
         {
-          "rotulo": "Depois ele se arrepende e melhora",
+          "rotulo": "Depois vem o arrependimento e melhora",
           "resposta": {
             "texto": [
               "Esse período de arrependimento e promessas faz parte de um ciclo que costuma se repetir, e voltar mais grave.",
-              "Buscar informação agora não obriga você a fazer nada — só te deixa preparada."
+              "Buscar informação agora não obriga você a fazer nada."
             ],
             "pagina": {
               "rotulo": "Ver o plano de segurança",
@@ -89,6 +100,33 @@
               {
                 "rotulo": "180 — Central de Atendimento à Mulher",
                 "href": "tel:180"
+              },
+              {
+                "rotulo": "100 — criança, adolescente, pessoa idosa e pessoa com deficiência",
+                "href": "tel:100"
+              }
+            ]
+          }
+        },
+        {
+          "rotulo": "Quem cuida de mim me trata mal",
+          "resposta": {
+            "texto": [
+              "Deixar sem comida, sem remédio, sem banho ou sem atendimento de saúde é violência por omissão, e é crime.",
+              "Também é violência esconder ou quebrar cadeira de rodas, bengala e aparelho auditivo, reter o cartão do benefício, fazer empréstimo em seu nome ou trancar você em casa."
+            ],
+            "pagina": {
+              "rotulo": "Ver como isso aparece em cada caso",
+              "rota": "/isso-e-violencia"
+            },
+            "canais": [
+              {
+                "rotulo": "100 — criança, adolescente, pessoa idosa e pessoa com deficiência",
+                "href": "tel:100"
+              },
+              {
+                "rotulo": "190 — Polícia Militar, se o risco é agora",
+                "href": "tel:190"
               }
             ]
           }
@@ -103,7 +141,7 @@
           "rotulo": "O que eu posso fazer sem denunciar?",
           "resposta": {
             "texto": [
-              "Você pode ligar 180 só para conversar, procurar o CRAS ou o CREAS, buscar atendimento de saúde e psicológico, e falar com a Defensoria Pública sobre seus direitos.",
+              "Você pode ligar 180 ou 100 só para conversar, procurar o CRAS ou o CREAS, buscar atendimento de saúde e psicológico, e falar com a Defensoria Pública sobre seus direitos.",
               "Nada disso exige registrar ocorrência."
             ],
             "pagina": {
@@ -116,9 +154,13 @@
                 "href": "tel:180"
               },
               {
-                "rotulo": "180 no WhatsApp",
+                "rotulo": "180 no WhatsApp — (61) 9610-0180",
                 "href": "https://wa.me/5561961000180?text=Ol%C3%A1%2C%20preciso%20de%20ajuda",
                 "tipo": "whatsapp"
+              },
+              {
+                "rotulo": "100 — criança, adolescente, pessoa idosa e pessoa com deficiência",
+                "href": "tel:100"
               }
             ]
           }
@@ -138,15 +180,20 @@
               {
                 "rotulo": "180 — Central de Atendimento à Mulher",
                 "href": "tel:180"
+              },
+              {
+                "rotulo": "100 — criança, adolescente, pessoa idosa e pessoa com deficiência",
+                "href": "tel:100"
               }
             ]
           }
         },
         {
-          "rotulo": "Dependo dele financeiramente",
+          "rotulo": "Dependo dessa pessoa",
           "resposta": {
             "texto": [
-              "O CRAS orienta sobre benefícios e programas sociais, e a medida protetiva pode incluir pensão alimentícia provisória e determinar que quem sai de casa seja ele, não você."
+              "A dependência pode ser financeira ou de cuidado, e as duas são reais.",
+              "O CRAS orienta sobre benefícios e programas. A medida protetiva pode incluir pensão provisória e determinar que quem sai de casa seja quem agride. Quando a vítima depende de cuidado, o CREAS acompanha o caso e organiza a rede."
             ],
             "pagina": {
               "rotulo": "Ver o que a lei garante",
@@ -154,8 +201,39 @@
             },
             "canais": [
               {
-                "rotulo": "180 — orientação sobre seus direitos",
+                "rotulo": "180 — Central de Atendimento à Mulher",
                 "href": "tel:180"
+              },
+              {
+                "rotulo": "100 — criança, adolescente, pessoa idosa e pessoa com deficiência",
+                "href": "tel:100"
+              }
+            ]
+          }
+        },
+        {
+          "rotulo": "É contra uma criança, um idoso ou uma pessoa com deficiência",
+          "resposta": {
+            "texto": [
+              "Nesse caso a lei é diferente e é importante você saber antes de decidir: a comunicação é obrigatória e não depende da vontade da vítima nem de quem soube.",
+              "Isso não é motivo para não buscar ajuda. É motivo para ligar e receber orientação sobre como a proteção vai funcionar."
+            ],
+            "pagina": {
+              "rotulo": "Ver o limite desta situação",
+              "rota": "/nao-quero-denunciar"
+            },
+            "canais": [
+              {
+                "rotulo": "100 — criança, adolescente, pessoa idosa e pessoa com deficiência",
+                "href": "tel:100"
+              },
+              {
+                "rotulo": "Conselho Tutelar — criança e adolescente",
+                "href": "tel:100"
+              },
+              {
+                "rotulo": "190 — Polícia Militar, se o risco é agora",
+                "href": "tel:190"
               }
             ]
           }
@@ -170,17 +248,21 @@
           "rotulo": "Como peço medida protetiva?",
           "resposta": {
             "texto": [
-              "Você pode pedir na delegacia, na Defensoria Pública, no Ministério Público ou na Justiça — sem advogado e sem pagar nada.",
-              "Ela pode determinar o afastamento dele de casa, a proibição de se aproximar e de entrar em contato."
+              "Na delegacia, no mesmo atendimento em que você registra, sem advogado e sem pagar nada.",
+              "Existe medida protetiva prevista em lei para mulher, pela Lei Maria da Penha, e para criança e adolescente, pela Lei Henry Borel. Para pessoa idosa e pessoa com deficiência, o pedido é feito pela via judicial comum, com apoio da Defensoria ou do Ministério Público."
             ],
             "pagina": {
-              "rotulo": "Ver como funciona",
+              "rotulo": "Ver como a lei protege cada pessoa",
               "rota": "/como-a-lei-protege"
             },
             "canais": [
               {
-                "rotulo": "180 — para saber onde ir",
+                "rotulo": "180 — Central de Atendimento à Mulher",
                 "href": "tel:180"
+              },
+              {
+                "rotulo": "100 — criança, adolescente, pessoa idosa e pessoa com deficiência",
+                "href": "tel:100"
               }
             ]
           }
@@ -189,8 +271,8 @@
           "rotulo": "O que eu levo e o que guardo?",
           "resposta": {
             "texto": [
-              "Documento com foto, e o que você tiver: prints de mensagens, áudios, fotos de ferimentos e de objetos quebrados.",
-              "Envie cópia desse material para alguém de confiança, para não depender do seu celular."
+              "Documento com foto, se tiver. Prints de mensagens, áudios, fotos de ferimentos e de objetos quebrados, extratos que mostrem movimentação estranha na conta e nomes de quem presenciou.",
+              "Envie cópia para alguém de confiança antes de ir."
             ],
             "pagina": {
               "rotulo": "Ver o passo a passo",
@@ -198,30 +280,35 @@
             },
             "canais": [
               {
-                "rotulo": "190 — se o risco é agora",
-                "href": "tel:190"
-              },
-              {
                 "rotulo": "180 — Central de Atendimento à Mulher",
                 "href": "tel:180"
+              },
+              {
+                "rotulo": "100 — criança, adolescente, pessoa idosa e pessoa com deficiência",
+                "href": "tel:100"
               }
             ]
           }
         },
         {
-          "rotulo": "Ele descumpriu a medida protetiva",
+          "rotulo": "A medida protetiva foi descumprida",
           "resposta": {
             "texto": [
-              "Descumprir medida protetiva é crime. Ligue 190 na hora, guarde a prova do contato e comunique a delegacia."
+              "Descumprir medida protetiva é crime.",
+              "Ligue 190 na hora, guarde print de toda tentativa de contato e comunique a delegacia."
             ],
             "pagina": {
-              "rotulo": "Ver seus direitos",
+              "rotulo": "Ver o que fazer",
               "rota": "/como-a-lei-protege"
             },
             "canais": [
               {
-                "rotulo": "190 — Polícia Militar",
+                "rotulo": "190 — Polícia Militar, se o risco é agora",
                 "href": "tel:190"
+              },
+              {
+                "rotulo": "180 — Central de Atendimento à Mulher",
+                "href": "tel:180"
               }
             ]
           }
@@ -236,17 +323,21 @@
           "rotulo": "O que eu falo para ela?",
           "resposta": {
             "texto": [
-              "Escute sem julgar, diga que você acredita nela e que a culpa não é dela, e pergunte o que ela precisa em vez de decidir por ela.",
-              "Não pergunte por que ela não sai."
+              "Escute sem julgar e sem perguntar por que ela não sai. Diga que você acredita nela e que a culpa não é dela.",
+              "Pergunte o que ela precisa em vez de decidir por ela, e combine uma palavra que signifique pedido de socorro."
             ],
             "pagina": {
-              "rotulo": "Ver as orientações",
+              "rotulo": "Ver o que ajuda e o que piora",
               "rota": "/quero-ajudar"
             },
             "canais": [
               {
                 "rotulo": "180 — orientação sobre como ajudar",
                 "href": "tel:180"
+              },
+              {
+                "rotulo": "100 — criança, adolescente, pessoa idosa e pessoa com deficiência",
+                "href": "tel:100"
               }
             ]
           }
@@ -255,21 +346,21 @@
           "rotulo": "Posso denunciar por ela?",
           "resposta": {
             "texto": [
-              "Se você presenciar agressão ou houver risco imediato, ligue 190 na hora.",
-              "Fora disso, converse com ela antes: denunciar sem que ela saiba pode aumentar o risco que ela corre."
+              "Se for mulher adulta, o ideal é falar com ela antes, salvo risco imediato de vida.",
+              "Se a vítima for criança, adolescente, pessoa idosa ou pessoa com deficiência, você pode e deve comunicar mesmo sem o consentimento dela. Não é preciso ter certeza nem provas."
             ],
             "pagina": {
-              "rotulo": "Ver o que ajuda e o que piora",
+              "rotulo": "Ver quando comunicar não é opcional",
               "rota": "/quero-ajudar"
             },
             "canais": [
               {
-                "rotulo": "190 — se está acontecendo agora",
-                "href": "tel:190"
+                "rotulo": "100 — criança, adolescente, pessoa idosa e pessoa com deficiência",
+                "href": "tel:100"
               },
               {
-                "rotulo": "180 — para orientação",
-                "href": "tel:180"
+                "rotulo": "190 — Polícia Militar, se o risco é agora",
+                "href": "tel:190"
               }
             ]
           }
@@ -278,19 +369,43 @@
           "rotulo": "Tem criança envolvida",
           "resposta": {
             "texto": [
-              "Criança que presencia violência doméstica também é vítima. Comunique o Conselho Tutelar ou ligue 100."
+              "Criança que presencia violência contra alguém de quem gosta também é vítima — isso está escrito na Lei 13.431/2017.",
+              "Comunique o Conselho Tutelar ou ligue 100. Quem avalia a situação é o serviço, não quem comunica."
             ],
             "pagina": {
-              "rotulo": "Ver as orientações",
+              "rotulo": "Ver o site do Conselho Tutelar",
               "rota": "/quero-ajudar"
             },
             "canais": [
               {
-                "rotulo": "100 — Disque Direitos Humanos",
+                "rotulo": "100 — criança, adolescente, pessoa idosa e pessoa com deficiência",
                 "href": "tel:100"
               },
               {
-                "rotulo": "190 — risco imediato",
+                "rotulo": "190 — Polícia Militar, se o risco é agora",
+                "href": "tel:190"
+              }
+            ]
+          }
+        },
+        {
+          "rotulo": "É um idoso ou uma pessoa com deficiência",
+          "resposta": {
+            "texto": [
+              "Falta de comida, de remédio, de higiene ou de atendimento de saúde é violência por omissão, e o cartão do benefício retido é violência patrimonial.",
+              "Ligue 100 ou procure o CREAS. O Ministério Público e o Conselho da Pessoa Idosa também recebem a comunicação."
+            ],
+            "pagina": {
+              "rotulo": "Ver onde buscar ajuda",
+              "rota": "/onde-buscar-ajuda"
+            },
+            "canais": [
+              {
+                "rotulo": "100 — criança, adolescente, pessoa idosa e pessoa com deficiência",
+                "href": "tel:100"
+              },
+              {
+                "rotulo": "190 — Polícia Militar, se o risco é agora",
                 "href": "tel:190"
               }
             ]
@@ -303,20 +418,24 @@
       "rotulo": "Preciso navegar com segurança",
       "perguntas": [
         {
-          "rotulo": "Ele pode ver o que eu pesquiso",
+          "rotulo": "Podem ver o que eu pesquiso",
           "resposta": {
             "texto": [
-              "Use uma janela anônima, apague o histórico depois de pesquisar, e prefira o celular de alguém de confiança.",
-              "Verifique se há aplicativo de rastreamento instalado no seu aparelho e troque suas senhas em um dispositivo que ele não use."
+              "Use uma janela anônima, apague o histórico depois de pesquisar e verifique se há aplicativo de rastreamento instalado no seu celular.",
+              "Se puder, use o aparelho de alguém de confiança."
             ],
             "pagina": {
-              "rotulo": "Ver as orientações completas",
+              "rotulo": "Ver segurança digital",
               "rota": "/seguranca"
             },
             "canais": [
               {
                 "rotulo": "180 — Central de Atendimento à Mulher",
                 "href": "tel:180"
+              },
+              {
+                "rotulo": "100 — criança, adolescente, pessoa idosa e pessoa com deficiência",
+                "href": "tel:100"
               }
             ]
           }
@@ -325,8 +444,8 @@
           "rotulo": "Preciso sair de casa rápido",
           "resposta": {
             "texto": [
-              "Separe aos poucos documentos, remédios, cartões e uma muda de roupa, e deixe essa bolsa na casa de alguém de confiança.",
-              "Saiba antes para onde ir, com quem e como chegar. Se puder, saia quando ele não estiver em casa."
+              "Separe aos poucos documentos, cartões, remédios de uso contínuo e uma muda de roupa, e deixe essa bolsa na casa de alguém de confiança.",
+              "Quem usa órtese, prótese, aparelho auditivo ou cadeira de rodas precisa pensar antes em como levá-los."
             ],
             "pagina": {
               "rotulo": "Ver o plano de saída",
@@ -334,12 +453,16 @@
             },
             "canais": [
               {
-                "rotulo": "190 — em caso de risco",
+                "rotulo": "190 — Polícia Militar, se o risco é agora",
                 "href": "tel:190"
               },
               {
                 "rotulo": "180 — Central de Atendimento à Mulher",
                 "href": "tel:180"
+              },
+              {
+                "rotulo": "100 — criança, adolescente, pessoa idosa e pessoa com deficiência",
+                "href": "tel:100"
               }
             ]
           }
@@ -352,7 +475,7 @@
     "resposta": {
       "texto": [
         "Tudo bem. Esta lista não cobre tudo, e não saber encaixar o que você vive não é motivo para desistir.",
-        "O 180 atende qualquer dúvida sobre violência contra a mulher, é gratuito, funciona 24 horas e você não precisa dizer seu nome."
+        "O 180 atende dúvidas sobre violência contra a mulher e o 100 atende criança, adolescente, pessoa idosa e pessoa com deficiência. Os dois são gratuitos, funcionam 24 horas e você não precisa dizer seu nome."
       ],
       "canais": [
         {
@@ -365,7 +488,11 @@
           "tipo": "whatsapp"
         },
         {
-          "rotulo": "190 — se o risco é agora",
+          "rotulo": "100 — criança, adolescente, pessoa idosa e pessoa com deficiência",
+          "href": "tel:100"
+        },
+        {
+          "rotulo": "190 — Polícia Militar, se o risco é agora",
           "href": "tel:190"
         }
       ]

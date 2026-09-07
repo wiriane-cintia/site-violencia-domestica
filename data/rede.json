@@ -42,18 +42,20 @@
           "telefone": "(88) 3102-1250",
           "telefone_link": "+558831021250"
         }
-      ]
+      ],
+      "descricao": "Serviços que atendem especificamente mulheres em situação de violência doméstica e familiar."
     },
     {
       "titulo": "Apoio social e benefícios",
-      "descricao": "O CRAS atende por território: procure o do seu bairro. O CREAS acompanha quem já teve direitos violados.",
+      "descricao": "Atendem qualquer pessoa da casa — criança, adolescente, mulher, homem, pessoa idosa e pessoa com deficiência. O CRAS atende por território: procure o do seu bairro. O CREAS acompanha quem já teve direitos violados, inclusive casos de violência e abandono contra pessoa idosa e pessoa com deficiência.",
       "itens": [
         {
           "nome": "CREAS — Centro de Referência Especializado de Assistência Social",
           "endereco": "Rua Santa Cecília — Socorro",
           "telefone": "(88) 3199-0484",
           "telefone_link": "+558831990484",
-          "horario": "Segunda a sexta, das 8h às 17h"
+          "horario": "Segunda a sexta, das 8h às 17h",
+          "descricao": "Acompanhamento especializado de quem já teve direitos violados: violência, abandono, negligência e maus-tratos contra criança, adolescente, pessoa idosa e pessoa com deficiência."
         },
         {
           "nome": "CRAS 01 — Triângulo",
@@ -141,6 +143,29 @@
           "telefone_link": "+558831990398",
           "horario": "Segunda a sexta, das 7h30 às 17h"
         }
+      ],
+      "descricao": "Atendem qualquer vítima. Também é na unidade de saúde que se faz o registro da lesão no prontuário."
+    },
+    {
+      "titulo": "Pessoa idosa, pessoa com deficiência e demais vítimas",
+      "descricao": "Não existe delegacia especializada para esses casos em Juazeiro do Norte. O caminho é a delegacia comum, o CREAS, o Ministério Público e o Disque 100, que funciona 24 horas e aceita denúncia anônima.",
+      "itens": [
+        {
+          "nome": "Disque 100 — Direitos Humanos",
+          "descricao": "Recebe denúncia de violência contra criança, adolescente, pessoa idosa e pessoa com deficiência. Gratuito, 24 horas, aceita anônimo.",
+          "telefone": "100",
+          "telefone_link": "100"
+        },
+        {
+          "nome": "Delegacia comum de Juazeiro do Norte",
+          "descricao": "Registra ocorrência de qualquer vítima, inclusive homem, pessoa idosa e pessoa com deficiência. «A CONFIRMAR» endereço e telefone com o Conselho.",
+          "endereco": "«A CONFIRMAR»"
+        },
+        {
+          "nome": "Ministério Público do Ceará — Juazeiro do Norte",
+          "descricao": "Fiscaliza a rede e pode requerer medidas de proteção em favor de criança, adolescente, pessoa idosa e pessoa com deficiência.",
+          "endereco": "«A CONFIRMAR»"
+        }
       ]
     },
     {
@@ -155,10 +180,11 @@
         },
         {
           "nome": "Conselho Tutelar",
-          "descricao": "Quando há criança ou adolescente envolvido. Os contatos dos dois conselhos estão no rodapé deste site.",
+          "descricao": "Atende criança e adolescente. Recebe a comunicação de suspeita, avalia e aciona a rede — não é preciso ter prova nem se identificar. Os contatos dos dois conselhos estão no rodapé deste site.",
           "endereco": "I Conselho: Rua São José, 620 — Centro · II Conselho: Rua do Limoeiro, 119 — São Miguel"
         }
-      ]
+      ],
+      "descricao": "Atendem qualquer vítima. A Defensoria orienta gratuitamente quem não pode pagar advogado."
     }
   ]
 }
