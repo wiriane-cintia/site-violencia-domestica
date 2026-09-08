@@ -1378,15 +1378,12 @@ body.menu-aberto {
 
 .atalho {
   position: relative;
-  overflow: hidden;
-  min-height: 215px;
-  justify-content: flex-start;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--espaco-1);
   height: 100%;
-  padding: var(--espaco-4) var(--espaco-3);
+  padding: var(--espaco-3);
   background: var(--cor-fundo);
   border: var(--borda-sutil);
   border-radius: var(--raio-2);
@@ -1962,60 +1959,25 @@ body.menu-aberto {
   }
 }
 
-/* ---------- Grade de paginas: descricao aparece no hover ---------- */
+/* ---------- Grade de paginas ---------- */
 
-/* Em telas com mouse, o cartao mostra so icone e titulo, como o gov.br.
-   A descricao sobe de baixo quando a pessoa passa o mouse ou chega pelo Tab. */
-@media (hover: hover) {
-  .atalho__descricao {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: var(--espaco-2) var(--espaco-3);
-    background: var(--cor-identidade);
-    color: #ffffff;
-    font-size: var(--texto-pequeno);
-    line-height: 1.45;
-    transform: translateY(101%);
-    transition: transform var(--transicao);
-  }
-
-  .atalho:hover .atalho__descricao,
-  .atalho:focus-visible .atalho__descricao {
-    transform: translateY(0);
-  }
-
-  /* Com o cartao inteiro azul no hover, a faixa da descricao some. Mantemos
-     o cartao claro e deixamos so a faixa colorida. */
-  .atalho:hover {
-    background: var(--cor-fundo);
-    color: var(--cor-identidade);
-  }
+/* A descricao fica sempre visivel, e nao escondida atras do hover. Tentamos
+   a faixa que subia no hover e ela cria um dilema sem saida: ou o cartao
+   reserva o espaco dela e fica com metade vazio parado, ou a faixa sobe e
+   cobre o titulo. Alem disso, no celular hover nao existe — entao metade dos
+   visitantes nunca veria a descricao. Mostrar sempre resolve os tres. */
+.atalho__descricao {
+  margin-top: var(--espaco-1);
+  color: var(--cor-texto-secundario);
+  font-size: var(--texto-pequeno);
+  line-height: 1.45;
 }
 
-/* Em celular e tablet nao existe hover: a descricao fica sempre visivel. */
-@media (hover: none) {
-  .atalho {
-    min-height: 0;
-  }
-
-  .atalho__descricao {
-    margin-top: var(--espaco-1);
-    color: var(--cor-texto-secundario);
-    font-size: var(--texto-pequeno);
-    line-height: 1.45;
-  }
-
-  .atalho:hover .atalho__descricao {
-    color: inherit;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .atalho__descricao {
-    transition: none;
-  }
+/* No hover o cartao inteiro fica azul, entao a descricao precisa clarear
+   junto — com a cor de texto normal ela sumiria no fundo. */
+.atalho:hover .atalho__descricao,
+.atalho:focus-visible .atalho__descricao {
+  color: rgba(255, 255, 255, 0.92);
 }
 
 /* ---------- Endereco que abre o Google Maps ---------- */
@@ -2077,8 +2039,10 @@ body.menu-aberto {
   margin-top: var(--espaco-3);
 }
 
+/* A busca ocupa a mesma coluna do resto da home. Antes ela parava 300px
+   antes da borda direita e nada alinhava com nada. */
 .topo-linha__busca .busca-bairro {
-  max-width: 840px;
+  max-width: none;
   margin: 0;
 }
 
@@ -2422,8 +2386,7 @@ h1, h2, h3,
 /* ----- a barra que abre (usada na home) ----- */
 
 .situacoes__caixa {
-  max-width: 860px;
-  margin: 0 auto;
+  max-width: none;
   border: 1px solid var(--cor-borda);
   border-radius: var(--raio-2);
   background: var(--cor-fundo);
@@ -2511,8 +2474,7 @@ h1, h2, h3,
 /* ----- a lista de situacoes ----- */
 
 .situacoes__lista {
-  max-width: 860px;
-  margin: 0 auto;
+  max-width: none;
 }
 
 .situacoes__caixa .situacoes__lista {
