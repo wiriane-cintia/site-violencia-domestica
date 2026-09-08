@@ -78,6 +78,7 @@ app.use((req, res, next) => {
   const bairros = dadosOpcionais('bairros.json');
   const duvidas = dadosOpcionais('duvidas.json');
   const rede = dadosOpcionais('rede.json');
+  const situacoes = dadosOpcionais('situacoes.json');
   const rodape = dados('rodape.json');
   const entrada = paginas.navegacao.find(p => p.rota === req.path);
   if (!entrada) return next();
@@ -97,6 +98,7 @@ app.use((req, res, next) => {
     bairros,
     duvidas,
     rede,
+    situacoes,
     rodape,
   });
 });
@@ -110,6 +112,7 @@ app.use((req, res) => {
   const bairros = dadosOpcionais('bairros.json');
   const duvidas = dadosOpcionais('duvidas.json');
   const rede = dadosOpcionais('rede.json');
+  const situacoes = dadosOpcionais('situacoes.json');
   const rodape = dados('rodape.json');
   res.status(404).render('erro-404', {
     titulo: 'Página não encontrada' + (site.sufixo_aba ? ' — ' + site.sufixo_aba : ''),
@@ -123,6 +126,7 @@ app.use((req, res) => {
     bairros,
     duvidas,
     rede,
+    situacoes,
     rodape,
   });
 });

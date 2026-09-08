@@ -30,9 +30,18 @@
 <div class="container">
   <%- include('../parciais/bloco-emergencia', { conselhos: conselhos, emergencia: emergencia }) %>
 
+  <%
+    // Secoes que a pagina quer logo depois do bloco de emergencia, antes da
+    // grade. E onde entra o "E com o Conselho Tutelar?": quem chega em duvida
+    // encontra a resposta antes de precisar escolher uma pagina.
+  %>
+  <% if (pagina.secoes_topo) { %>
+    <%- include('../parciais/secoes', { secoes: pagina.secoes_topo, conselhos: conselhos, rede: rede, situacoes: situacoes }) %>
+  <% } %>
+
   <%- include('../parciais/grade-atalhos', { atalhos: atalhos, navegacao: navegacao, conteudo: conteudo, rotaAtual: rotaAtual }) %>
 
   <% if (pagina.secoes) { %>
-    <%- include('../parciais/secoes', { secoes: pagina.secoes, conselhos: conselhos, rede: rede }) %>
+    <%- include('../parciais/secoes', { secoes: pagina.secoes, conselhos: conselhos, rede: rede, situacoes: situacoes }) %>
   <% } %>
 </div>

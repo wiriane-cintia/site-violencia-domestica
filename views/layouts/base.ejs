@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR"<% if (site.prototipo) { %> data-prototipo="sim"<% } %><% if (site.saida_rapida) { %> data-saida-rapida="sim"<% } %>>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -80,7 +80,7 @@
                 <% var c = conselhos[item.conselho]; %>
                 <% if (item.campo === 'telefones') { %>
                   <% c.telefones.forEach(function (tel, i) { %>
-                    <li><%- include('../parciais/telefone', { href: 'tel:' + c.telefones_link[i], rotulo: tel, tipo: 'telefone' }) %></li>
+                    <li><%- include('../parciais/telefone', { href: 'tel:' + c.telefones_link[i], rotulo: tel, tipo: 'telefone', confirmado: c.telefones_confirmados !== false }) %></li>
                   <% }); %>
                 <% } else if (item.campo === 'plantao') { %>
                   <li><%- include('../parciais/telefone', { href: 'https://wa.me/' + c.plantao_24h_link + '?text=Ol%C3%A1%2C%20preciso%20de%20ajuda', rotulo: c.nome + ' — plantão 24h', tipo: 'whatsapp' }) %></li>
@@ -123,7 +123,7 @@
     </div>
   </footer>
   <% if (duvidas) { %>
-    <%- include('../parciais/orientacao-guiada', { duvidas: duvidas, conselhos: conselhos }) %>
+    <%- include('../parciais/orientacao-guiada', { duvidas: duvidas, conselhos: conselhos, bairros: bairros }) %>
   <% } %>
 
   <div vw class="enabled">

@@ -1,6 +1,6 @@
 {
   "atualizado_em": "setembro de 2026",
-  "fonte": "Portal da Prefeitura de Juazeiro do Norte, Ministério Público do Ceará e Defensoria Pública do Ceará. «A CONFIRMAR» antes da publicação definitiva.",
+  "fonte": "Portal da Prefeitura de Juazeiro do Norte, Ministério Público do Ceará e informações do Conselho Tutelar em 07/09/2026. Os itens marcados «A CONFIRMAR» ainda estão em levantamento.",
   "grupos": [
     {
       "titulo": "Atendimento especializado à mulher",
@@ -15,15 +15,15 @@
         },
         {
           "nome": "Unidade de Acolhimento para Mulheres Vítimas de Violência Doméstica",
-          "descricao": "Abrigo para mulheres em risco. O endereço não é divulgado por segurança: o contato é feito pelo telefone.",
+          "descricao": "Abrigo para mulheres em risco. Segundo o Conselho Tutelar, basta comparecer ao local: a equipe faz o atendimento e a orientação, sem precisar de encaminhamento prévio. O endereço não é divulgado neste site por segurança — o contato é pelo telefone.",
           "telefone": "(88) 93618-0174",
           "telefone_link": "+5588936180174",
           "whatsapp_link": "5588936180174",
           "horario": "Todos os dias, 24 horas"
         },
         {
-          "nome": "Delegacia de Defesa da Mulher de Juazeiro do Norte",
-          "descricao": "Registro de ocorrência, pedido de medida protetiva e investigação, com atendimento especializado.",
+          "nome": "Casa da Mulher Cearense — Juazeiro do Norte",
+          "descricao": "É o nome do serviço especializado de atendimento à mulher no município, informado pelo Conselho Tutelar. Registro de ocorrência, pedido de medida protetiva e atendimento especializado. «A CONFIRMAR» endereço e telefone.",
           "endereco": "Rua das Flores, s/n — Santa Tereza",
           "telefone": "(88) 3102-1102",
           "telefone_link": "+558831021102"
@@ -41,6 +41,11 @@
           "endereco": "Rua Coronel Segundo, 216 — Centro, Crato",
           "telefone": "(88) 3102-1250",
           "telefone_link": "+558831021250"
+        },
+        {
+          "nome": "Casa da Criança e do Adolescente",
+          "descricao": "Serviço especializado de atendimento a criança e adolescente no município, informado pelo Conselho Tutelar. «A CONFIRMAR» endereço, telefone e o que atende.",
+          "endereco": "«A CONFIRMAR»"
         }
       ],
       "descricao": "Serviços que atendem especificamente mulheres em situação de violência doméstica e familiar."
@@ -121,6 +126,12 @@
           "endereco": "Rua José Martins Filho — Campo Alegre",
           "telefone": "(88) 93618-0149",
           "telefone_link": "+5588936180149"
+        },
+        {
+          "nome": "Abordagem Social",
+          "descricao": "Atende criança e adolescente em situação de rua ou pedindo em semáforo. Informado pelo Conselho Tutelar em 07/09/2026.",
+          "telefone": "(88) 93618-0148",
+          "telefone_link": "+5588936180148"
         }
       ]
     },

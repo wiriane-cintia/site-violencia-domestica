@@ -76,6 +76,26 @@
         <% if (situacao.risco_imediato) { %>
           <div class="orientacao__resposta orientacao__resposta--risco" data-resposta="<%= situacao.id %>" hidden>
             <% situacao.resposta.texto.forEach(function (paragrafo) { %><p><%= paragrafo %></p><% }); %>
+
+            <%
+              // Pedido do Conselho Tutelar (resposta 24 do questionario): na opcao
+              // de risco imediato, a pessoa escolhe o bairro e recebe o plantao do
+              // conselho que atende ali, em vez de ter que descobrir sozinha.
+              var temBairros = situacao.bairros && typeof bairros !== 'undefined' && bairros;
+            %>
+            <% if (temBairros) { %>
+              <div class="orientacao__bairro">
+                <label class="orientacao__bairro-rotulo" for="orientacao-bairro"><%= situacao.bairros_titulo || 'Qual é o seu bairro?' %></label>
+                <select class="orientacao__bairro-campo" id="orientacao-bairro">
+                  <option value="">Escolha o bairro</option>
+                  <% bairros.bairros.forEach(function (b) { %>
+                    <option value="<%= b.conselho || '' %>"><%= b.nome %></option>
+                  <% }); %>
+                </select>
+                <p class="orientacao__bairro-ajuda"><%= situacao.bairros_ajuda || '' %></p>
+                <p class="orientacao__bairro-saida" id="orientacao-bairro-saida" role="status" aria-live="polite" hidden></p>
+              </div>
+            <% } %>
             <ul class="orientacao__canais">
               <% situacao.resposta.canais.forEach(function (canal) { %>
                 <li>

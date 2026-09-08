@@ -9,7 +9,7 @@
 
 <div class="container">
   <% if (pagina.secoes) { %>
-    <%- include('../parciais/secoes', { secoes: pagina.secoes, conselhos: conselhos, rede: rede }) %>
+    <%- include('../parciais/secoes', { secoes: pagina.secoes, conselhos: conselhos, rede: rede, situacoes: situacoes }) %>
   <% } %>
 
   <%- include('../parciais/bloco-emergencia', { conselhos: conselhos, emergencia: emergencia }) %>

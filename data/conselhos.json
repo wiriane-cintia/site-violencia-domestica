@@ -3,20 +3,43 @@
     "nome": "I Conselho Tutelar",
     "instagram": "https://www.instagram.com/conselhotutelar1jn.ce/",
     "email": "conselhotutelar01jnce@gmail.com",
-    "telefones": ["(88) 3587-3349", "(88) 3199-0469"],
-    "telefones_link": ["+558835873349", "+558831990469"],
+    "telefones": [
+      "(88) 3587-3349",
+      "(88) 3199-0469"
+    ],
+    "telefones_link": [
+      "+558835873349",
+      "+558831990469"
+    ],
     "plantao_24h": "(88) 98224-6158",
     "plantao_24h_link": "5588982246158",
-    "endereco": "Rua São José, 620 — Centro, Juazeiro do Norte/CE"
+    "endereco": "Rua São José, 620 — Centro, Juazeiro do Norte/CE",
+    "telefones_confirmados": true,
+    "horario": "Segunda a sexta, das 8h às 12h e das 13h às 17h",
+    "horario_plantao": "Plantão sobre aviso 24 horas, todos os dias do ano. A troca de plantonistas é às 8h.",
+    "aviso_fim_de_semana": "Sábados, domingos e feriados a sede fica fechada. O atendimento é pelo plantão.",
+    "equipe": "Cada conselho tem 5 conselheiros em escala: dois no atendimento da sede, dois no plantão externo sobre aviso e um de folga. Nos fins de semana ficam dois plantonistas sobre aviso.",
+    "telefones_fonte": "Bio do perfil oficial @conselhotutelar1jn.ce, conferida em 07/09/2026"
   },
   "conselho_2": {
     "nome": "II Conselho Tutelar",
     "instagram": "https://www.instagram.com/conselhotutelar2.jn/",
-    "email": "segundoconselhotutelarjn@gmail.com",
-    "telefones": ["(88) 3199-0470"],
-    "telefones_link": ["+558831990470"],
+    "email": "segundoconselhotutelarjn2@gmail.com",
+    "telefones": [
+      "(88) 3199-0470"
+    ],
+    "telefones_link": [
+      "+558831990470"
+    ],
     "plantao_24h": "(88) 98224-4970",
     "plantao_24h_link": "5588982244970",
-    "endereco": "Rua do Limoeiro, 119 — São Miguel, Juazeiro do Norte/CE"
+    "endereco": "Rua do Limoeiro, 119 — São Miguel, Juazeiro do Norte/CE",
+    "telefones_confirmados": true,
+    "horario": "Segunda a sexta, das 8h às 12h e das 13h às 17h",
+    "horario_plantao": "Plantão sobre aviso 24 horas, todos os dias do ano. A troca de plantonistas é às 8h.",
+    "aviso_fim_de_semana": "Sábados, domingos e feriados a sede fica fechada. O atendimento é pelo plantão.",
+    "equipe": "Cada conselho tem 5 conselheiros em escala: dois no atendimento da sede, dois no plantão externo sobre aviso e um de folga. Nos fins de semana ficam dois plantonistas sobre aviso.",
+    "telefones_fonte": "Bio do perfil oficial @conselhotutelar2.jn, conferida em 07/09/2026",
+    "email_a_confirmar": true
   }
 }

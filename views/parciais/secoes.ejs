@@ -39,12 +39,22 @@
     <div class="aviso secao">
       <% if (secao.titulo) { %><h2 class="secao__titulo"><%= secao.titulo %></h2><% } %>
       <p><%= secao.texto %></p>
+      <% if (secao.link) { %>
+        <p class="secao__acao">
+          <a class="botao botao--contorno" href="<%= secao.link.href %>"<% if (secao.link.externo) { %> target="_blank" rel="noopener noreferrer"<% } %>><%= secao.link.rotulo %></a>
+        </p>
+      <% } %>
     </div>
 
   <% } else if (secao.tipo === 'destaque') { %>
     <div class="destaque secao">
       <% if (secao.titulo) { %><h2 class="secao__titulo"><%= secao.titulo %></h2><% } %>
       <p><%= secao.texto %></p>
+      <% if (secao.link) { %>
+        <p class="secao__acao">
+          <a class="botao botao--contorno" href="<%= secao.link.href %>"<% if (secao.link.externo) { %> target="_blank" rel="noopener noreferrer"<% } %>><%= secao.link.rotulo %></a>
+        </p>
+      <% } %>
     </div>
 
   <% } else if (secao.tipo === 'perguntas') { %>
@@ -93,6 +103,11 @@
       <p class="secao-rede__fonte">Fonte: <%= rede.fonte %> Atualizado em <%= rede.atualizado_em %>.</p>
     </section>
 
+  <% } else if (secao.tipo === 'situacoes') { %>
+    <% if (typeof situacoes !== 'undefined' && situacoes) { %>
+      <%- include('situacoes', { situacoes: situacoes, conselhos: conselhos, rede: rede, recolhido: !!secao.recolhido }) %>
+    <% } %>
+
   <% } else if (secao.tipo === 'telefones') { %>
     <section class="secao secao-contatos">
       <% if (secao.titulo) { %><h2 class="secao__titulo"><%= secao.titulo %></h2><% } %>
@@ -112,7 +127,7 @@
             <h3 class="secao-contatos__nome"><%= conselho.nome %></h3>
             <ul class="secao-contatos__lista">
               <% conselho.telefones.forEach(function (tel, i) { %>
-                <li><%- include('telefone', { href: 'tel:' + conselho.telefones_link[i], rotulo: tel, tipo: 'telefone' }) %></li>
+                <li><%- include('telefone', { href: 'tel:' + conselho.telefones_link[i], rotulo: tel, tipo: 'telefone', confirmado: conselho.telefones_confirmados !== false }) %></li>
               <% }); %>
               <li><%- include('telefone', { href: 'https://wa.me/' + conselho.plantao_24h_link + '?text=Ol%C3%A1%2C%20preciso%20de%20ajuda', rotulo: 'Plantão 24h — ' + conselho.plantao_24h, tipo: 'whatsapp' }) %></li>
               <% if (conselho.endereco) { %>

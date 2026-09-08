@@ -353,6 +353,10 @@
           "titulo": "Dúvidas frequentes",
           "itens": [
             {
+              "pergunta": "Quanto tempo demora para sair a medida protetiva aqui?",
+              "resposta": "Na comarca de Juazeiro do Norte, cerca de 48 horas, segundo o Conselho Tutelar do município. O pedido é feito no próprio atendimento da delegacia, sem advogado e sem pagar nada."
+            },
+            {
               "pergunta": "A medida protetiva tem prazo de validade?",
               "resposta": "Ela vale enquanto durar o risco. O Superior Tribunal de Justiça já decidiu que essas medidas não devem ser fixadas com prazo determinado, e sim mantidas enquanto a situação de risco existir."
             },
