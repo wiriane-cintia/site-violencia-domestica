@@ -1,0 +1,105 @@
+<%
+  // Cada situacao e um <details>: sem JavaScript ela abre e fecha do mesmo
+  // jeito, e o teclado ja funciona sozinho. Quando abre, o cartao passa a
+  // ocupar a linha inteira da grade — isso e so CSS, nao ha script nenhum
+  // aqui. E o que faz a resposta aparecer larga, embaixo do cartao clicado.
+  var lista = situacoes.itens || [];
+%>
+<section class="situacoes" aria-labelledby="titulo-situacoes">
+<% if (recolhido) { %>
+  <details class="situacoes__caixa">
+    <summary class="situacoes__barra">
+      <span class="situacoes__barra-icone" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+      </span>
+      <span class="situacoes__barra-texto">
+        <span class="situacoes__barra-titulo" id="titulo-situacoes"><%= situacoes.titulo %></span>
+        <span class="situacoes__barra-ajuda"><%= situacoes.resumo || situacoes.instrucao %></span>
+      </span>
+      <span class="situacoes__barra-seta" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </span>
+    </summary>
+<% } else { %>
+  <h2 class="situacoes__titulo" id="titulo-situacoes"><%= situacoes.titulo %></h2>
+  <% if (situacoes.instrucao) { %>
+    <p class="situacoes__instrucao"><%= situacoes.instrucao %></p>
+  <% } %>
+<% } %>
+
+  <div class="situacoes__lista">
+    <% lista.forEach(function (item, i) { %>
+      <details class="situacao<%= item.e_do_conselho ? ' situacao--sim' : ' situacao--nao' %>">
+        <summary class="situacao__linha">
+          <span class="situacao__icone" aria-hidden="true"><%- include('icone', { nome: item.icone || 'padrao' }) %></span>
+          <span class="situacao__rotulo"><%= item.rotulo %></span>
+          <span class="situacao__marca" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </span>
+        </summary>
+
+        <div class="situacao__resposta">
+          <p class="situacao__selo">
+            <%= item.e_do_conselho ? (situacoes.rotulo_sim || 'É com o Conselho') : (situacoes.rotulo_nao || 'Não é com o Conselho') %>
+          </p>
+
+          <p class="situacao__texto"><%= item.resposta %></p>
+
+          <% if (item.aviso) { %>
+            <p class="situacao__aviso"><%= item.aviso %></p>
+          <% } %>
+
+          <% if (item.canais && item.canais.length) { %>
+            <ul class="situacao__canais">
+              <% item.canais.forEach(function (canal) { %>
+                <li>
+                  <% if (canal.conselho) { %>
+                    <% var c = conselhos[canal.conselho]; %>
+                    <%- include('telefone', { href: 'https://wa.me/' + c.plantao_24h_link + '?text=Ol%C3%A1%2C%20preciso%20de%20ajuda', rotulo: c.nome + ' — plantão 24h — ' + c.plantao_24h, tipo: 'whatsapp' }) %>
+                  <% } else { %>
+                    <%- include('telefone', { href: canal.href, rotulo: canal.rotulo, tipo: canal.tipo || 'telefone' }) %>
+                  <% } %>
+                </li>
+              <% }); %>
+            </ul>
+          <% } %>
+
+          <% if (item.canais && item.canais.some(function (x) { return x.conselho; })) { %>
+            <ul class="situacao__enderecos">
+              <% item.canais.forEach(function (canal) { %>
+                <% if (canal.conselho && conselhos[canal.conselho].endereco) { %>
+                  <li><%- include('endereco', { texto: conselhos[canal.conselho].nome + ' — ' + conselhos[canal.conselho].endereco, mapa: conselhos[canal.conselho].endereco_mapa }) %></li>
+                <% } %>
+              <% }); %>
+            </ul>
+          <% } %>
+
+          <% if (item.rede && typeof rede !== 'undefined' && rede) { %>
+            <ul class="situacao__enderecos">
+              <% item.rede.forEach(function (nomeServico) { %>
+                <% rede.grupos.forEach(function (grupo) { %>
+                  <% grupo.itens.forEach(function (servico) { %>
+                    <% if (servico.nome === nomeServico) { %>
+                      <li>
+                        <strong><%= servico.nome %></strong>
+                        <% if (servico.telefone) { %>
+                          <%- include('telefone', { href: 'tel:' + servico.telefone_link, rotulo: servico.telefone, tipo: 'telefone' }) %>
+                        <% } %>
+                        <% if (servico.endereco) { %>
+                          <%- include('endereco', { texto: servico.endereco, mapa: servico.endereco_mapa }) %>
+                        <% } %>
+                      </li>
+                    <% } %>
+                  <% }); %>
+                <% }); %>
+              <% }); %>
+            </ul>
+          <% } %>
+        </div>
+      </details>
+    <% }); %>
+  </div>
+<% if (recolhido) { %>
+  </details>
+<% } %>
+</section>

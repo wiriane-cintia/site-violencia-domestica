@@ -65,6 +65,11 @@ button:focus-visible {
        digitado, mas ainda legivel para quem enxerga pouco. */
     --cor-texto-placeholder: #6b7480;
 
+    /* Altura reservada para a faixa de prototipo, que fica fixa no topo.
+       Este valor e o ponto de partida; o app.js mede a faixa de verdade e
+       corrige, porque em tela estreita o texto quebra em duas linhas. */
+    --altura-prototipo: 0px;
+
     /* Tipografia — Sora nos titulos, Inter no texto corrido.
        A Inter foi desenhada para ser lida em tela pequena; a Sora tem a forma
        geometrica que da personalidade aos titulos sem atrapalhar a leitura. */
@@ -388,7 +393,7 @@ main > .container > h1:first-child {
 }
 
 .pular-link {
-  position: absolute;
+  position: fixed;
   top: -100%;
   left: var(--espaco-2);
   background: var(--cor-acao);
@@ -405,7 +410,15 @@ main > .container > h1:first-child {
   top: 0;
 }
 
+/* A faixa de prototipo fica FIXA no topo, acima de tudo menos da saida rapida.
+   Ela precisa aparecer em qualquer print, em qualquer pagina e em qualquer
+   ponto da rolagem: e o aviso de que os dados ainda nao valem como oficiais. */
 .faixa-prototipo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1250;
   margin: 0;
   padding: 0.6rem var(--espaco-3);
   background: repeating-linear-gradient(
@@ -421,6 +434,29 @@ main > .container > h1:first-child {
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.02em;
+}
+
+/* O corpo desce o tanto que a faixa ocupa, senao ela cobriria o cabecalho. */
+.com-prototipo {
+  padding-top: var(--altura-prototipo);
+}
+
+/* E o cabecalho, que tambem e fixo, cola logo abaixo dela. */
+.com-prototipo .cabecalho {
+  top: var(--altura-prototipo);
+}
+
+/* Onde ha saida rapida, a faixa nao pode passar por baixo do botao: sobra
+   espaco a direita para o texto nao ficar escondido atras dele. */
+.com-prototipo.com-saida-rapida .faixa-prototipo {
+  padding-right: 11rem;
+}
+
+@media (max-width: 620px) {
+  .com-prototipo.com-saida-rapida .faixa-prototipo {
+    padding-right: var(--espaco-3);
+    padding-top: 3.2rem;
+  }
 }
 
 .saida-rapida__aviso {
@@ -1552,11 +1588,13 @@ body.menu-aberto {
 }
 
 /* ---------- Saida rapida (site VD) ---------- */
+/* z-index acima da faixa de prototipo: a saida rapida tem precedencia sobre
+   qualquer outro elemento de interface. */
 .saida-rapida {
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 1200;
+  z-index: 1400;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -2268,4 +2306,371 @@ h1, h2, h3,
 
 .destaque .rodape__link {
   color: #ffffff;
+}
+
+/* Na impressao a faixa volta a ser um elemento normal, no topo do papel. */
+@media print {
+  .faixa-prototipo {
+    position: static;
+  }
+
+  .com-prototipo {
+    padding-top: 0;
+  }
+}
+
+/* Telefone ainda nao confirmado pela instituicao: aparece, mas nao liga. */
+/* Especificidade dobrada de proposito: as secoes (contatos, rede, busca)
+   pintam o telefone de azul, e o pendente precisa vencer essas regras para
+   nao parecer um link que funciona. */
+.rodape__link.rodape__link--pendente {
+  color: var(--cor-texto-secundario);
+  cursor: default;
+  text-decoration: none;
+}
+
+.rodape .rodape__link--pendente {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.rodape__pendente-marca {
+  display: inline-block;
+  margin-left: 0.4rem;
+  padding: 0.1rem 0.45rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.85;
+}
+
+/* ---------- Bairro dentro do guia de orientacao ---------- */
+
+.orientacao__bairro {
+  margin-top: var(--espaco-2);
+  padding: var(--espaco-2);
+  background: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-2);
+}
+
+.orientacao__bairro-rotulo {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.orientacao__bairro-campo {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.6rem 0.75rem;
+  font-family: var(--fonte-texto);
+  font-size: var(--texto-corpo);
+  color: var(--cor-texto);
+  background: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-1);
+}
+
+.orientacao__bairro-ajuda {
+  margin: 0.5rem 0 0;
+  font-size: var(--texto-pequeno);
+  color: var(--cor-texto-secundario);
+}
+
+.orientacao__bairro-saida {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0.75rem 0 0;
+  padding-top: 0.75rem;
+  border-top: var(--borda-sutil);
+  font-size: var(--texto-pequeno);
+}
+
+.orientacao__bairro-link {
+  font-weight: 700;
+  color: var(--cor-identidade);
+}
+
+/* ---------- "É com o Conselho Tutelar?" ---------- */
+
+/* Sao 14 situacoes. Em cartao, isso vira um muro de caixas e domina a home.
+   Em linha, vira uma lista calma que a pessoa varre com o olho. E na home a
+   lista inteira fica dentro de uma barra que abre — ocupa uma faixa, nao
+   meia tela. Tudo com <details>: nenhuma linha de JavaScript. */
+
+.situacoes {
+  margin-top: var(--espaco-5);
+}
+
+.situacoes__titulo {
+  color: var(--cor-identidade);
+  text-align: center;
+  margin-bottom: var(--espaco-1);
+}
+
+.situacoes__instrucao {
+  text-align: center;
+  color: var(--cor-texto-secundario);
+  margin: 0 auto var(--espaco-3);
+  max-width: 58ch;
+}
+
+/* ----- a barra que abre (usada na home) ----- */
+
+.situacoes__caixa {
+  max-width: 860px;
+  margin: 0 auto;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-2);
+  background: var(--cor-fundo);
+  overflow: hidden;
+  transition: box-shadow var(--transicao), border-color var(--transicao);
+}
+
+.situacoes__caixa[open] {
+  border-color: var(--cor-identidade);
+  box-shadow: var(--sombra-1);
+}
+
+.situacoes__barra {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-2);
+  padding: var(--espaco-2) var(--espaco-3);
+  background: var(--cor-superficie);
+  cursor: pointer;
+  list-style: none;
+}
+
+.situacoes__barra::-webkit-details-marker {
+  display: none;
+}
+
+.situacoes__barra:hover {
+  background: #e9edf4;
+}
+
+.situacoes__barra-icone {
+  display: inline-flex;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--cor-fundo);
+  color: var(--cor-identidade);
+}
+
+.situacoes__barra-icone svg {
+  width: 22px;
+  height: 22px;
+}
+
+.situacoes__barra-texto {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.situacoes__barra-titulo {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: var(--titulo-3);
+  color: var(--cor-identidade);
+  letter-spacing: -0.01em;
+}
+
+.situacoes__barra-ajuda {
+  font-size: var(--texto-pequeno);
+  color: var(--cor-texto-secundario);
+}
+
+.situacoes__barra-seta {
+  display: inline-flex;
+  flex: none;
+  color: var(--cor-identidade);
+  transition: transform var(--transicao);
+}
+
+.situacoes__barra-seta svg {
+  width: 20px;
+  height: 20px;
+}
+
+.situacoes__caixa[open] .situacoes__barra-seta {
+  transform: rotate(180deg);
+}
+
+/* ----- a lista de situacoes ----- */
+
+.situacoes__lista {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.situacoes__caixa .situacoes__lista {
+  max-width: none;
+}
+
+.situacao {
+  border-top: var(--borda-sutil);
+}
+
+.situacoes__lista > .situacao:first-child {
+  border-top: none;
+}
+
+.situacoes__caixa .situacao:first-child {
+  border-top: var(--borda-sutil);
+}
+
+.situacao__linha {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-2);
+  min-height: 56px;
+  padding: 0.7rem var(--espaco-3);
+  cursor: pointer;
+  list-style: none;
+}
+
+.situacao__linha::-webkit-details-marker {
+  display: none;
+}
+
+.situacao__linha:hover {
+  background: var(--cor-superficie);
+}
+
+.situacao__icone {
+  display: inline-flex;
+  flex: none;
+  width: 22px;
+  height: 22px;
+  align-items: center;
+  justify-content: center;
+  color: var(--cor-identidade);
+}
+
+.situacao__icone svg {
+  width: 20px;
+  height: 20px;
+}
+
+.situacao--nao .situacao__icone {
+  color: #8a6a1c;
+}
+
+.situacao__rotulo {
+  flex: 1 1 auto;
+  line-height: 1.35;
+}
+
+.situacao[open] .situacao__rotulo {
+  font-weight: 700;
+  color: var(--cor-identidade);
+}
+
+.situacao__marca {
+  display: inline-flex;
+  flex: none;
+  color: var(--cor-texto-secundario);
+  transition: transform var(--transicao);
+}
+
+.situacao__marca svg {
+  width: 16px;
+  height: 16px;
+}
+
+.situacao[open] .situacao__marca {
+  transform: rotate(90deg);
+  color: var(--cor-identidade);
+}
+
+/* ----- a resposta ----- */
+
+.situacao__resposta {
+  padding: 0 var(--espaco-3) var(--espaco-3) calc(var(--espaco-3) + 22px + var(--espaco-2));
+  max-width: var(--largura-leitura);
+}
+
+.situacao__selo {
+  display: inline-block;
+  margin: 0 0 var(--espaco-2);
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.situacao--sim .situacao__selo {
+  background: var(--cor-identidade);
+  color: #ffffff;
+}
+
+.situacao--nao .situacao__selo {
+  background: var(--cor-acao);
+  color: var(--cor-texto);
+}
+
+.situacao__texto {
+  margin: 0 0 var(--espaco-2);
+}
+
+.situacao__aviso {
+  margin: 0 0 var(--espaco-2);
+  padding: var(--espaco-2);
+  background: #fdeceb;
+  border-left: 4px solid var(--cor-alerta);
+  border-radius: var(--raio-1);
+  font-weight: 600;
+}
+
+.situacao__canais,
+.situacao__enderecos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.situacao__enderecos {
+  margin-top: var(--espaco-2);
+  padding-top: var(--espaco-2);
+  border-top: var(--borda-sutil);
+  font-size: var(--texto-pequeno);
+  color: var(--cor-texto-secundario);
+}
+
+@media (max-width: 560px) {
+  .situacao__linha,
+  .situacoes__barra {
+    padding-left: var(--espaco-2);
+    padding-right: var(--espaco-2);
+  }
+
+  .situacao__resposta {
+    padding-left: calc(var(--espaco-2) + 22px + var(--espaco-2));
+    padding-right: var(--espaco-2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .situacoes__caixa,
+  .situacoes__barra-seta,
+  .situacao__marca {
+    transition: none;
+  }
 }

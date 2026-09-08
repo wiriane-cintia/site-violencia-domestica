@@ -10,3 +10,11 @@
 // coisa aparecer na tela. Quem nao tem JavaScript nunca recebe a classe, e o
 // menu continua sendo uma lista normal, acessivel.
 document.documentElement.classList.add('com-js');
+
+// As duas classes abaixo sao escritas no <html> pelo proprio HTML da pagina
+// (atributo data-prototipo e data-saida-rapida no <html>), lidas aqui antes da
+// primeira pintura para que a faixa de prototipo e a saida rapida ja nascam no
+// lugar certo, sem salto.
+var raiz = document.documentElement;
+if (raiz.getAttribute('data-prototipo') === 'sim') raiz.classList.add('com-prototipo');
+if (raiz.getAttribute('data-saida-rapida') === 'sim') raiz.classList.add('com-saida-rapida');

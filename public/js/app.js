@@ -214,6 +214,53 @@
   }
 
 
+  // ---------- Bairro dentro do guia de orientacao ----------
+  // Pedido do Conselho Tutelar: na opcao "uma crianca esta em perigo agora",
+  // a pessoa escolhe o bairro e recebe direto o plantao do conselho que atende
+  // ali, sem ter que fechar o painel e ir procurar na busca da home.
+  var campoBairroGuia = document.getElementById('orientacao-bairro');
+  var saidaBairroGuia = document.getElementById('orientacao-bairro-saida');
+
+  if (campoBairroGuia && saidaBairroGuia) {
+    var PLANTOES = {"conselho_1": {"nome": "I Conselho Tutelar", "plantao": "(88) 98224-6158", "link": "5588982246158"}, "conselho_2": {"nome": "II Conselho Tutelar", "plantao": "(88) 98224-4970", "link": "5588982244970"}};
+
+    campoBairroGuia.addEventListener('change', function () {
+      var chave = campoBairroGuia.value;
+      var nome = campoBairroGuia.options[campoBairroGuia.selectedIndex].text;
+
+      if (!campoBairroGuia.selectedIndex) {
+        saidaBairroGuia.hidden = true;
+        saidaBairroGuia.textContent = '';
+        return;
+      }
+
+      saidaBairroGuia.textContent = '';
+
+      if (chave && PLANTOES[chave]) {
+        var c = PLANTOES[chave];
+        var texto = document.createElement('strong');
+        texto.textContent = nome + ' é atendido pelo ' + c.nome + '.';
+        var link = document.createElement('a');
+        link.className = 'orientacao__bairro-link';
+        link.href = 'https://wa.me/' + c.link + '?text=Ol%C3%A1%2C%20preciso%20de%20ajuda';
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = 'Falar agora com o plantão — ' + c.plantao;
+        saidaBairroGuia.appendChild(texto);
+        saidaBairroGuia.appendChild(link);
+      } else {
+        var aviso = document.createElement('strong');
+        aviso.textContent = 'Esse bairro ainda não está dividido entre os dois conselhos.';
+        var explica = document.createElement('span');
+        explica.textContent = 'Ligue para qualquer um dos dois plantões acima: os dois atendem.';
+        saidaBairroGuia.appendChild(aviso);
+        saidaBairroGuia.appendChild(explica);
+      }
+
+      saidaBairroGuia.hidden = false;
+    });
+  }
+
   // ---------- Saida rapida (site VD) ----------
   // Precedencia sobre qualquer outro elemento: e mecanismo de seguranca.
   const saida = document.getElementById('saida-rapida');
@@ -378,6 +425,26 @@
           fecharPainel();
         }
       });
+    }
+  }
+
+  // ---------- Altura da faixa de prototipo ----------
+  // A faixa e fixa no topo. O quanto o conteudo precisa descer depende da
+  // altura real dela, que muda quando o texto quebra em duas linhas no celular.
+  var faixaPrototipo = document.querySelector('.faixa-prototipo');
+
+  if (faixaPrototipo) {
+    var medirFaixa = function () {
+      var altura = Math.ceil(faixaPrototipo.getBoundingClientRect().height);
+      document.documentElement.style.setProperty('--altura-prototipo', altura + 'px');
+    };
+
+    medirFaixa();
+    window.addEventListener('resize', medirFaixa);
+    // A fonte do Google chega depois da primeira pintura e pode mudar a quebra
+    // de linha; remedimos quando ela terminar de carregar.
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(medirFaixa);
     }
   }
 
