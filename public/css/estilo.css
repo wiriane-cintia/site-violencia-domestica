@@ -2310,6 +2310,14 @@ h1, h2, h3,
   opacity: 0.85;
 }
 
+/* Nota curta ao lado de links de WhatsApp: nem todo mundo sabe que, se o
+   WhatsApp nao responder, o mesmo numero funciona por ligacao normal. */
+.rodape__link-nota {
+  font-size: 0.82em;
+  font-weight: 400;
+  opacity: 0.75;
+}
+
 /* ---------- Bairro dentro do guia de orientacao ---------- */
 
 .orientacao__bairro {

@@ -139,6 +139,14 @@
       "titulo": "Saúde e saúde mental",
       "itens": [
         {
+          "nome": "SAMU — Serviço de Atendimento Móvel de Urgência",
+          "descricao": "Serviço gratuito, funciona 24 horas por dia para situações de urgência e emergência. Em surto psicótico infantil, informe na ligação que precisa do SAMU avançado.",
+          "endereco": "Base: Rua João Ferreira Lustosa, nº 57 — Santa Tereza (próximo às avenidas Castelo Branco e Padre Cícero)",
+          "telefone": "192",
+          "telefone_link": "192",
+          "horario": "Todos os dias, 24 horas"
+        },
+        {
           "nome": "CAPS III — Mental",
           "descricao": "Saúde mental de adultos, com atendimento também à noite e nos fins de semana.",
           "endereco": "Rua Raimundo Machado da Silva, 236 — Triângulo",
@@ -149,10 +157,15 @@
         {
           "nome": "CAPS Infantil — Seu Mocinho",
           "descricao": "Saúde mental de crianças e adolescentes.",
-          "endereco": "Rua Tabelião João Machado, s/n — Santa Tereza",
+          "endereco": "Rua Ivani Feitosa, 776 — Tiradentes",
           "telefone": "(88) 3199-0398",
           "telefone_link": "+558831990398",
           "horario": "Segunda a sexta, das 7h30 às 17h"
+        },
+        {
+          "nome": "NUTEA",
+          "descricao": "Núcleo de atenção à criança e ao adolescente com autismo (TEA), citado pelo Conselho Tutelar na reunião de 08/09/2026. «A CONFIRMAR» o que exatamente é atendido e o horário de funcionamento.",
+          "endereco": "Rua Jonas da Silva, 60 — Lagoa Seca (ao lado da Justiça Federal)"
         }
       ],
       "descricao": "Atendem qualquer vítima. Também é na unidade de saúde que se faz o registro da lesão no prontuário."
@@ -185,7 +198,7 @@
         {
           "nome": "Defensoria Pública do Estado do Ceará",
           "descricao": "Assistência jurídica gratuita, inclusive para divórcio, guarda, pensão e acompanhamento do processo.",
-          "endereco": "Rua Jonas de Sousa Silva, 60 — Lagoa Seca",
+          "endereco": "Rua Presidente Médici, 631 — Lagoa Seca",
           "telefone": "(88) 3587-1642",
           "telefone_link": "+558835871642"
         },
