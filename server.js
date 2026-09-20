@@ -16,9 +16,23 @@ app.use(helmet({
       frameSrc: ["'self'", "https://vlibras.gov.br"],
       imgSrc: ["'self'", "data:", "https://vlibras.gov.br", "https://cdn.jsdelivr.net"],
       connectSrc: ["'self'", "https://vlibras.gov.br"],
+      // Ninguem tem motivo legitimo pra colocar este site dentro de um iframe
+      // de outro site (nem o proprio site se embeda). 'none' e mais estrito
+      // que o padrao 'self' do helmet.
+      frameAncestors: ["'none'"],
     },
   },
 }));
+
+// Desliga recursos do navegador que este site nunca usa (camera, microfone,
+// localizacao em tempo real etc.). Nao e coisa que o helmet 8 traz pronta.
+app.use((req, res, next) => {
+  res.set(
+    'Permissions-Policy',
+    'camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()'
+  );
+  next();
+});
 
 const limitador = rateLimit({
   windowMs: 15 * 60 * 1000,
@@ -62,6 +76,42 @@ function dadosOpcionais(nomeArquivo) {
   if (!fs.existsSync(caminho)) return null;
   return dados(nomeArquivo);
 }
+
+// robots.txt e sitemap.xml sao os dois enxergados pelo robo do Google antes
+// de qualquer pagina. Precisam existir SEMPRE, mas o conteudo muda com a
+// faixa de prototipo: enquanto for prototipo, robots.txt bloqueia tudo (o
+// cabecalho X-Robots-Tag ja bloqueia, isso aqui e reforco); depois que a
+// faixa sai, libera e aponta pro sitemap.
+app.get('/robots.txt', (req, res) => {
+  const site = dados('site.json');
+  res.type('text/plain');
+  if (site.prototipo) {
+    res.send('User-agent: *\nDisallow: /\n');
+    return;
+  }
+  res.send(
+    `User-agent: *\nAllow: /\n\nSitemap: ${site.dominio}/sitemap.xml\n`
+  );
+});
+
+app.get('/sitemap.xml', (req, res) => {
+  const site = dados('site.json');
+  const paginas = dados('paginas.json');
+  res.type('application/xml');
+  if (site.prototipo) {
+    // Sem sitemap enquanto for prototipo: nao ha nada ainda que valha a pena
+    // o Google rastrear, e listar as rotas aqui seria um mapa pronto pro
+    // robo ignorar o bloqueio do robots.txt e indexar mesmo assim.
+    res.status(404).send('');
+    return;
+  }
+  const urls = paginas.navegacao
+    .map((item) => `  <url><loc>${site.dominio}${item.rota}</loc></url>`)
+    .join('\n');
+  res.send(
+    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`
+  );
+});
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views', 'paginas'));

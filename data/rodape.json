@@ -3,26 +3,62 @@
     {
       "titulo": "Atendimento à mulher",
       "itens": [
-        { "rotulo": "180 — Central de Atendimento à Mulher", "href": "tel:180" },
-        { "rotulo": "180 no WhatsApp — (61) 9610-0180", "href": "https://wa.me/5561961000180?text=Ol%C3%A1%2C%20preciso%20de%20ajuda", "tipo": "whatsapp" },
-        { "rotulo": "Delegacia da Mulher — (88) 3102-1102", "href": "tel:+558831021102" },
-        { "rotulo": "Centro de Referência da Mulher — (88) 3199-0472", "href": "tel:+558831990472" }
+        {
+          "rotulo": "180 — Central de Atendimento à Mulher",
+          "href": "tel:180"
+        },
+        {
+          "rotulo": "180 no WhatsApp — (61) 9610-0180",
+          "href": "https://wa.me/5561961000180?text=Ol%C3%A1%2C%20preciso%20de%20ajuda",
+          "tipo": "whatsapp"
+        },
+        {
+          "rotulo": "Delegacia da Mulher — (88) 3102-1102",
+          "href": "tel:+558831021102"
+        },
+        {
+          "rotulo": "Centro de Referência da Mulher — (88) 3199-0472",
+          "href": "tel:+558831990472"
+        }
       ]
     },
     {
       "titulo": "Emergência, 24 horas",
       "itens": [
-        { "rotulo": "190 — Polícia Militar", "href": "tel:190" },
-        { "rotulo": "192 — SAMU", "href": "tel:192" },
-        { "rotulo": "Acolhimento de mulheres em risco — (88) 93618-0174", "href": "tel:+5588936180174" }
+        {
+          "rotulo": "190 — Polícia Militar",
+          "href": "tel:190"
+        },
+        {
+          "rotulo": "192 — SAMU",
+          "href": "tel:192"
+        },
+        {
+          "rotulo": "Acolhimento de mulheres em risco — (88) 93618-0174",
+          "href": "tel:+5588936180174"
+        }
       ]
     },
     {
       "titulo": "Criança e adolescente",
       "itens": [
-        { "rotulo": "100 — Disque Direitos Humanos", "href": "tel:100" },
-        { "conselho": "conselho_1", "campo": "plantao" },
-        { "conselho": "conselho_2", "campo": "plantao" }
+        {
+          "rotulo": "100 — Disque Direitos Humanos",
+          "href": "tel:100"
+        },
+        {
+          "conselho": "conselho_1",
+          "campo": "plantao"
+        },
+        {
+          "conselho": "conselho_2",
+          "campo": "plantao"
+        },
+        {
+          "rotulo": "Site do Conselho Tutelar",
+          "href": "https://conselhotutelarjn.com.br",
+          "tipo": "site"
+        }
       ]
     }
   ]
