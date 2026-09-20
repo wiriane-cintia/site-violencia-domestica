@@ -1,13 +1,53 @@
 <!DOCTYPE html>
+<%
+  // Descricao especifica da pagina quando existe (o texto de abertura de cada
+  // pagina ja e escrito pra isso); cai pra descricao geral do site quando nao
+  // ha pagina (ex.: 404) ou a pagina nao tem texto de abertura.
+  var descricaoBase = (typeof pagina !== 'undefined' && pagina && pagina.texto) ? pagina.texto : site.descricao;
+  var descricaoMeta = descricaoBase.length > 160 ? descricaoBase.slice(0, 157).trim() + '...' : descricaoBase;
+  var urlCanonica = site.dominio + (typeof rotaAtual === 'string' ? rotaAtual : '/');
+  var imagemSocial = site.dominio + '/img/logo.png';
+  var tipoSchema = site.identidade === 'ct' ? 'GovernmentOrganization' : 'Organization';
+%>
 <html lang="pt-BR"<% if (site.prototipo) { %> data-prototipo="sim"<% } %><% if (site.saida_rapida) { %> data-saida-rapida="sim"<% } %>>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><%= titulo %></title>
-  <meta name="description" content="<%= site.descricao %>">
+  <meta name="description" content="<%= descricaoMeta %>">
   <% if (site.prototipo) { %>
     <meta name="robots" content="noindex, nofollow">
+  <% } else { %>
+    <link rel="canonical" href="<%= urlCanonica %>">
   <% } %>
+
+  <!-- Open Graph e Twitter Card: como o link aparece quando alguem manda no
+       WhatsApp ou compartilha em qualquer rede. Sem isso, vira um link pelado. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="<%= site.nome %>">
+  <meta property="og:title" content="<%= titulo %>">
+  <meta property="og:description" content="<%= descricaoMeta %>">
+  <meta property="og:url" content="<%= urlCanonica %>">
+  <meta property="og:image" content="<%= imagemSocial %>">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="<%= titulo %>">
+  <meta name="twitter:description" content="<%= descricaoMeta %>">
+  <meta name="twitter:image" content="<%= imagemSocial %>">
+
+  <% if (!site.prototipo) { %>
+  <script type="application/ld+json">
+  <%- JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": tipoSchema,
+    "name": site.nome,
+    "url": site.dominio,
+    "description": site.descricao,
+    "areaServed": { "@type": "City", "name": "Juazeiro do Norte" }
+  }) %>
+  </script>
+  <% } %>
+
   <link rel="icon" type="image/png" href="/img/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
