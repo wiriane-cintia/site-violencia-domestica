@@ -3,11 +3,60 @@
   // Descricao especifica da pagina quando existe (o texto de abertura de cada
   // pagina ja e escrito pra isso); cai pra descricao geral do site quando nao
   // ha pagina (ex.: 404) ou a pagina nao tem texto de abertura.
-  var descricaoBase = (typeof pagina !== 'undefined' && pagina && pagina.texto) ? pagina.texto : site.descricao;
+  // meta_descricao e um texto escrito so pra buscador (pode repetir palavras-
+  // chave que soariam repetitivas no texto de abertura da pagina, que e
+  // escrito pra pessoa ler). Quando a pagina nao tem um, cai pro texto normal.
+  var descricaoBase = (typeof pagina !== 'undefined' && pagina && (pagina.meta_descricao || pagina.texto)) ? (pagina.meta_descricao || pagina.texto) : site.descricao;
   var descricaoMeta = descricaoBase.length > 160 ? descricaoBase.slice(0, 157).trim() + '...' : descricaoBase;
   var urlCanonica = site.dominio + (typeof rotaAtual === 'string' ? rotaAtual : '/');
   var imagemSocial = site.dominio + '/img/logo.png';
   var tipoSchema = site.identidade === 'ct' ? 'GovernmentOrganization' : 'Organization';
+
+  // Dados estruturados: o Google le esse bloco pra saber que o site
+  // representa um orgao publico de verdade, com endereco e telefone, e nao so
+  // uma pagina de conteudo. So preenchemos endereco/telefone/redes sociais no
+  // site do CT: no site do VD (violencia domestica) isso nao existe, de
+  // proposito, por discricao.
+  var orgSchema = {
+    "@context": "https://schema.org",
+    "@type": tipoSchema,
+    "name": site.nome,
+    "url": site.dominio,
+    "description": site.descricao,
+    "areaServed": { "@type": "City", "name": "Juazeiro do Norte" }
+  };
+  var temEnderecoOrgao = site.identidade === 'ct' && typeof conselhos !== 'undefined' && conselhos;
+  if (temEnderecoOrgao) {
+    var c1 = conselhos.conselho_1;
+    orgSchema.telephone = c1.telefones_link[0];
+    orgSchema.address = {
+      "@type": "PostalAddress",
+      "streetAddress": c1.endereco_logradouro + ' - ' + c1.endereco_bairro,
+      "addressLocality": c1.endereco_cidade,
+      "addressRegion": c1.endereco_estado,
+      "addressCountry": "BR"
+    };
+    orgSchema.sameAs = [c1.instagram, conselhos.conselho_2.instagram];
+  }
+
+  function schemaOrgao(c, nome) {
+    return {
+      "@context": "https://schema.org",
+      "@type": "GovernmentOffice",
+      "name": nome,
+      "telephone": c.telefones_link[0],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": c.endereco_logradouro + ' - ' + c.endereco_bairro,
+        "addressLocality": c.endereco_cidade,
+        "addressRegion": c.endereco_estado,
+        "addressCountry": "BR"
+      },
+      // Horario de atendimento da sede (nao do plantao), igual pros dois.
+      "openingHours": "Mo-Fr 08:00-12:00,13:00-17:00",
+      "areaServed": { "@type": "City", "name": "Juazeiro do Norte" }
+    };
+  }
 %>
 <html lang="pt-BR"<% if (site.prototipo) { %> data-prototipo="sim"<% } %><% if (site.saida_rapida) { %> data-saida-rapida="sim"<% } %>>
 <head>
@@ -37,15 +86,16 @@
 
   <% if (!site.prototipo) { %>
   <script type="application/ld+json">
-  <%- JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": tipoSchema,
-    "name": site.nome,
-    "url": site.dominio,
-    "description": site.descricao,
-    "areaServed": { "@type": "City", "name": "Juazeiro do Norte" }
-  }) %>
+  <%- JSON.stringify(orgSchema) %>
   </script>
+  <% if (temEnderecoOrgao) { %>
+  <script type="application/ld+json">
+  <%- JSON.stringify([
+    schemaOrgao(conselhos.conselho_1, 'I Conselho Tutelar de Juazeiro do Norte'),
+    schemaOrgao(conselhos.conselho_2, 'II Conselho Tutelar de Juazeiro do Norte')
+  ]) %>
+  </script>
+  <% } %>
   <% } %>
 
   <link rel="icon" type="image/png" href="/img/logo.png">
@@ -156,10 +206,6 @@
           </li>
         <% }); %>
       </ul>
-    </div>
-
-    <div class="rodape__creditos">
-      <p>Desenvolvido por <a href="https://www.instagram.com/wirianecintia/" target="_blank" rel="noopener noreferrer">WC</a></p>
     </div>
   </footer>
   <% if (duvidas) { %>
